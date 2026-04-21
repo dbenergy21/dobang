@@ -193,8 +193,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="card modon">
     <div class="label">🐗 모돈/번식</div>
     <div class="value">491</div>
-    <div class="unit">두</div>
-    <div class="sub">웅돈 7두 포함 498두</div>
+    <div class="unit">두 <span style="font-size:10px;color:#aaa">(PSY산정)</span></div>
+    <div class="sub">후보돈 43두 · 웅돈 7두 별도</div>
   </div>
 </div>
 
@@ -1782,44 +1782,46 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 모돈/번식 섹션 -->
 <div id="sec-modon" class="section">
 
-  <!-- 모돈 요약 바 -->
-  <div class="tbl-wrap" style="margin-bottom:16px">
-    <div class="tbl-header">
-      <div class="tbl-title">🐗 번식/모돈 현황</div>
-      <div class="tbl-count">총 모돈 491두 + 웅돈 7두</div>
+
+  <div style="display:flex;gap:14px;margin-bottom:16px;flex-wrap:wrap">
+    <div style="flex:1;min-width:150px;background:#fce4ec;border-radius:10px;padding:14px 20px;border-left:5px solid #e91e63">
+      <div style="font-size:11px;color:#c2185b;font-weight:700;margin-bottom:4px">모돈 (PSY 산정 기준)</div>
+      <div style="font-size:38px;font-weight:800;color:#c2185b;line-height:1">491</div>
+      <div style="font-size:12px;color:#888;margin-top:4px">두 — 분만사+종부사+A번식사+B번식사</div>
     </div>
-    <div style="padding:16px 20px">
-      <div style="display:flex;gap:24px;margin-bottom:16px;flex-wrap:wrap">
-        <div style="background:#fce4ec;border-radius:8px;padding:12px 24px;text-align:center;border-left:4px solid #e91e63">
-          <div style="font-size:11px;color:#c2185b;font-weight:600;margin-bottom:4px">총 모돈</div>
-          <div style="font-size:36px;font-weight:800;color:#c2185b">491</div>
-          <div style="font-size:12px;color:#888">두</div>
-        </div>
-        <div style="background:#e3f2fd;border-radius:8px;padding:12px 24px;text-align:center;border-left:4px solid #1a73e8">
-          <div style="font-size:11px;color:#1a73e8;font-weight:600;margin-bottom:4px">웅돈</div>
-          <div style="font-size:36px;font-weight:800;color:#1a73e8">7</div>
-          <div style="font-size:12px;color:#888">두</div>
-        </div>
-        <div style="background:#f3e5f5;border-radius:8px;padding:12px 24px;text-align:center;border-left:4px solid #9c27b0">
-          <div style="font-size:11px;color:#7b1fa2;font-weight:600;margin-bottom:4px">합계</div>
-          <div style="font-size:36px;font-weight:800;color:#7b1fa2">498</div>
-          <div style="font-size:12px;color:#888">두</div>
-        </div>
-      </div>
-      
+    <div style="flex:1;min-width:150px;background:#f5f5f5;border-radius:10px;padding:14px 20px;border-left:5px solid #9e9e9e">
+      <div style="font-size:11px;color:#555;font-weight:700;margin-bottom:4px">후보돈 <span style="font-size:10px;background:#ffecb3;color:#e65100;padding:1px 6px;border-radius:8px;margin-left:4px">PSY 제외</span></div>
+      <div style="font-size:38px;font-weight:800;color:#757575;line-height:1">43</div>
+      <div style="font-size:12px;color:#888;margin-top:4px">두 — 생산 미참여, 별도 관리</div>
+    </div>
+    <div style="flex:1;min-width:150px;background:#e3f2fd;border-radius:10px;padding:14px 20px;border-left:5px solid #1a73e8">
+      <div style="font-size:11px;color:#1565c0;font-weight:700;margin-bottom:4px">웅돈</div>
+      <div style="font-size:38px;font-weight:800;color:#1565c0;line-height:1">7</div>
+      <div style="font-size:12px;color:#888;margin-top:4px">두</div>
+    </div>
+    <div style="flex:1;min-width:150px;background:#f3e5f5;border-radius:10px;padding:14px 20px;border-left:5px solid #9c27b0">
+      <div style="font-size:11px;color:#7b1fa2;font-weight:700;margin-bottom:4px">번식돈사 총 재두수</div>
+      <div style="font-size:38px;font-weight:800;color:#7b1fa2;line-height:1">541</div>
+      <div style="font-size:12px;color:#888;margin-top:4px">두 (모돈+후보돈+웅돈)</div>
+    </div>
+  </div>
+
+<!-- 모돈 상세 테이블 -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+  <!-- 모돈 (PSY 기준) -->
+  <div class="tbl-wrap" style="margin-bottom:0">
+    <div class="tbl-header" style="background:#fce4ec">
+      <div class="tbl-title" style="color:#c2185b">🐷 모돈 (PSY 산정 기준)</div>
+      <div class="tbl-count">491두</div>
+    </div>
+    <div style="padding:12px 16px">
+
     <div class="modon-bar-row">
       <div class="modon-bar-label">분만사</div>
       <div class="modon-bar-track">
         <div class="modon-bar-fill" style="width:20.0%;background:#e91e63;">20.0%</div>
       </div>
       <div class="modon-bar-num">98두</div>
-    </div>
-    <div class="modon-bar-row">
-      <div class="modon-bar-label">후보사</div>
-      <div class="modon-bar-track">
-        <div class="modon-bar-fill" style="width:8.8%;background:#ff5722;">8.8%</div>
-      </div>
-      <div class="modon-bar-num">43두</div>
     </div>
     <div class="modon-bar-row">
       <div class="modon-bar-label">종부사</div>
@@ -1842,100 +1844,114 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </div>
       <div class="modon-bar-num">181두</div>
     </div>
-    <div class="modon-bar-row">
-      <div class="modon-bar-label">웅돈사</div>
-      <div class="modon-bar-track">
-        <div class="modon-bar-fill" style="width:1.4%;background:#1a73e8;">1.4%</div>
-      </div>
-      <div class="modon-bar-num">7두</div>
-    </div>
-      <div class="modon-update-note">기준일: 2026-04-21</div>
-    </div>
-  </div>
-
-  <!-- 돈사별 카드 -->
-  <div class="modon-grid">
-    <div class="modon-card ">
-      <div class="mc-label">분만사</div>
-      <div class="mc-value" style="color:#e91e63">98</div>
-      <div class="mc-unit">두</div>
-    </div><div class="modon-card ">
-      <div class="mc-label">후보사</div>
-      <div class="mc-value" style="color:#ff5722">43</div>
-      <div class="mc-unit">두</div>
-    </div><div class="modon-card ">
-      <div class="mc-label">종부사</div>
-      <div class="mc-value" style="color:#ff9800">66</div>
-      <div class="mc-unit">두</div>
-    </div><div class="modon-card ">
-      <div class="mc-label">A번식사</div>
-      <div class="mc-value" style="color:#4caf50">146</div>
-      <div class="mc-unit">두</div>
-    </div><div class="modon-card ">
-      <div class="mc-label">B번식사</div>
-      <div class="mc-value" style="color:#009688">181</div>
-      <div class="mc-unit">두</div>
-    </div><div class="modon-card boar">
-      <div class="mc-label">웅돈사</div>
-      <div class="mc-value" style="">7</div>
-      <div class="mc-unit">두</div>
-    </div>
-  </div>
-
-  <!-- 구성비 테이블 -->
-  <div class="tbl-wrap">
-    <div class="tbl-header">
-      <div class="tbl-title">돈사별 구성</div>
-      <div class="tbl-count">비율 기준: 총 모돈 491두</div>
     </div>
     <table>
       <thead><tr>
-        <th>돈사</th>
-        <th style="text-align:right">두수</th>
-        <th style="text-align:right">비율</th>
-        <th>비고</th>
+        <th>돈사</th><th style="text-align:right">두수</th>
+        <th style="text-align:right">구성비</th><th>비고</th>
       </tr></thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:600;color:#e91e63">분만사</td>
-          <td class="num big">98두</td>
-          <td class="num">20.0%</td>
-          <td style="font-size:11px;color:#888"></td>
-        </tr><tr>
-          <td style="font-weight:600;color:#ff5722">후보사</td>
-          <td class="num big">43두</td>
-          <td class="num">8.8%</td>
-          <td style="font-size:11px;color:#888"></td>
-        </tr><tr>
-          <td style="font-weight:600;color:#ff9800">종부사</td>
-          <td class="num big">66두</td>
-          <td class="num">13.4%</td>
-          <td style="font-size:11px;color:#888"></td>
-        </tr><tr>
-          <td style="font-weight:600;color:#4caf50">A번식사</td>
-          <td class="num big">146두</td>
-          <td class="num">29.7%</td>
-          <td style="font-size:11px;color:#888"></td>
-        </tr><tr>
-          <td style="font-weight:600;color:#009688">B번식사</td>
-          <td class="num big">181두</td>
-          <td class="num">36.9%</td>
-          <td style="font-size:11px;color:#888"></td>
-        </tr><tr>
-          <td style="font-weight:600;color:#1a73e8">웅돈사</td>
-          <td class="num big">7두</td>
-          <td class="num">1.4%</td>
-          <td style="font-size:11px;color:#888">웅돈</td>
-        </tr>
-        <tr style="background:#f8f0fc;font-weight:700">
-          <td>합계</td>
-          <td class="num big" style="color:#c2185b">498두</td>
-          <td class="num">100%</td>
-          <td style="font-size:11px;color:#888">모돈 491 + 웅돈 7</td>
-        </tr>
-      </tbody>
+      <tbody><tr>
+      <td style="font-weight:700;color:#e91e63">분만사</td>
+      <td class="num big" style="color:#c2185b">98두</td>
+      <td class="num">20.0%</td>
+      <td></td>
+    </tr><tr>
+      <td style="font-weight:700;color:#ff9800">종부사</td>
+      <td class="num big" style="color:#c2185b">66두</td>
+      <td class="num">13.4%</td>
+      <td></td>
+    </tr><tr>
+      <td style="font-weight:700;color:#4caf50">A번식사</td>
+      <td class="num big" style="color:#c2185b">146두</td>
+      <td class="num">29.7%</td>
+      <td></td>
+    </tr><tr>
+      <td style="font-weight:700;color:#009688">B번식사</td>
+      <td class="num big" style="color:#c2185b">181두</td>
+      <td class="num">36.9%</td>
+      <td></td>
+    </tr><tr style="background:#fce4ec;font-weight:700">
+      <td>모돈 합계</td>
+      <td class="num big" style="color:#c2185b">491두</td>
+      <td class="num">100%</td>
+      <td style="font-size:11px;color:#c2185b">PSY 분모 기준</td>
+    </tr></tbody>
     </table>
   </div>
+
+  <!-- 후보돈 (PSY 제외) + 웅돈 -->
+  <div>
+    <div class="tbl-wrap" style="margin-bottom:12px">
+      <div class="tbl-header" style="background:#fff8e1">
+        <div class="tbl-title" style="color:#f57c00">🐷 후보돈 <span style="font-size:11px;background:#ffecb3;color:#e65100;padding:1px 8px;border-radius:10px;margin-left:6px">PSY 제외</span></div>
+        <div class="tbl-count">43두</div>
+      </div>
+      <div style="padding:8px 16px 4px">
+
+    <div class="modon-bar-row">
+      <div class="modon-bar-label">후보사</div>
+      <div class="modon-bar-track">
+        <div class="modon-bar-fill" style="width:100%;background:#bdbdbd;">100% (43두)</div>
+      </div>
+      <div class="modon-bar-num">43두</div>
+    </div>
+      </div>
+      <table>
+        <thead><tr>
+          <th>돈사</th><th style="text-align:right">두수</th>
+          <th style="text-align:right">비율</th><th>비고</th>
+        </tr></thead>
+        <tbody><tr>
+      <td style="font-weight:600;color:#757575">후보사</td>
+      <td class="num big" style="color:#757575">43두</td>
+      <td class="num">-</td>
+      <td style="font-size:11px;color:#f57c00">PSY 제외</td>
+    </tr><tr style="background:#f5f5f5;font-weight:700">
+      <td>후보돈 합계</td>
+      <td class="num big" style="color:#757575">43두</td>
+      <td class="num">-</td>
+      <td style="font-size:11px;color:#f57c00">PSY 산정 제외 · 별도 관리</td>
+    </tr></tbody>
+      </table>
+      <div style="padding:8px 16px;font-size:11px;color:#9e9e9e;border-top:1px solid #f5f5f5">
+        💡 후보돈: 모돈이 되기 위한 준비 단계. 번식돈사에 있으나 생산 미참여 → PSY 분모 제외
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:0">
+      <div class="tbl-header" style="background:#e3f2fd">
+        <div class="tbl-title" style="color:#1565c0">♂ 웅돈</div>
+        <div class="tbl-count">7두</div>
+      </div>
+      <table>
+        <thead><tr>
+          <th>돈사</th><th style="text-align:right">두수</th>
+          <th colspan="2">비고</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;color:#1565c0">웅돈사</td>
+            <td class="num big" style="color:#1565c0">7두</td>
+            <td colspan="2"></td>
+          </tr>
+          <tr style="background:#e3f2fd;font-weight:700">
+            <td>합계</td>
+            <td class="num big" style="color:#1565c0">7두</td>
+            <td colspan="2"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div style="background:#fff;border-radius:8px;padding:12px 16px;font-size:12px;color:#666;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+  <strong>📌 PSY 산정 기준 안내</strong><br>
+  · <strong>모돈 491두</strong> — 분만사+종부사+A번식사+B번식사 (생산 참여 중)<br>
+  · <strong>후보돈 43두</strong> — 번식돈사 내 위치하나 아직 생산 미참여 → PSY 분모 제외<br>
+  · <strong>웅돈 7두</strong> — 별도 관리<br>
+  · 번식돈사 총 재두수: <strong>541두</strong> / 기준일: 2026-04-21
+</div>
 </div>
 
 <!-- 변동이력 섹션 -->
