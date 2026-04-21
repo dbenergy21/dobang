@@ -147,24 +147,24 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="meta">
     <div>기준일: <strong>2026-04-21</strong></div>
-    <div>최종업데이트: 2026-04-21 16:10</div>
-    <div>총 28군 관리 중</div>
+    <div>최종업데이트: 2026-04-21 17:19</div>
+    <div>총 27군 관리 중</div>
   </div>
 </div>
 
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-04-21</strong></div><div>업데이트: 2026-04-21 16:10</div></div>
+  <div class="meta"><div>기준일: <strong>2026-04-21</strong></div><div>업데이트: 2026-04-21 17:19</div></div>
 </div>
 
 <!-- 요약 카드 -->
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value">4,723</div>
+    <div class="value">4,581</div>
     <div class="unit">두</div>
-    <div class="sub">28개 군</div>
+    <div class="sub">27개 군</div>
   </div>
   <div class="card beef">
     <div class="label">🥩 비육사</div>
@@ -186,9 +186,9 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="card special">
     <div class="label">🏥 특수관리</div>
-    <div class="value">435</div>
+    <div class="value">293</div>
     <div class="unit">두</div>
-    <div class="sub">3개 군</div>
+    <div class="sub">2개 군</div>
   </div>
   <div class="card modon">
     <div class="label">🐗 모돈/번식</div>
@@ -1622,7 +1622,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🏥 특수관리 현황</div>
-      <div class="tbl-count">총 435두 / 3군</div>
+      <div class="tbl-count">총 293두 / 2군</div>
     </div>
     <table>
       <thead>
@@ -1639,7 +1639,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         <tr onclick="toggleHistory('SB4')">
           <td><span class="gid sp">SB4</span></td>
           <td class="loc">B4비육</td>
-          <td class="num big">214두</td>
+          <td class="num big">220두</td>
           <td>비육(혼합)</td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -1650,27 +1650,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
                 <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
                 <tbody>
           <tr class="hist-stage">
-            <td>04/20</td>
+            <td>04/19</td>
             <td class="ev-cell">📝 기준</td>
-            <td class="num">239두</td>
+            <td class="num">245두</td>
             <td>-</td>
             <td></td>
           </tr>
 
           <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">22두</td>
-            <td class="num delta neg">-22</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-fix">두수정정(엑셀기준)</span></td>
-            <td class="num">22두</td>
-            <td class="num delta pos">+22</td>
-            <td>엑셀 기준 수기 정정</td>
+            <td>04/20</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td>4/20 폐사</td>
           </tr>
 
           <tr class="hist-change">
@@ -1678,15 +1670,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
             <td class="num">1두</td>
             <td class="num delta neg">-1</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/20</td>
-            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
-            <td class="num">1두</td>
-            <td class="num delta neg">-1</td>
-            <td></td>
+            <td>4/20 폐사</td>
           </tr>
 
           <tr class="hist-change">
@@ -1694,7 +1678,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
             <td class="num">1두</td>
             <td class="num delta neg">-1</td>
-            <td></td>
+            <td>4/21 폐사</td>
           </tr>
 
           <tr class="hist-change">
@@ -1702,7 +1686,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
             <td class="num">22두</td>
             <td class="num delta neg">-22</td>
-            <td></td>
+            <td>4/21 출하</td>
           </tr></tbody>
               </table>
             </div>
@@ -1743,31 +1727,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
             <td class="num">3두</td>
             <td class="num delta neg">-3</td>
-            <td></td>
-          </tr></tbody>
-              </table>
-            </div>
-          </td>
-        </tr>
-
-        <tr onclick="toggleHistory('SHD')">
-          <td><span class="gid sp">SHD</span></td>
-          <td class="loc">환돈사</td>
-          <td class="num big">148두</td>
-          <td>환돈관리</td>
-          <td class="hist-toggle">▼</td>
-        </tr>
-        <tr id="hist-SHD" class="history-row" style="display:none">
-          <td colspan="5">
-            <div class="history-box">
-              <table class="hist-table">
-                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
-                <tbody>
-          <tr class="hist-stage">
-            <td>04/20</td>
-            <td class="ev-cell">📝 기준</td>
-            <td class="num">148두</td>
-            <td>-</td>
             <td></td>
           </tr></tbody>
               </table>
@@ -1821,7 +1780,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #7986cb;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">MSY <span style="font-size:9px">(폐사율 반영)</span></div>
         <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">7.2</div>
-        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 1.97%</div>
+        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 2.03%</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">업계평균 18~20 / 우수 21+</div>
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #43a047;box-shadow:0 1px 4px rgba(0,0,0,.08)">
@@ -2095,9 +2054,9 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td>B4비육</td>
           <td><span class="ev-badge ev-ship">출하</span></td>
           <td class="num">22두</td>
-          <td class="num">236→214</td>
+          <td class="num">242→220</td>
           <td class="num delta neg">-22</td>
-          <td></td>
+          <td>4/21 출하</td>
         </tr>
 
         <tr>
@@ -2125,39 +2084,15 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         </tr>
 
         <tr>
-          <td>2026-04-20</td>
-          <td>12:08</td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">239→238</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-04-20</td>
-          <td>12:08</td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">238→237</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
           <td>2026-04-21</td>
           <td>12:08</td>
           <td><span class="gid">SB4</span></td>
           <td>B4비육</td>
           <td><span class="ev-badge ev-death">폐사</span></td>
           <td class="num">1두</td>
-          <td class="num">237→236</td>
+          <td class="num">243→242</td>
           <td class="num delta neg">-1</td>
-          <td></td>
+          <td>4/21 폐사</td>
         </tr>
 
         <tr>
@@ -2222,18 +2157,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 
         <tr>
           <td>2026-04-21</td>
-          <td>12:05</td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-fix">두수정정(엑셀기준)</span></td>
-          <td class="num">22두</td>
-          <td class="num">217→239</td>
-          <td class="num delta pos">+22</td>
-          <td>엑셀 기준 수기 정정</td>
-        </tr>
-
-        <tr>
-          <td>2026-04-21</td>
           <td>11:50</td>
           <td><span class="gid">G01</span></td>
           <td>A2비육</td>
@@ -2270,18 +2193,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 
         <tr>
           <td>2026-04-21</td>
-          <td>11:50</td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">22두</td>
-          <td class="num">239→217</td>
-          <td class="num delta neg">-22</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-04-21</td>
           <td>11:15</td>
           <td><span class="gid">G01</span></td>
           <td>A2비육</td>
@@ -2302,6 +2213,30 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td class="num">52→0</td>
           <td class="num delta neg">-52</td>
           <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-20</td>
+          <td></td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">245→244</td>
+          <td class="num delta neg">-1</td>
+          <td>4/20 폐사</td>
+        </tr>
+
+        <tr>
+          <td>2026-04-20</td>
+          <td></td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">244→243</td>
+          <td class="num delta neg">-1</td>
+          <td>4/20 폐사</td>
         </tr>
       </tbody>
     </table>
