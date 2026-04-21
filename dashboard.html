@@ -17,17 +17,36 @@ body { font-family:"맑은 고딕","Malgun Gothic",sans-serif; font-size:13px; b
 .header .meta strong { font-size:13px; opacity:1; }
 
 /* ── 요약 카드 ── */
-.cards { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px; }
+.cards { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:16px; }
+@media(max-width:900px) { .cards { grid-template-columns:repeat(3,1fr); } }
 .card { background:#fff; border-radius:8px; padding:14px 16px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid #ccc; }
 .card.total   { border-color:#1a3a5c; }
 .card.beef    { border-color:#e74c3c; }
 .card.jadan   { border-color:#f39c12; }
 .card.incu    { border-color:#3498db; }
 .card.special { border-color:#9b59b6; }
+.card.modon   { border-color:#e91e8c; }
 .card .label  { font-size:10px; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
 .card .value  { font-size:26px; font-weight:800; color:#1a3a5c; }
 .card .unit   { font-size:12px; color:#666; }
 .card .sub    { font-size:10px; color:#999; margin-top:3px; }
+
+/* ── 모돈 테이블 ── */
+.modon-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px; }
+@media(max-width:700px) { .modon-grid { grid-template-columns:1fr 1fr; } }
+.modon-card { background:#fff; border-radius:8px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-top:3px solid #e91e8c; text-align:center; }
+.modon-card.boar { border-top-color:#1a73e8; }
+.modon-card .mc-label { font-size:12px; color:#888; font-weight:600; margin-bottom:6px; }
+.modon-card .mc-value { font-size:32px; font-weight:800; color:#c2185b; }
+.modon-card.boar .mc-value { color:#1a73e8; }
+.modon-card .mc-unit  { font-size:13px; color:#555; }
+.modon-summary-bar { background:#fff; border-radius:8px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.08); margin-bottom:16px; }
+.modon-bar-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.modon-bar-label { width:70px; font-size:12px; color:#555; font-weight:600; flex-shrink:0; }
+.modon-bar-track { flex:1; background:#f0f2f5; border-radius:6px; height:18px; overflow:hidden; }
+.modon-bar-fill  { height:18px; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:6px; font-size:11px; font-weight:700; color:#fff; }
+.modon-bar-num   { width:50px; text-align:right; font-size:13px; font-weight:700; color:#1a3a5c; }
+.modon-update-note { font-size:11px; color:#aaa; text-align:right; padding: 4px 0 0; }
 
 /* ── 버튼 ── */
 .btn-row { display:flex; gap:8px; margin-bottom:14px; }
@@ -107,7 +126,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   .row-soon    td { background:#fef9e4 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   .badge.red    { background:#fdecea !important; color:#c0392b !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   .badge.orange { background:#fef4e4 !important; color:#d35400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .cards { grid-template-columns:repeat(5,1fr); }
+  .cards { grid-template-columns:repeat(6,1fr); }
   .tabs, .btn-row { display:none; }
   .page { max-width:100%; padding:8px; }
   .header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
@@ -171,6 +190,12 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <div class="unit">두</div>
     <div class="sub">3개 군</div>
   </div>
+  <div class="card modon">
+    <div class="label">🐗 모돈/번식</div>
+    <div class="value">491</div>
+    <div class="unit">두</div>
+    <div class="sub">웅돈 7두 포함 498두</div>
+  </div>
 </div>
 
 <!-- 버튼 -->
@@ -186,6 +211,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tab" onclick="showTab('jadan')">🐷 자돈사 (8)</div>
   <div class="tab" onclick="showTab('incu')">🍼 인큐 (5)</div>
   <div class="tab" onclick="showTab('special')">🏥 특수관리</div>
+  <div class="tab" onclick="showTab('modon')">🐗 모돈/번식</div>
   <div class="tab" onclick="showTab('events')">📋 변동이력</div>
 </div>
 
@@ -1747,6 +1773,165 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
               </table>
             </div>
           </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 모돈/번식 섹션 -->
+<div id="sec-modon" class="section">
+
+  <!-- 모돈 요약 바 -->
+  <div class="tbl-wrap" style="margin-bottom:16px">
+    <div class="tbl-header">
+      <div class="tbl-title">🐗 번식/모돈 현황</div>
+      <div class="tbl-count">총 모돈 491두 + 웅돈 7두</div>
+    </div>
+    <div style="padding:16px 20px">
+      <div style="display:flex;gap:24px;margin-bottom:16px;flex-wrap:wrap">
+        <div style="background:#fce4ec;border-radius:8px;padding:12px 24px;text-align:center;border-left:4px solid #e91e63">
+          <div style="font-size:11px;color:#c2185b;font-weight:600;margin-bottom:4px">총 모돈</div>
+          <div style="font-size:36px;font-weight:800;color:#c2185b">491</div>
+          <div style="font-size:12px;color:#888">두</div>
+        </div>
+        <div style="background:#e3f2fd;border-radius:8px;padding:12px 24px;text-align:center;border-left:4px solid #1a73e8">
+          <div style="font-size:11px;color:#1a73e8;font-weight:600;margin-bottom:4px">웅돈</div>
+          <div style="font-size:36px;font-weight:800;color:#1a73e8">7</div>
+          <div style="font-size:12px;color:#888">두</div>
+        </div>
+        <div style="background:#f3e5f5;border-radius:8px;padding:12px 24px;text-align:center;border-left:4px solid #9c27b0">
+          <div style="font-size:11px;color:#7b1fa2;font-weight:600;margin-bottom:4px">합계</div>
+          <div style="font-size:36px;font-weight:800;color:#7b1fa2">498</div>
+          <div style="font-size:12px;color:#888">두</div>
+        </div>
+      </div>
+      
+    <div class="modon-bar-row">
+      <div class="modon-bar-label">분만사</div>
+      <div class="modon-bar-track">
+        <div class="modon-bar-fill" style="width:20.0%;background:#e91e63;">20.0%</div>
+      </div>
+      <div class="modon-bar-num">98두</div>
+    </div>
+    <div class="modon-bar-row">
+      <div class="modon-bar-label">후보사</div>
+      <div class="modon-bar-track">
+        <div class="modon-bar-fill" style="width:8.8%;background:#ff5722;">8.8%</div>
+      </div>
+      <div class="modon-bar-num">43두</div>
+    </div>
+    <div class="modon-bar-row">
+      <div class="modon-bar-label">종부사</div>
+      <div class="modon-bar-track">
+        <div class="modon-bar-fill" style="width:13.4%;background:#ff9800;">13.4%</div>
+      </div>
+      <div class="modon-bar-num">66두</div>
+    </div>
+    <div class="modon-bar-row">
+      <div class="modon-bar-label">A번식사</div>
+      <div class="modon-bar-track">
+        <div class="modon-bar-fill" style="width:29.7%;background:#4caf50;">29.7%</div>
+      </div>
+      <div class="modon-bar-num">146두</div>
+    </div>
+    <div class="modon-bar-row">
+      <div class="modon-bar-label">B번식사</div>
+      <div class="modon-bar-track">
+        <div class="modon-bar-fill" style="width:36.9%;background:#009688;">36.9%</div>
+      </div>
+      <div class="modon-bar-num">181두</div>
+    </div>
+    <div class="modon-bar-row">
+      <div class="modon-bar-label">웅돈사</div>
+      <div class="modon-bar-track">
+        <div class="modon-bar-fill" style="width:1.4%;background:#1a73e8;">1.4%</div>
+      </div>
+      <div class="modon-bar-num">7두</div>
+    </div>
+      <div class="modon-update-note">기준일: 2026-04-21</div>
+    </div>
+  </div>
+
+  <!-- 돈사별 카드 -->
+  <div class="modon-grid">
+    <div class="modon-card ">
+      <div class="mc-label">분만사</div>
+      <div class="mc-value" style="color:#e91e63">98</div>
+      <div class="mc-unit">두</div>
+    </div><div class="modon-card ">
+      <div class="mc-label">후보사</div>
+      <div class="mc-value" style="color:#ff5722">43</div>
+      <div class="mc-unit">두</div>
+    </div><div class="modon-card ">
+      <div class="mc-label">종부사</div>
+      <div class="mc-value" style="color:#ff9800">66</div>
+      <div class="mc-unit">두</div>
+    </div><div class="modon-card ">
+      <div class="mc-label">A번식사</div>
+      <div class="mc-value" style="color:#4caf50">146</div>
+      <div class="mc-unit">두</div>
+    </div><div class="modon-card ">
+      <div class="mc-label">B번식사</div>
+      <div class="mc-value" style="color:#009688">181</div>
+      <div class="mc-unit">두</div>
+    </div><div class="modon-card boar">
+      <div class="mc-label">웅돈사</div>
+      <div class="mc-value" style="">7</div>
+      <div class="mc-unit">두</div>
+    </div>
+  </div>
+
+  <!-- 구성비 테이블 -->
+  <div class="tbl-wrap">
+    <div class="tbl-header">
+      <div class="tbl-title">돈사별 구성</div>
+      <div class="tbl-count">비율 기준: 총 모돈 491두</div>
+    </div>
+    <table>
+      <thead><tr>
+        <th>돈사</th>
+        <th style="text-align:right">두수</th>
+        <th style="text-align:right">비율</th>
+        <th>비고</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;color:#e91e63">분만사</td>
+          <td class="num big">98두</td>
+          <td class="num">20.0%</td>
+          <td style="font-size:11px;color:#888"></td>
+        </tr><tr>
+          <td style="font-weight:600;color:#ff5722">후보사</td>
+          <td class="num big">43두</td>
+          <td class="num">8.8%</td>
+          <td style="font-size:11px;color:#888"></td>
+        </tr><tr>
+          <td style="font-weight:600;color:#ff9800">종부사</td>
+          <td class="num big">66두</td>
+          <td class="num">13.4%</td>
+          <td style="font-size:11px;color:#888"></td>
+        </tr><tr>
+          <td style="font-weight:600;color:#4caf50">A번식사</td>
+          <td class="num big">146두</td>
+          <td class="num">29.7%</td>
+          <td style="font-size:11px;color:#888"></td>
+        </tr><tr>
+          <td style="font-weight:600;color:#009688">B번식사</td>
+          <td class="num big">181두</td>
+          <td class="num">36.9%</td>
+          <td style="font-size:11px;color:#888"></td>
+        </tr><tr>
+          <td style="font-weight:600;color:#1a73e8">웅돈사</td>
+          <td class="num big">7두</td>
+          <td class="num">1.4%</td>
+          <td style="font-size:11px;color:#888">웅돈</td>
+        </tr>
+        <tr style="background:#f8f0fc;font-weight:700">
+          <td>합계</td>
+          <td class="num big" style="color:#c2185b">498두</td>
+          <td class="num">100%</td>
+          <td style="font-size:11px;color:#888">모돈 491 + 웅돈 7</td>
         </tr>
       </tbody>
     </table>
