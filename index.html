@@ -12,8 +12,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 .logo { font-size: 48px; margin-bottom: 12px; }
 h1 { font-size: 28px; font-weight: 800; color: #f1f5f9; margin-bottom: 6px; }
 .sub { font-size: 14px; color: #64748b; margin-bottom: 48px; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 640px; width: 100%; padding: 0 24px; }
-@media(max-width: 500px) { .grid { grid-template-columns: 1fr; } }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 860px; width: 100%; padding: 0 24px; }
+@media(max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 .card { background: #1e293b; border-radius: 16px; padding: 28px 24px;
         text-decoration: none; color: inherit; border: 1px solid #334155;
         transition: all 0.2s; cursor: pointer; }
@@ -35,6 +35,16 @@ h1 { font-size: 28px; font-weight: 800; color: #f1f5f9; margin-bottom: 6px; }
     <div class="icon">🐷</div>
     <h2>군별 현황</h2>
     <p>비육·자돈·인큐·특수군 두수 현황<br>이력조회 · 인쇄 지원</p>
+  </a>
+  <a href="deaths.html" class="card">
+    <div class="icon">💀</div>
+    <h2>폐사 · 백신 현황</h2>
+    <p>일자별 폐사 비교 · 돈사별 누적<br>백신 접종 일정 관리 (사내 실시간)</p>
+  </a>
+  <a href="herd.html" class="card">
+    <div class="icon">📊</div>
+    <h2>군 관리</h2>
+    <p>군번호별 두수 · 이동 이력<br>자돈·비육 현황 추적</p>
   </a>
   <a href="harness.html" class="card">
     <div class="icon">🔍</div>
