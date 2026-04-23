@@ -115,6 +115,16 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 .ev-etc   { background:#f5f5f5; color:#555; }
 .ev-cell  { white-space:nowrap; }
 
+/* ── 날짜 조회바 ── */
+.query-bar { display:flex; align-items:center; gap:8px; background:#fff; border-radius:8px; padding:10px 16px; margin-bottom:12px; box-shadow:0 1px 4px rgba(0,0,0,.08); flex-wrap:wrap; }
+.qb-label { font-size:12px; font-weight:600; color:#555; white-space:nowrap; }
+#queryDate { border:1px solid #ddd; border-radius:6px; padding:5px 10px; font-size:13px; color:#1a3a5c; cursor:pointer; }
+.qb-btn { background:#1a3a5c; color:#fff; border:none; border-radius:6px; padding:6px 16px; font-size:12px; font-weight:600; cursor:pointer; }
+.qb-btn:hover { background:#2d6a9f; }
+.qb-btn-today { background:#e8f0fe; color:#1a3a5c; border:none; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; }
+.qb-btn-today:hover { background:#c7d8f8; }
+.qb-status { font-size:11px; color:#555; flex:1; }
+
 /* ── 백신 섹션 ── */
 .section-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
 .section-icon   { font-size:32px; }
@@ -154,8 +164,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <div style="font-size:12px;opacity:.8;margin-top:4px;">두수변동 이력 포함 · 행 클릭 시 이력 펼치기</div>
   </div>
   <div class="meta">
-    <div>기준일: <strong>2026-04-21</strong></div>
-    <div>최종업데이트: 2026-04-21 17:19</div>
+    <div>조회기준일: <strong id="header-date">2026-04-21</strong></div>
+    <div id="header-status" style="font-size:11px;opacity:.7">사내 서버 연결 중...</div>
     <div>총 27군 관리 중</div>
   </div>
 </div>
@@ -163,44 +173,53 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-04-21</strong></div><div>업데이트: 2026-04-21 17:19</div></div>
+  <div class="meta"><div>기준일: <strong id="print-date">2026-04-21</strong></div><div id="print-status"></div></div>
+</div>
+
+<!-- 날짜 조회바 -->
+<div class="query-bar no-print">
+  <span class="qb-label">📅 조회 기준일</span>
+  <input type="date" id="queryDate" value="2026-04-21">
+  <button class="qb-btn" onclick="fetchHeadcount()">조회</button>
+  <button class="qb-btn-today" onclick="setToday()">오늘</button>
+  <span id="queryStatus" class="qb-status"></span>
 </div>
 
 <!-- 요약 카드 -->
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value">4,581</div>
+    <div class="value" id="val-total">4,581</div>
     <div class="unit">두</div>
-    <div class="sub">27개 군</div>
+    <div class="sub" id="sub-total">27개 군</div>
   </div>
   <div class="card beef">
     <div class="label">🥩 비육사</div>
-    <div class="value">1,763</div>
+    <div class="value" id="val-beef">1,763</div>
     <div class="unit">두</div>
-    <div class="sub">12개 군</div>
+    <div class="sub" id="sub-beef">12개 군</div>
   </div>
   <div class="card jadan">
     <div class="label">🐷 자돈사</div>
-    <div class="value">1,469</div>
+    <div class="value" id="val-jadan">1,469</div>
     <div class="unit">두</div>
-    <div class="sub">8개 군</div>
+    <div class="sub" id="sub-jadan">8개 군</div>
   </div>
   <div class="card incu">
     <div class="label">🍼 인큐베이터</div>
-    <div class="value">1,056</div>
+    <div class="value" id="val-incu">1,056</div>
     <div class="unit">두</div>
-    <div class="sub">5개 군</div>
+    <div class="sub" id="sub-incu">5개 군</div>
   </div>
   <div class="card special">
     <div class="label">🏥 특수관리</div>
-    <div class="value">293</div>
+    <div class="value" id="val-special">293</div>
     <div class="unit">두</div>
-    <div class="sub">2개 군</div>
+    <div class="sub" id="sub-special">2개 군</div>
   </div>
   <div class="card modon">
     <div class="label">🐗 모돈/번식</div>
-    <div class="value">491</div>
+    <div class="value" id="val-modon">491</div>
     <div class="unit">두 <span style="font-size:10px;color:#aaa">(PSY산정)</span></div>
     <div class="sub">후보돈 43두 · 웅돈 7두 별도</div>
   </div>
@@ -5444,6 +5463,64 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 </div><!-- /page -->
 
 <script>
+/* ── 두수 조회 시스템 ── */
+var API  = 'http://localhost:5000';
+var BASE = '2026-04-21';
+
+function fmt(n) { return Number(n).toLocaleString(); }
+
+function setToday() {
+  var t = new Date();
+  var s = t.getFullYear() + '-' + String(t.getMonth()+1).padStart(2,'0') + '-' + String(t.getDate()).padStart(2,'0');
+  document.getElementById('queryDate').value = s;
+  fetchHeadcount();
+}
+
+function fetchHeadcount() {
+  var date = document.getElementById('queryDate').value;
+  if (!date) return;
+  var statusEl = document.getElementById('queryStatus');
+  statusEl.style.color = '#888';
+  statusEl.textContent = '⏳ 조회 중...';
+
+  fetch(API + '/api/headcount?date=' + date, {signal: AbortSignal.timeout(8000)})
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      // 카드 갱신
+      document.getElementById('val-total').textContent   = fmt(d.current_total);
+      document.getElementById('val-beef').textContent    = fmt(d.sections.beef.count);
+      document.getElementById('val-jadan').textContent   = fmt(d.sections.jadan.count);
+      document.getElementById('val-incu').textContent    = fmt(d.sections.incu.count);
+      document.getElementById('val-special').textContent = fmt(d.sections.special.count);
+      document.getElementById('val-modon').textContent   = fmt(d.sections.modon.count);
+
+      // 전체 카드 서브텍스트 — 변동량 표시
+      var dSign = d.delta <= 0 ? '' : '+';
+      document.getElementById('sub-total').innerHTML =
+        '27개 군 &nbsp;<span style="color:#c0392b;font-size:10px">폐사 -' + d.death_total + '두 · 출하 -' + d.ship_total + '두 (' + BASE + '이후)</span>';
+
+      // 헤더 날짜
+      document.getElementById('header-date').textContent = date;
+      document.getElementById('header-status').textContent = '✅ 실시간 반영됨';
+      if (document.getElementById('print-date')) document.getElementById('print-date').textContent = date;
+
+      // 상태바
+      statusEl.style.color = '#2e7d32';
+      statusEl.textContent = '✅ ' + date + ' 기준 | ' + BASE + ' 대비 ' + (d.delta > 0 ? '+' : '') + d.delta + '두  (폐사 -' + d.death_total + '두 · 출하 -' + d.ship_total + '두)';
+    })
+    .catch(function() {
+      statusEl.style.color = '#e65100';
+      statusEl.textContent = '⚠️ 사내 서버 미연결 — ' + BASE + ' 기준 데이터로 표시 중 (사내 네트워크 접속 시 자동 갱신)';
+      document.getElementById('header-date').textContent = BASE;
+      document.getElementById('header-status').textContent = '⚠️ 오프라인 (4/21 기준)';
+    });
+}
+
+// 페이지 로드 시 오늘 날짜로 자동 조회
+window.addEventListener('load', function() {
+  setToday();
+});
+
 function showTab(name) {
   document.querySelectorAll('.section').forEach(function(s) {
     s.classList.remove('active');
