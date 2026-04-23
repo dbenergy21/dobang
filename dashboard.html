@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -115,6 +115,12 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 .ev-etc   { background:#f5f5f5; color:#555; }
 .ev-cell  { white-space:nowrap; }
 
+/* ── 백신 섹션 ── */
+.section-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.section-icon   { font-size:32px; }
+.section-title  { font-size:18px; font-weight:700; color:#1e293b; }
+.section-sub    { font-size:13px; color:#64748b; margin-top:2px; }
+
 /* ── 인쇄 ── */
 @media print {
   body { background:#fff; font-size:11px; }
@@ -213,6 +219,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tab" onclick="showTab('special')">🏥 특수관리</div>
   <div class="tab" onclick="showTab('modon')">🐗 모돈/번식</div>
   <div class="tab" onclick="showTab('events')">📋 변동이력</div>
+  <div class="tab" onclick="showTab('vaccine')">💉 백신일정</div>
 </div>
 
 <!-- 비육사 섹션 -->
@@ -2242,6 +2249,654 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     </table>
   </div>
 </div>
+
+
+<!-- ========== 💉 백신일정 섹션 ========== -->
+<div id="sec-vaccine" class="section" style="display:none">
+  <div class="section-header">
+    <span class="section-icon">💉</span>
+    <div>
+      <div class="section-title">백신 접종 일정</div>
+      <div class="section-sub">전체 73군 · 아파치1 · 구제역1 · 돼지열병1</div>
+    </div>
+  </div>
+
+  <!-- KPI 요약 -->
+  <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+    <div style="background:#e8f5e9;border-radius:10px;padding:12px 20px;flex:1;min-width:120px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:#2e7d32">54</div>
+      <div style="font-size:12px;color:#555;margin-top:2px">✓ 완료 군</div>
+    </div>
+    <div style="background:#fffde7;border-radius:10px;padding:12px 20px;flex:1;min-width:120px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:#e65100">2</div>
+      <div style="font-size:12px;color:#555;margin-top:2px">🔥 임박 (4/30까지)</div>
+    </div>
+    <div style="background:#e3f2fd;border-radius:10px;padding:12px 20px;flex:1;min-width:120px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:#1565c0">2</div>
+      <div style="font-size:12px;color:#555;margin-top:2px">📅 예정 (5/14까지)</div>
+    </div>
+    <div style="background:#fff5f5;border-radius:10px;padding:12px 20px;flex:1;min-width:120px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:#c0392b">11</div>
+      <div style="font-size:12px;color:#555;margin-top:2px">⚠️ 미완료 (기한 초과)</div>
+    </div>
+  </div>
+
+  <!-- 범례 -->
+  <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;font-size:12px;align-items:center">
+    <span style="color:#666">범례:</span>
+    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:20px">✓완료</span>
+    <span style="background:#fffde7;color:#e65100;padding:2px 8px;border-radius:20px">🔥임박</span>
+    <span style="background:#e3f2fd;color:#1565c0;padding:2px 8px;border-radius:20px">예정</span>
+    <span style="background:#fff5f5;color:#c0392b;padding:2px 8px;border-radius:20px">⚠미완</span>
+    <span style="color:#aaa;padding:2px 8px">— 해당없음</span>
+  </div>
+
+  <!-- 군별 테이블 -->
+  <div style="overflow-x:auto">
+    <table class="data-table" style="min-width:620px">
+      <thead>
+        <tr>
+          <th style="width:60px">군번</th>
+          <th style="width:70px">생년월일</th>
+          <th style="width:80px">비육사</th>
+          <th>아파치1</th>
+          <th>구제역1</th>
+          <th>돼지열병1</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군1</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">12/28</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/01</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/15</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/25</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군2</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/03</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/01</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/18</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군3</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/19</td>
+      <td style="text-align:center;font-size:12px">A2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/07</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/18</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군4</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/23</td>
+      <td style="text-align:center;font-size:12px">A3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/18</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군5</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/01</td>
+      <td style="text-align:center;font-size:12px">A4</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/15</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/18</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/26</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군6</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/07</td>
+      <td style="text-align:center;font-size:12px">B1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/15</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군7</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/07</td>
+      <td style="text-align:center;font-size:12px">B2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/13</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군8</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/18</td>
+      <td style="text-align:center;font-size:12px">B3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/13</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군9</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/22</td>
+      <td style="text-align:center;font-size:12px">A1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/25</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군10</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/01</td>
+      <td style="text-align:center;font-size:12px">C3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/20</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군11</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/08</td>
+      <td style="text-align:center;font-size:12px">C4</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/20</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/26</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군12</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/14</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/20</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/26</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군13</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/22</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/20</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/07</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군14</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/29</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">05/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/16</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/07</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군15</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">04/03</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/07</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/19</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/26</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군16</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">04/08</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/07</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/26</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군17</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">04/16</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/19</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/13</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군18</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">04/25</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">06/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/19</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군19</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">05/01</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/19</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/31</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군20</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">05/07</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/19</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/08</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군21</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">05/12</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/08</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/12</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군22</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">05/22</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">07/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/08</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/12</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군23</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">05/27</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/12</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/25</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군24</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">06/03</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/12</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/25</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군25</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">06/09</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/05</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군26</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">06/15</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/17</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/05</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군27</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">06/21</td>
+      <td style="text-align:center;font-size:12px">A1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">08/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/17</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/29</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군28</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">06/27</td>
+      <td style="text-align:center;font-size:12px">C5</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/05</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/14</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/29</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군29</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">07/03</td>
+      <td style="text-align:center;font-size:12px">C1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/05</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/29</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/14</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군30</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">07/09</td>
+      <td style="text-align:center;font-size:12px">A2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/17</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/14</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/23</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군31</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">07/15</td>
+      <td style="text-align:center;font-size:12px">C2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">09/29</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/14</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/23</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군32</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">07/21</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">09/29</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">10/06</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">10/20</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군33</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">07/27</td>
+      <td style="text-align:center;font-size:12px">A3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/23</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/02</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군34</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">08/02</td>
+      <td style="text-align:center;font-size:12px">A4</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/23</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/02</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군35</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">08/08</td>
+      <td style="text-align:center;font-size:12px">B1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/14</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/02</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군36</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">08/14</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">10/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/14</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/20</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군37</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">08/20</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/02</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/14</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/20</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군38</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">08/26</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/14</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/20</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/05</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군39</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">09/01</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">11/20</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/05</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/16</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군40</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">09/07</td>
+      <td style="text-align:center;font-size:12px">a1비육</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/05</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/16</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군41</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">09/13</td>
+      <td style="text-align:center;font-size:12px">c3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/16</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">11/29</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">12/13</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군42</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">09/19</td>
+      <td style="text-align:center;font-size:12px">c3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">01/12</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">12/19</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군43</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">09/25</td>
+      <td style="text-align:center;font-size:12px">c4</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">12/31</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">01/12</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">12/25</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군44</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">10/01</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">01/12</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">12/17</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">12/31</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군45</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">10/07</td>
+      <td style="text-align:center;font-size:12px">B4</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">01/12</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">12/23</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">01/06</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군46</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">10/13</td>
+      <td style="text-align:center;font-size:12px">C1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/05</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/12</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/25</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군47</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">10/19</td>
+      <td style="text-align:center;font-size:12px">C2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/05</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/12</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/25</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군48</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">10/25</td>
+      <td style="text-align:center;font-size:12px">A2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/06</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/26</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군49</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">10/31</td>
+      <td style="text-align:center;font-size:12px">A3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/06</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/26</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군50</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">11/06</td>
+      <td style="text-align:center;font-size:12px">A4</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/13</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/26</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/03</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군51</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">11/12</td>
+      <td style="text-align:center;font-size:12px">B1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/10</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군52</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">11/18</td>
+      <td style="text-align:center;font-size:12px">B2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">02/25</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/04</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/10</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군53</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">11/24</td>
+      <td style="text-align:center;font-size:12px">B3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/10</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/23</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군54</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">11/30</td>
+      <td style="text-align:center;font-size:12px">A1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/16</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군55</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">12/06</td>
+      <td style="text-align:center;font-size:12px">C3</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/04</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/16</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/23</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군56</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">12/12</td>
+      <td style="text-align:center;font-size:12px">C4</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/04</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/11</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군57</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">12/18</td>
+      <td style="text-align:center;font-size:12px">C5</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/10</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/11</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군58</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">12/24</td>
+      <td style="text-align:center;font-size:12px">C1</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/16</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/03</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/11</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군59</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">12/30</td>
+      <td style="text-align:center;font-size:12px">C2</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/23</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/04</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/23</span></td>
+    </tr>
+<tr style="opacity:0.55;">
+      <td style="text-align:center;font-weight:600">군60</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/05</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">03/23</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/04</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/23</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군61</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/11</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/04</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/23</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">04/12</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군62</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/17</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/04</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/24</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">04/18</span></td>
+    </tr>
+<tr style="background:#fffde7;">
+      <td style="text-align:center;font-weight:600">군63</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/23</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/11</span></td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/24</span></td>
+      <td style="text-align:center;background:#fffde7"><span class="ev-badge ev-fix">🔥임박</span><br><span style="font-size:10px;color:#e65100">04/24</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군64</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">01/29</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/24</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">04/16</span></td>
+      <td style="text-align:center;background:#fffde7"><span class="ev-badge ev-fix">🔥임박</span><br><span style="font-size:10px;color:#e65100">04/30</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군65</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/04</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge ev-vax">✓완료</span><br><span style="font-size:10px;color:#888">04/24</span></td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">04/22</span></td>
+      <td style="text-align:center"><span class="ev-badge" style="background:#e3f2fd;color:#1565c0">예정</span><br><span style="font-size:10px;color:#64748b">05/06</span></td>
+    </tr>
+<tr style="background:#fff5f5;">
+      <td style="text-align:center;font-weight:600">군66</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/10</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center;background:#fff5f5"><span class="ev-badge ev-death">⚠미완</span><br><span style="font-size:10px;color:#c0392b">04/21</span></td>
+      <td style="text-align:center;background:#fffde7"><span class="ev-badge ev-fix">🔥임박</span><br><span style="font-size:10px;color:#e65100">04/28</span></td>
+      <td style="text-align:center"><span class="ev-badge" style="background:#e3f2fd;color:#1565c0">예정</span><br><span style="font-size:10px;color:#64748b">05/12</span></td>
+    </tr>
+<tr style="background:#fffde7;">
+      <td style="text-align:center;font-weight:600">군67</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/16</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center;background:#fffde7"><span class="ev-badge ev-fix">🔥임박</span><br><span style="font-size:10px;color:#e65100">04/27</span></td>
+      <td style="text-align:center"><span class="ev-badge" style="background:#e3f2fd;color:#1565c0">예정</span><br><span style="font-size:10px;color:#64748b">05/04</span></td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/18</td>
+    </tr>
+<tr style="">
+      <td style="text-align:center;font-weight:600">군68</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/22</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge" style="background:#e3f2fd;color:#1565c0">예정</span><br><span style="font-size:10px;color:#64748b">05/03</span></td>
+      <td style="text-align:center"><span class="ev-badge" style="background:#e3f2fd;color:#1565c0">예정</span><br><span style="font-size:10px;color:#64748b">05/10</span></td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/24</td>
+    </tr>
+<tr style="">
+      <td style="text-align:center;font-weight:600">군69</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">02/28</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center"><span class="ev-badge" style="background:#e3f2fd;color:#1565c0">예정</span><br><span style="font-size:10px;color:#64748b">05/09</span></td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/16</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/30</td>
+    </tr>
+<tr style="">
+      <td style="text-align:center;font-weight:600">군70</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/06</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/15</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/22</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">06/05</td>
+    </tr>
+<tr style="">
+      <td style="text-align:center;font-weight:600">군71</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/12</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/21</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/28</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">06/11</td>
+    </tr>
+<tr style="">
+      <td style="text-align:center;font-weight:600">군72</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/18</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">05/27</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">06/03</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">06/17</td>
+    </tr>
+<tr style="">
+      <td style="text-align:center;font-weight:600">군73</td>
+      <td style="text-align:center;font-size:12px;color:#64748b">03/24</td>
+      <td style="text-align:center;font-size:12px">—</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">06/02</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">06/09</td>
+      <td style="text-align:center;color:#aaa;font-size:12px">06/23</td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="text-align:right;font-size:11px;color:#94a3b8;margin-top:8px">
+    📅 기준일: 2026-04-23 &nbsp;|&nbsp; 임박 = 4/30까지 &nbsp;|&nbsp; 예정 = 5/14까지
+  </div>
+</div>
+<!-- ========== /백신일정 ========== -->
 
 <!-- 푸터 -->
 <div style="text-align:center;padding:12px;color:#aaa;font-size:11px;">
