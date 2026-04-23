@@ -2272,7 +2272,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 </div>
 
 
-<!-- ========== 💉 백신일정 섹션 (v2) ========== -->
+<!-- ========== 💉 백신일정 섹션 (v3) ========== -->
 <div id="sec-vaccine" class="section">
   <div class="tbl-wrap" style="padding:16px">
 
@@ -2281,14 +2281,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       <span style="font-size:28px">💉</span>
       <div>
         <div style="font-size:16px;font-weight:700;color:#1a3a5c">백신 접종 일정</div>
-        <div style="font-size:12px;color:#64748b">전체 73군 · 아파치1 · 구제역1 · 돼지열병1 &nbsp;·&nbsp; 기준일: 2026-04-23</div>
+        <div style="font-size:12px;color:#64748b">활성 26군 표시 (출하완료 47군 숨김) · 아파치1 · 구제역1 · 돼지열병1 &nbsp;·&nbsp; 기준일: 2026-04-23</div>
       </div>
     </div>
 
     <!-- KPI 카드 -->
     <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px">
       <div style="background:#e8f5e9;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:#2e7d32">54</div>
+        <div style="font-size:22px;font-weight:800;color:#2e7d32">13</div>
         <div style="font-size:11px;color:#555;margin-top:2px">✓ 완료</div>
       </div>
       <div style="background:#e3f2fd;border-radius:8px;padding:10px;text-align:center">
@@ -2300,7 +2300,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         <div style="font-size:11px;color:#555;margin-top:2px">🔥 임박(7일)</div>
       </div>
       <div style="background:#fdecea;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:#c0392b">11</div>
+        <div style="font-size:22px;font-weight:800;color:#c0392b">5</div>
         <div style="font-size:11px;color:#555;margin-top:2px">⚠️ 미완료</div>
       </div>
       <div style="background:#f5f5f5;border-radius:8px;padding:10px;text-align:center">
@@ -2312,2027 +2312,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <!-- 군별 리스트 -->
     <div id="vax-group-list">
 
-<!-- 군1 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(1)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군1</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">12/28</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-1" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-1" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/08</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/01</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/15</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/15</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/29</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군2 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(2)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군2</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">01/03</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-2" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-2" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/14</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/01</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/18</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군3 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(3)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군3</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">01/19</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A2</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-3" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-3" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/07</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/20</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/18</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군4 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(4)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군4</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">01/23</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A3</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-4" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-4" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/18</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군5 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(5)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군5</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">02/01</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A4</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-5" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-5" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/15</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/19</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/18</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군6 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(6)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군6</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">02/07</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B1</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-6" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-6" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/15</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/09</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군7 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(7)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군7</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">02/07</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B2</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-7" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-7" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/09</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군8 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(8)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군8</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">02/18</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B3</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-8" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-8" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/29</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/20</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군9 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(9)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군9</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">02/22</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A1</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-9" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-9" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군10 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(10)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군10</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">03/01</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C3</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-10" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-10" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/31</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군11 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(11)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군11</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">03/08</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C4</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-11" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-11" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/07</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군12 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(12)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군12</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">03/14</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-12" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-12" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/13</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군13 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(13)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군13</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">03/22</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-13" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-13" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/31</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/07</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/07</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군14 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(14)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군14</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">03/29</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-14" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-14" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/07</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">05/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/14</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/16</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/07</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군15 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(15)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군15</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">04/03</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-15" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-15" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/07</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/19</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/19</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군16 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(16)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군16</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">04/08</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-16" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-16" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/07</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/08</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군17 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(17)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군17</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">04/16</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-17" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-17" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/19</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/02</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군18 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(18)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군18</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">04/25</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-18" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-18" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">06/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/19</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군19 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(19)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군19</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">05/01</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-19" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-19" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/19</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/31</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군20 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(20)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군20</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">05/07</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-20" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-20" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/19</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/08</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군21 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(21)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군21</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">05/12</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-21" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-21" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/08</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군22 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(22)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군22</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">05/22</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-22" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-22" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">07/31</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">07/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/07</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/08</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군23 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(23)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군23</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">05/27</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-23" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-23" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/26</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군24 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(24)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군24</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">06/03</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-24" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-24" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/19</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/02</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군25 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(25)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군25</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">06/09</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-25" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-25" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/08</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군26 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(26)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군26</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">06/15</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-26" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-26" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/31</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/17</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/14</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군27 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(27)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군27</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">06/21</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A1</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-27" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-27" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">08/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">08/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/17</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/20</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/29</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군28 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(28)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군28</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">06/27</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C5</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-28" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-28" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/26</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/29</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군29 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(29)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군29</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">07/03</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C1</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-29" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-29" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/29</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/02</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군30 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(30)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군30</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">07/09</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A2</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-30" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-30" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/17</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/08</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군31 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(31)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군31</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">07/15</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C2</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-31" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-31" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">09/29</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/14</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군32 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(32)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군32</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">07/21</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">아파치1 ⚠️09/29</span> &nbsp;·&nbsp; <span style="color:#c0392b">구제역1 ⚠️10/06</span> &nbsp;·&nbsp; <span style="color:#c0392b">돼지열병1 ⚠️10/20</span></span>
-  </div>
-  <span id="vax-arrow-32" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-32" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">09/29</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/20</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군33 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(33)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군33</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">07/27</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A3</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-33" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-33" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/26</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/02</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군34 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(34)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군34</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">08/02</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A4</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-34" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-34" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/01</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/02</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군35 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(35)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군35</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">08/08</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B1</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-35" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-35" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/07</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/02</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군36 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(36)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군36</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">08/14</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-36" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-36" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">10/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/13</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군37 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(37)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군37</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">08/20</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-37" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-37" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">10/29</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/02</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/19</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군38 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(38)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군38</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">08/26</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-38" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-38" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/14</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군39 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(39)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군39</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">09/01</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-39" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-39" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">11/20</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/01</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/16</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군40 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(40)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군40</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">09/07</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">a1비육</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-40" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-40" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/07</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/16</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군41 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(41)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군41</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">09/13</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">c3</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">구제역1 ⚠️11/29</span> &nbsp;·&nbsp; <span style="color:#c0392b">돼지열병1 ⚠️12/13</span></span>
-  </div>
-  <span id="vax-arrow-41" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-41" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/22</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/16</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/29</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/13</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군42 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(42)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군42</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">09/19</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">c3</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">돼지열병1 ⚠️12/19</span></span>
-  </div>
-  <span id="vax-arrow-42" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-42" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">11/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">01/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/19</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군43 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(43)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군43</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">09/25</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">c4</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">돼지열병1 ⚠️12/25</span></span>
-  </div>
-  <span id="vax-arrow-43" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-43" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">12/31</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">01/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군44 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(44)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군44</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">10/01</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">구제역1 ⚠️12/17</span> &nbsp;·&nbsp; <span style="color:#c0392b">돼지열병1 ⚠️12/31</span></span>
-  </div>
-  <span id="vax-arrow-44" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-44" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">01/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/31</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군45 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(45)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군45</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">10/07</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B4</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">구제역1 ⚠️12/23</span> &nbsp;·&nbsp; <span style="color:#c0392b">돼지열병1 ⚠️01/06</span></span>
-  </div>
-  <span id="vax-arrow-45" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-45" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">01/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군46 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(46)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군46</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">10/13</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C1</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-46" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-46" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/22</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/29</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군47 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(47)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군47</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">10/19</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C2</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-47" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-47" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">12/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/05</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/12</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
 <!-- 군48 -->
 <div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(48)">
   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
@@ -4340,6 +2319,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">10/25</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">A2</span>
+    <span style="font-size:11px;color:#94a3b8">출하:04/23</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-48" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4383,6 +2363,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">10/31</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">A3</span>
+    <span style="font-size:11px;color:#94a3b8">출하:04/29</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-49" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4426,6 +2407,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">11/06</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">A4</span>
+    <span style="font-size:11px;color:#94a3b8">출하:05/05</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-50" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4469,6 +2451,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">11/12</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">B1</span>
+    <span style="font-size:11px;color:#94a3b8">출하:05/11</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-51" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4512,6 +2495,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">11/18</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">B2</span>
+    <span style="font-size:11px;color:#94a3b8">출하:05/17</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-52" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4555,6 +2539,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">11/24</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">B3</span>
+    <span style="font-size:11px;color:#94a3b8">출하:05/23</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-53" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4598,6 +2583,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">11/30</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">A1</span>
+    <span style="font-size:11px;color:#94a3b8">출하:05/29</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-54" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4641,6 +2627,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">12/06</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">C3</span>
+    <span style="font-size:11px;color:#94a3b8">출하:06/04</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-55" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4684,6 +2671,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">12/12</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">C4</span>
+    <span style="font-size:11px;color:#94a3b8">출하:06/10</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-56" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4727,6 +2715,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">12/18</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">C5</span>
+    <span style="font-size:11px;color:#94a3b8">출하:06/16</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-57" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4770,6 +2759,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">12/24</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">C1</span>
+    <span style="font-size:11px;color:#94a3b8">출하:06/22</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-58" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4813,6 +2803,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">12/30</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">C2</span>
+    <span style="font-size:11px;color:#94a3b8">출하:06/28</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-59" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4856,6 +2847,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
     <span style="font-size:11px;color:#888">01/05</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:07/04</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-60" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4899,6 +2891,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
     <span style="font-size:11px;color:#888">01/11</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:07/10</span>
     <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">돼지열병1 ⚠️04/12</span></span>
   </div>
   <span id="vax-arrow-61" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4942,6 +2935,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
     <span style="font-size:11px;color:#888">01/17</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:07/16</span>
     <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">돼지열병1 ⚠️04/18</span></span>
   </div>
   <span id="vax-arrow-62" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -4985,6 +2979,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#fff3e0;color:#e65100;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">🔥 임박</span>
     <span style="font-size:11px;color:#888">01/23</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:07/22</span>
     <span style="font-size:11px;margin-left:4px"><span style="color:#e65100">돼지열병1 🔥04/24</span></span>
   </div>
   <span id="vax-arrow-63" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5028,6 +3023,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
     <span style="font-size:11px;color:#888">01/29</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:07/28</span>
     <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">구제역1 ⚠️04/16</span> &nbsp;·&nbsp; <span style="color:#e65100">돼지열병1 🔥04/30</span></span>
   </div>
   <span id="vax-arrow-64" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5071,6 +3067,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
     <span style="font-size:11px;color:#888">02/04</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:08/03</span>
     <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">구제역1 ⚠️04/22</span></span>
   </div>
   <span id="vax-arrow-65" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5114,6 +3111,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
     <span style="font-size:11px;color:#888">02/10</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:08/09</span>
     <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">아파치1 ⚠️04/21</span> &nbsp;·&nbsp; <span style="color:#e65100">구제역1 🔥04/28</span></span>
   </div>
   <span id="vax-arrow-66" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5157,6 +3155,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#fff3e0;color:#e65100;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">🔥 임박</span>
     <span style="font-size:11px;color:#888">02/16</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:08/15</span>
     <span style="font-size:11px;margin-left:4px"><span style="color:#e65100">아파치1 🔥04/27</span></span>
   </div>
   <span id="vax-arrow-67" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5200,6 +3199,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
     <span style="font-size:11px;color:#888">02/22</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:08/21</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-68" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5243,6 +3243,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
     <span style="font-size:11px;color:#888">02/28</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:08/27</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-69" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5286,6 +3287,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
     <span style="font-size:11px;color:#888">03/06</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:09/02</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-70" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5329,6 +3331,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
     <span style="font-size:11px;color:#888">03/12</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:09/08</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-71" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5372,6 +3375,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
     <span style="font-size:11px;color:#888">03/18</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:09/14</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-72" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
@@ -5415,6 +3419,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
     <span style="font-size:11px;color:#888">03/24</span>
     <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
+    <span style="font-size:11px;color:#94a3b8">출하:09/20</span>
     <span style="font-size:11px;margin-left:4px"></span>
   </div>
   <span id="vax-arrow-73" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
