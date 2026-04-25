@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "서버1": {
+      "agent": "서버1",
+      "emoji": "🐷",
+      "status": "running",
+      "task": "배포 테스트",
+      "progress": 30,
+      "last_report": "",
+      "updated": "2026-04-25 11:11:55",
+      "loop_count": 1
+    },
+    "서버2": {
+      "agent": "서버2",
+      "emoji": "⚡",
+      "status": "running",
+      "task": "배포 테스트",
+      "progress": 30,
+      "last_report": "",
+      "updated": "2026-04-25 11:12:05",
+      "loop_count": 1
+    },
+    "서버3": {
+      "agent": "서버3",
+      "emoji": "🧭",
+      "status": "running",
+      "task": "오케스트레이터 동작 중",
+      "progress": 100,
+      "last_report": "",
+      "updated": "2026-04-25 11:24:47",
+      "loop_count": 60
+    },
+    "서버4": {
+      "agent": "서버4",
+      "emoji": "📋",
+      "status": "running",
+      "task": "배포 테스트",
+      "progress": 30,
+      "last_report": "",
+      "updated": "2026-04-25 11:12:05",
+      "loop_count": 1
+    }
+  },
+  "server_time": "2026-04-25 11:25:27",
+  "today": "2026-04-25"
+}
