@@ -1,154 +1,159 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>도방육종 군별 현황 대시보드 — 2026-04-21</title>
+<title>도방육종 군별 현황 대시보드</title>
 <style>
-/* ── 기본 ── */
+/* ── 다크 테마 변수 (도방 통합대시보드 동일 톤) ── */
+:root {
+  --bg:#0d1117; --surface:#161b22; --surface2:#21262d;
+  --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+  --green:#3fb950; --blue:#58a6ff; --yellow:#d29922;
+  --red:#f85149; --purple:#bc8cff; --orange:#e3b341;
+  --cyan:#79c0ff; --pig:#ff7b72;
+}
 * { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:"맑은 고딕","Malgun Gothic",sans-serif; font-size:13px; background:#f0f2f5; color:#222; }
+body { font-family:'Segoe UI',"맑은 고딕",sans-serif; font-size:13px; background:var(--bg); color:var(--text); }
 .page { max-width:1200px; margin:0 auto; padding:16px; }
 
 /* ── 헤더 ── */
-.header { background:linear-gradient(135deg,#1a3a5c 0%,#2d6a9f 100%); color:#fff; padding:20px 24px; border-radius:10px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center; }
-.header h1 { font-size:20px; font-weight:700; letter-spacing:-.3px; }
-.header .meta { font-size:11px; opacity:.8; text-align:right; line-height:1.6; }
-.header .meta strong { font-size:13px; opacity:1; }
+.header { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:16px 24px; border-radius:10px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; }
+.header h1 { font-size:18px; font-weight:700; letter-spacing:-.3px; color:var(--text); }
+.header .meta { font-size:11px; color:var(--muted); text-align:right; line-height:1.6; }
+.header .meta strong { font-size:13px; color:var(--blue); }
 
 /* ── 요약 카드 ── */
-.cards { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:16px; }
+.cards { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:14px; }
 @media(max-width:900px) { .cards { grid-template-columns:repeat(3,1fr); } }
-.card { background:#fff; border-radius:8px; padding:14px 16px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid #ccc; }
-.card.total   { border-color:#1a3a5c; }
-.card.beef    { border-color:#e74c3c; }
-.card.jadan   { border-color:#f39c12; }
-.card.incu    { border-color:#3498db; }
-.card.special { border-color:#9b59b6; }
-.card.modon   { border-color:#e91e8c; }
-.card .label  { font-size:10px; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
-.card .value  { font-size:26px; font-weight:800; color:#1a3a5c; }
-.card .unit   { font-size:12px; color:#666; }
-.card .sub    { font-size:10px; color:#999; margin-top:3px; }
+.card { background:var(--surface); border-radius:10px; padding:14px 16px; border:1px solid var(--border); border-left:4px solid var(--border); }
+.card.total   { border-left-color:var(--blue); }
+.card.beef    { border-left-color:var(--red); }
+.card.jadan   { border-left-color:var(--yellow); }
+.card.incu    { border-left-color:var(--cyan); }
+.card.special { border-left-color:var(--purple); }
+.card.modon   { border-left-color:var(--pig); }
+.card .label  { font-size:10px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
+.card .value  { font-size:26px; font-weight:800; color:var(--text); font-family:monospace; }
+.card .unit   { font-size:12px; color:var(--muted); }
+.card .sub    { font-size:10px; color:var(--muted); margin-top:3px; }
 
-/* ── 모돈 테이블 ── */
-.modon-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px; }
+/* ── 모돈 카드 ── */
+.modon-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:14px; }
 @media(max-width:700px) { .modon-grid { grid-template-columns:1fr 1fr; } }
-.modon-card { background:#fff; border-radius:8px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-top:3px solid #e91e8c; text-align:center; }
-.modon-card.boar { border-top-color:#1a73e8; }
-.modon-card .mc-label { font-size:12px; color:#888; font-weight:600; margin-bottom:6px; }
-.modon-card .mc-value { font-size:32px; font-weight:800; color:#c2185b; }
-.modon-card.boar .mc-value { color:#1a73e8; }
-.modon-card .mc-unit  { font-size:13px; color:#555; }
-.modon-summary-bar { background:#fff; border-radius:8px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.08); margin-bottom:16px; }
+.modon-card { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--pig); border-radius:10px; padding:16px 20px; text-align:center; }
+.modon-card.boar { border-top-color:var(--blue); }
+.modon-card .mc-label { font-size:12px; color:var(--muted); font-weight:600; margin-bottom:6px; }
+.modon-card .mc-value { font-size:32px; font-weight:800; color:var(--pig); font-family:monospace; }
+.modon-card.boar .mc-value { color:var(--blue); }
+.modon-card .mc-unit  { font-size:13px; color:var(--muted); }
+.modon-summary-bar { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; margin-bottom:14px; }
 .modon-bar-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-.modon-bar-label { width:70px; font-size:12px; color:#555; font-weight:600; flex-shrink:0; }
-.modon-bar-track { flex:1; background:#f0f2f5; border-radius:6px; height:18px; overflow:hidden; }
+.modon-bar-label { width:70px; font-size:12px; color:var(--muted); font-weight:600; flex-shrink:0; }
+.modon-bar-track { flex:1; background:var(--surface2); border-radius:6px; height:18px; overflow:hidden; }
 .modon-bar-fill  { height:18px; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:6px; font-size:11px; font-weight:700; color:#fff; }
-.modon-bar-num   { width:50px; text-align:right; font-size:13px; font-weight:700; color:#1a3a5c; }
-.modon-update-note { font-size:11px; color:#aaa; text-align:right; padding: 4px 0 0; }
+.modon-bar-num   { width:50px; text-align:right; font-size:13px; font-weight:700; color:var(--text); }
+.modon-update-note { font-size:11px; color:var(--muted); text-align:right; padding:4px 0 0; }
 
 /* ── 버튼 ── */
 .btn-row { display:flex; gap:8px; margin-bottom:14px; }
-.btn { padding:7px 16px; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600; }
-.btn-print  { background:#1a3a5c; color:#fff; }
-.btn-expand { background:#27ae60; color:#fff; }
-.btn-collapse{ background:#7f8c8d; color:#fff; }
-.btn:hover  { opacity:.85; }
+.btn { padding:7px 16px; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600; transition:opacity .15s; }
+.btn-print   { background:var(--blue); color:#000; }
+.btn-expand  { background:var(--green); color:#000; }
+.btn-collapse{ background:var(--surface2); color:var(--text); border:1px solid var(--border); }
+.btn:hover   { opacity:.8; }
 
 /* ── 탭 ── */
-.tabs { display:flex; gap:4px; margin-bottom:12px; border-bottom:2px solid #ddd; }
-.tab { padding:8px 18px; cursor:pointer; border-radius:6px 6px 0 0; font-size:13px; font-weight:600; color:#666; border:1px solid transparent; border-bottom:none; }
-.tab.active { background:#fff; color:#1a3a5c; border-color:#ddd; margin-bottom:-2px; border-bottom:2px solid #fff; }
+.tabs { display:flex; gap:4px; margin-bottom:12px; border-bottom:2px solid var(--border); }
+.tab { padding:8px 18px; cursor:pointer; border-radius:6px 6px 0 0; font-size:13px; font-weight:600; color:var(--muted); border:1px solid transparent; border-bottom:none; transition:all .2s; }
+.tab.active { background:var(--bg); color:var(--blue); border-color:var(--border); margin-bottom:-2px; border-bottom:2px solid var(--bg); }
+.tab:hover:not(.active) { color:var(--text); }
 
 /* ── 섹션 ── */
 .section { display:none !important; }
 .section.active { display:block !important; }
 
 /* ── 테이블 공통 ── */
-.tbl-wrap { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); overflow:hidden; margin-bottom:16px; }
-.tbl-header { padding:12px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; }
-.tbl-title { font-size:14px; font-weight:700; color:#1a3a5c; }
-.tbl-count { font-size:11px; color:#888; }
+.tbl-wrap { background:var(--surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:14px; }
+.tbl-header { padding:12px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); }
+.tbl-title { font-size:14px; font-weight:700; color:var(--text); }
+.tbl-count { font-size:11px; color:var(--muted); }
 table { width:100%; border-collapse:collapse; }
-th { background:#f8f9fa; padding:9px 10px; text-align:left; font-size:11px; color:#555; font-weight:600; border-bottom:2px solid #dee2e6; white-space:nowrap; }
-td { padding:8px 10px; border-bottom:1px solid #f0f2f5; vertical-align:middle; }
+th { background:var(--surface2); padding:9px 10px; text-align:left; font-size:11px; color:var(--muted); font-weight:600; border-bottom:2px solid var(--border); white-space:nowrap; }
+td { padding:8px 10px; border-bottom:1px solid rgba(48,54,61,.6); vertical-align:middle; color:var(--text); }
 tr:last-child td { border-bottom:none; }
-tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
+tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
 
 /* ── 숫자/위치 ── */
-.num { text-align:right; font-variant-numeric:tabular-nums; }
-.num.big { font-size:15px; font-weight:700; color:#1a3a5c; }
-.loc { font-weight:600; color:#2d6a9f; }
-.gid { display:inline-block; padding:2px 8px; border-radius:4px; background:#e8f0fe; color:#1a3a5c; font-weight:700; font-size:11px; }
-.gid.sp { background:#f3e5ff; color:#6a1a9c; }
-.delta.pos { color:#27ae60; font-weight:700; }
-.delta.neg { color:#e74c3c; font-weight:700; }
+.num { text-align:right; font-variant-numeric:tabular-nums; font-family:monospace; }
+.num.big { font-size:15px; font-weight:700; color:var(--cyan); }
+.loc { font-weight:600; color:var(--blue); }
+.gid { display:inline-block; padding:2px 8px; border-radius:4px; background:rgba(88,166,255,.12); color:var(--blue); font-weight:700; font-size:11px; }
+.gid.sp { background:rgba(188,140,255,.12); color:var(--purple); }
+.delta.pos { color:var(--green); font-weight:700; }
+.delta.neg { color:var(--red); font-weight:700; }
 
 /* ── 배지 ── */
 .badge { display:inline-block; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:700; }
-.badge.red    { background:#fdecea; color:#c0392b; }
-.badge.orange { background:#fef4e4; color:#d35400; }
-.badge.gray   { background:#f0f2f5; color:#666; }
+.badge.red    { background:rgba(248,81,73,.15); color:var(--red); }
+.badge.orange { background:rgba(227,179,65,.15); color:var(--orange); }
+.badge.gray   { background:rgba(139,148,158,.15); color:var(--muted); }
 
 /* ── 출하임박 행 색상 ── */
-.row-overdue td { background:#fdecea !important; }
-.row-urgent td  { background:#fff3cd !important; }
-.row-soon td    { background:#fef9e4 !important; }
+.row-overdue td { background:rgba(248,81,73,.08) !important; }
+.row-urgent td  { background:rgba(227,179,65,.08) !important; }
+.row-soon td    { background:rgba(63,185,80,.05) !important; }
 
 /* ── 이력 ── */
-.history-row { background:#f8faff; }
+.history-row { background:rgba(33,38,45,.8); }
 .history-box { padding:10px 16px; }
 .hist-table { width:100%; border-collapse:collapse; font-size:12px; }
-.hist-table th { background:#eef2ff; padding:6px 8px; font-size:11px; }
-.hist-table td { padding:5px 8px; border-bottom:1px solid #eee; }
-.hist-stage { background:#f9f9f9; }
-.hist-change { background:#fffcf5; }
-.hist-toggle { color:#999; font-size:12px; text-align:center; }
+.hist-table th { background:var(--surface2); padding:6px 8px; font-size:11px; color:var(--muted); }
+.hist-table td { padding:5px 8px; border-bottom:1px solid var(--border); color:var(--text); }
+.hist-stage { background:rgba(33,38,45,.5); }
+.hist-change { background:rgba(33,38,45,.3); }
+.hist-toggle { color:var(--muted); font-size:12px; text-align:center; }
 .ev-badge { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; font-weight:600; }
-.ev-death { background:#fdecea; color:#c0392b; }
-.ev-ship  { background:#e8f5e9; color:#1b5e20; }
-.ev-move  { background:#e3f2fd; color:#0d47a1; }
-.ev-fix   { background:#fff8e1; color:#e65100; }
-.ev-wean  { background:#fce4ec; color:#880e4f; }
-.ev-vax   { background:#e8eaf6; color:#283593; }
-.ev-etc   { background:#f5f5f5; color:#555; }
+.ev-death { background:rgba(248,81,73,.15); color:var(--red); }
+.ev-ship  { background:rgba(63,185,80,.15); color:var(--green); }
+.ev-move  { background:rgba(88,166,255,.15); color:var(--blue); }
+.ev-fix   { background:rgba(227,179,65,.15); color:var(--yellow); }
+.ev-wean  { background:rgba(255,123,114,.15); color:var(--pig); }
+.ev-vax   { background:rgba(188,140,255,.15); color:var(--purple); }
+.ev-etc   { background:rgba(139,148,158,.15); color:var(--muted); }
 .ev-cell  { white-space:nowrap; }
 
 /* ── 날짜 조회바 ── */
-.query-bar { display:flex; align-items:center; gap:8px; background:#fff; border-radius:8px; padding:10px 16px; margin-bottom:12px; box-shadow:0 1px 4px rgba(0,0,0,.08); flex-wrap:wrap; }
-.qb-label { font-size:12px; font-weight:600; color:#555; white-space:nowrap; }
-#queryDate { border:1px solid #ddd; border-radius:6px; padding:5px 10px; font-size:13px; color:#1a3a5c; cursor:pointer; }
-.qb-btn { background:#1a3a5c; color:#fff; border:none; border-radius:6px; padding:6px 16px; font-size:12px; font-weight:600; cursor:pointer; }
-.qb-btn:hover { background:#2d6a9f; }
-.qb-btn-today { background:#e8f0fe; color:#1a3a5c; border:none; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; }
-.qb-btn-today:hover { background:#c7d8f8; }
-.qb-status { font-size:11px; color:#555; flex:1; }
+.query-bar { display:flex; align-items:center; gap:8px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:10px 16px; margin-bottom:12px; flex-wrap:wrap; }
+.qb-label { font-size:12px; font-weight:600; color:var(--muted); white-space:nowrap; }
+#queryDate { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:5px 10px; font-size:13px; color:var(--text); cursor:pointer; }
+#queryDate:focus { outline:none; border-color:var(--blue); }
+.qb-btn { background:var(--blue); color:#000; border:none; border-radius:6px; padding:6px 16px; font-size:12px; font-weight:700; cursor:pointer; }
+.qb-btn:hover { opacity:.85; }
+.qb-btn-today { background:var(--surface2); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; }
+.qb-btn-today:hover { border-color:var(--blue); color:var(--blue); }
+.qb-status { font-size:11px; color:var(--muted); flex:1; }
 
 /* ── 백신 섹션 ── */
 .section-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
 .section-icon   { font-size:32px; }
-.section-title  { font-size:18px; font-weight:700; color:#1e293b; }
-.section-sub    { font-size:13px; color:#64748b; margin-top:2px; }
-.vax-row { display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid #f0f2f5; cursor:pointer; border-radius:6px; margin-bottom:1px; transition:background .15s; }
-.vax-row:hover { background:#f0f7ff !important; }
+.section-title  { font-size:18px; font-weight:700; color:var(--text); }
+.section-sub    { font-size:13px; color:var(--muted); margin-top:2px; }
+.vax-row { display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(48,54,61,.5); cursor:pointer; border-radius:6px; margin-bottom:1px; transition:background .15s; }
+.vax-row:hover { background:rgba(88,166,255,.06) !important; }
 
 /* ── 인쇄 ── */
 @media print {
-  body { background:#fff; font-size:11px; }
+  body { background:#fff; color:#000; font-size:11px; }
   .no-print { display:none !important; }
   .section { display:block !important; }
   .history-row { display:none !important; }
-  .row-overdue td { background:#fdecea !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .row-urgent  td { background:#fff3cd !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .row-soon    td { background:#fef9e4 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .badge.red    { background:#fdecea !important; color:#c0392b !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .badge.orange { background:#fef4e4 !important; color:#d35400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .cards { grid-template-columns:repeat(6,1fr); }
+  .card { background:#fff !important; border:1px solid #ddd !important; }
+  .tbl-wrap { background:#fff !important; border:1px solid #ddd !important; }
+  th { background:#f5f5f5 !important; color:#000 !important; -webkit-print-color-adjust:exact; }
+  td { color:#000 !important; border-color:#eee !important; }
   .tabs, .btn-row { display:none; }
   .page { max-width:100%; padding:8px; }
-  .header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .gid { background:#e8f0fe !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   .tbl-wrap { page-break-inside:avoid; }
   @page { margin:1.5cm; size:A4 landscape; }
 }
@@ -1782,8 +1787,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       <div style="font-size:12px;color:#888;margin-top:4px">두 — 생산 미참여, 별도 관리</div>
     </div>
     <div style="flex:1;min-width:150px;background:#e3f2fd;border-radius:10px;padding:14px 20px;border-left:5px solid #1a73e8">
-      <div style="font-size:11px;color:#1565c0;font-weight:700;margin-bottom:4px">웅돈</div>
-      <div style="font-size:38px;font-weight:800;color:#1565c0;line-height:1">7</div>
+      <div style="font-size:11px;color:var(--cyan);font-weight:700;margin-bottom:4px">웅돈</div>
+      <div style="font-size:38px;font-weight:800;color:var(--cyan);line-height:1">7</div>
       <div style="font-size:12px;color:#888;margin-top:4px">두</div>
     </div>
     <div style="flex:1;min-width:150px;background:#f3e5f5;border-radius:10px;padding:14px 20px;border-left:5px solid #9c27b0">
@@ -1934,7 +1939,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 
     <div class="tbl-wrap" style="margin-bottom:0">
       <div class="tbl-header" style="background:#e3f2fd">
-        <div class="tbl-title" style="color:#1565c0">♂ 웅돈</div>
+        <div class="tbl-title" style="color:var(--cyan)">♂ 웅돈</div>
         <div class="tbl-count">7두</div>
       </div>
       <table>
@@ -1944,13 +1949,13 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         </tr></thead>
         <tbody>
           <tr>
-            <td style="font-weight:600;color:#1565c0">웅돈사</td>
-            <td class="num big" style="color:#1565c0">7두</td>
+            <td style="font-weight:600;color:var(--cyan)">웅돈사</td>
+            <td class="num big" style="color:var(--cyan)">7두</td>
             <td colspan="2"></td>
           </tr>
           <tr style="background:#e3f2fd;font-weight:700">
             <td>합계</td>
-            <td class="num big" style="color:#1565c0">7두</td>
+            <td class="num big" style="color:var(--cyan)">7두</td>
             <td colspan="2"></td>
           </tr>
         </tbody>
@@ -2292,7 +2297,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         <div style="font-size:11px;color:#555;margin-top:2px">✓ 완료</div>
       </div>
       <div style="background:#e3f2fd;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:#1565c0">0</div>
+        <div style="font-size:22px;font-weight:800;color:var(--cyan)">0</div>
         <div style="font-size:11px;color:#555;margin-top:2px">🕐 진행중</div>
       </div>
       <div style="background:#fff3e0;border-radius:8px;padding:10px;text-align:center">
@@ -3099,7 +3104,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/06</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-13</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-13</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3143,7 +3148,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/12</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-19</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-19</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3181,13 +3186,13 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/04</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-11</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-11</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/18</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-25</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-25</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3219,19 +3224,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/03</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-10</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-10</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/10</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-17</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-17</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/24</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-31</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-31</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3263,19 +3268,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/09</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-16</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-16</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/16</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-23</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-23</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/30</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-37</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-37</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3307,19 +3312,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/15</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-22</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-22</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/22</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-29</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-29</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">06/05</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-43</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-43</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3351,19 +3356,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/21</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-28</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-28</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/28</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-35</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-35</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">06/11</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-49</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-49</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3395,19 +3400,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">05/27</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-34</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-34</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">06/03</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-41</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-41</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">06/17</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-55</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-55</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3439,19 +3444,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">06/02</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-40</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-40</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">06/09</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-47</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-47</span></td>
           </tr>
           <tr>
             <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
             <td style="padding:6px 10px;text-align:center;color:#666">06/23</td>
             <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#1565c0">📅 D-61</span></td>
+            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-61</span></td>
           </tr></tbody>
   </table>
 </div>
@@ -3469,7 +3474,9 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 
 <script>
 /* ── 두수 조회 시스템 ── */
-var API  = 'http://localhost:5000';
+// LAN 내부: 192.168.0.13:5001, 외부: GitHub JSON fallback
+var API_LAN = 'http://192.168.0.13:5001';
+var API  = API_LAN;
 var BASE = '2026-04-21';
 
 function fmt(n) { return Number(n).toLocaleString(); }
