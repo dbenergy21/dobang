@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>도비 대화 — 도방 AI</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+       background: #0f172a; color: #e2e8f0; height: 100dvh;
+       display: flex; flex-direction: column; }
+
+/* 헤더 */
+.header { background: #1e293b; border-bottom: 1px solid #334155;
+          padding: 12px 16px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.header a { color: #64748b; text-decoration: none; font-size: 18px; }
+.header a:hover { color: #e2e8f0; }
+.header h1 { font-size: 16px; font-weight: 700; color: #f1f5f9; }
+.header .sub { font-size: 11px; color: #64748b; margin-left: auto; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: #64748b; flex-shrink: 0; }
+.status-dot.online { background: #22c55e; }
+.status-dot.offline { background: #ef4444; }
+
+/* 채팅 메시지 영역 */
+.messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.msg { max-width: 85%; padding: 10px 14px; border-radius: 14px;
+       font-size: 14px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+.msg.user { align-self: flex-end; background: #3b82f6; color: #fff; border-radius: 14px 14px 4px 14px; }
+.msg.bot  { align-self: flex-start; background: #1e293b; border: 1px solid #334155;
+            border-radius: 14px 14px 14px 4px; }
+.msg.bot.thinking { color: #64748b; font-style: italic; border-color: #1e293b; }
+.msg.system { align-self: center; background: #1e3a5f; color: #93c5fd;
+              font-size: 12px; border-radius: 8px; text-align: center; max-width: 95%; }
+
+/* 오프라인 배너 */
+.offline-banner { background: #1e293b; border: 1px solid #ef444466; color: #fca5a5;
+                  text-align: center; padding: 10px 16px; font-size: 13px; flex-shrink: 0; display: none; }
+
+/* 입력창 */
+.input-area { background: #1e293b; border-top: 1px solid #334155;
+              padding: 12px 16px; display: flex; gap: 8px; flex-shrink: 0; }
+.input-area input {
+  flex: 1; background: #0f172a; border: 1px solid #334155; border-radius: 22px;
+  padding: 10px 16px; color: #e2e8f0; font-size: 14px;
+  outline: none; transition: border-color 0.2s;
+}
+.input-area input:focus { border-color: #3b82f6; }
+.input-area input::placeholder { color: #475569; }
+.input-area input:disabled { opacity: 0.5; }
+.send-btn { background: #3b82f6; border: none; border-radius: 50%;
+            width: 42px; height: 42px; cursor: pointer; font-size: 18px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: background 0.2s; }
+.send-btn:hover { background: #2563eb; }
+.send-btn:disabled { background: #334155; cursor: default; }
+
+/* 빠른 입력 버튼 */
+.quick-btns { padding: 6px 16px 0; display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+.qb { background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+      padding: 5px 12px; font-size: 12px; color: #94a3b8; cursor: pointer; }
+.qb:hover { border-color: #3b82f6; color: #e2e8f0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html">←</a>
+  <div class="status-dot" id="dot"></div>
+  <h1>🤖 도비 대화</h1>
+  <span class="sub" id="conn-label">연결 확인 중...</span>
+</div>
+
+<div class="offline-banner" id="offline-banner">
+  ⚠️ 사내 네트워크(Wi-Fi) 연결 시에만 대화 가능합니다 — 현재 외부 접속 상태
+</div>
+
+<div class="messages" id="messages">
+  <div class="msg system">💬 도비와 대화하세요<br>일정 저장 · 태스크 조회 · 서버 상태 · 일반 질문</div>
+</div>
+
+<div class="quick-btns" id="qbtns">
+  <span class="qb" onclick="quickSend('이번주 마감 뭐야')">📋 이번주 마감</span>
+  <span class="qb" onclick="quickSend('오늘 할일 뭐야')">✅ 오늘 할일</span>
+  <span class="qb" onclick="quickSend('서버 상태 알려줘')">🖥 서버 상태</span>
+  <span class="qb" onclick="quickSend('최신 보고서')">📊 보고서</span>
+</div>
+
+<div class="input-area">
+  <input id="inp" type="text" placeholder="메시지 입력 (Enter 전송)..."
+         onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); send(); }">
+  <button class="send-btn" id="send-btn" onclick="send()">↑</button>
+</div>
+
+<script>
+const LAN_API = 'http://192.168.0.13:5000/api/gemma';
+const TIMEOUT = 60000;
+let isOnline = false;
+let sending = false;
+
+const messagesEl = document.getElementById('messages');
+const inp = document.getElementById('inp');
+const btn = document.getElementById('send-btn');
+const dot = document.getElementById('dot');
+const label = document.getElementById('conn-label');
+const banner = document.getElementById('offline-banner');
+
+function addMsg(text, cls) {
+  const d = document.createElement('div');
+  d.className = 'msg ' + cls;
+  d.textContent = text;
+  messagesEl.appendChild(d);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  return d;
+}
+
+async function checkOnline() {
+  try {
+    const ctrl = new AbortController();
+    setTimeout(() => ctrl.abort(), 3000);
+    const r = await fetch('http://192.168.0.13:5000/', {signal: ctrl.signal, mode: 'no-cors'});
+    return true;
+  } catch(e) {
+    return false;
+  }
+}
+
+async function init() {
+  isOnline = await checkOnline();
+  if (isOnline) {
+    dot.classList.add('online');
+    label.textContent = '사내 LAN 연결됨';
+    banner.style.display = 'none';
+    inp.disabled = false;
+    btn.disabled = false;
+  } else {
+    dot.classList.add('offline');
+    label.textContent = '오프라인';
+    banner.style.display = 'block';
+    inp.disabled = true;
+    btn.disabled = true;
+  }
+}
+
+async function send() {
+  if (sending || !isOnline) return;
+  const text = inp.value.trim();
+  if (!text) return;
+  inp.value = '';
+  sending = true;
+  btn.disabled = true;
+
+  addMsg(text, 'user');
+  const thinking = addMsg('⏳ 처리 중...', 'bot thinking');
+
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), TIMEOUT);
+    const r = await fetch(LAN_API, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({text}),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await r.json();
+    thinking.className = 'msg bot';
+    thinking.textContent = data.reply || '[응답 없음]';
+  } catch(e) {
+    thinking.className = 'msg bot';
+    thinking.textContent = e.name === 'AbortError'
+      ? '⏱ 응답 시간 초과 (Gemma4 처리 중일 수 있습니다)'
+      : '⚠️ 연결 실패 — 사내 네트워크를 확인하세요';
+    isOnline = false;
+    dot.className = 'status-dot offline';
+    label.textContent = '연결 끊김';
+  } finally {
+    sending = false;
+    btn.disabled = false;
+    inp.focus();
+  }
+}
+
+function quickSend(text) {
+  if (!isOnline) return;
+  inp.value = text;
+  send();
+}
+
+// 초기화
+init();
+// 30초마다 연결 재확인
+setInterval(init, 30000);
+</script>
+</body>
+</html>
