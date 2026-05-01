@@ -181,7 +181,7 @@ tbody td { padding: 10px; color: #cbd5e1; vertical-align: middle; }
 <div class="header">
   <div class="header-left">
     <h1>🐷 도방 폐사 · 백신 현황</h1>
-    <div class="sub">도방육종 | 경남 창녕군 영산면 | 생성: 2026-04-23 KST</div>
+    <div class="sub">도방육종 | 경남 창녕군 영산면 | 갱신: 2026-05-01 KST · 4/21 이후 검증 기록 반영</div>
   </div>
   <nav class="nav-links">
     <a href="index.html" class="nav-btn">🏠 허브</a>
@@ -197,24 +197,24 @@ tbody td { padding: 10px; color: #cbd5e1; vertical-align: middle; }
 <!-- KPI 상단 카드 -->
 <div class="kpi-grid">
   <div class="kpi red">
-    <div class="kpi-label">오늘 폐사 (4/23)</div>
-    <div class="kpi-value">3<span class="kpi-unit">두</span></div>
-    <div class="kpi-diff down">▼ 12두 전일대비 (-80%)</div>
+    <div class="kpi-label">검증 폐사 (4/21 이후)</div>
+    <div class="kpi-value">24<span class="kpi-unit">두</span></div>
+    <div class="kpi-diff">4/22~4/30 대표 확인 기록</div>
   </div>
   <div class="kpi orange">
-    <div class="kpi-label">어제 폐사 (4/22)</div>
-    <div class="kpi-value">15<span class="kpi-unit">두</span></div>
-    <div class="kpi-diff up">▲ 7두 전전일대비 (+87.5%)</div>
+    <div class="kpi-label">최대 발생일</div>
+    <div class="kpi-value">10<span class="kpi-unit">두</span></div>
+    <div class="kpi-diff">4/26 오전 집중 발생</div>
   </div>
   <div class="kpi blue">
-    <div class="kpi-label">3일 누적 폐사</div>
-    <div class="kpi-value">26<span class="kpi-unit">두</span></div>
-    <div class="kpi-diff">4/21 ~ 4/23 합산</div>
+    <div class="kpi-label">검증 출하</div>
+    <div class="kpi-value">247<span class="kpi-unit">두</span></div>
+    <div class="kpi-diff">비육 242두 + 모돈도태 5두</div>
   </div>
   <div class="kpi green">
-    <div class="kpi-label">오늘 도태 예정</div>
-    <div class="kpi-value">2<span class="kpi-unit">두</span></div>
-    <div class="kpi-diff">공태돈·노산 (신기철 농장장)</div>
+    <div class="kpi-label">검증 이유</div>
+    <div class="kpi-value">459<span class="kpi-unit">두</span></div>
+    <div class="kpi-diff">모돈 38복</div>
   </div>
 </div>
 
@@ -227,128 +227,138 @@ tbody td { padding: 10px; color: #cbd5e1; vertical-align: middle; }
 <!-- ═══ TAB 1: 폐사 현황 ═══ -->
 <div id="tab-death" class="tab-content active">
 
-<!-- 일자별 비교 -->
 <div class="card">
-  <div class="card-title"><div class="dot" style="background:#ef4444"></div>일자별 폐사 비교 — 돈사 위치별</div>
+  <div class="card-title"><div class="dot" style="background:#ef4444"></div>4월 21일 이후 검증 폐사 추이</div>
   <div class="compare-row">
-    <!-- 4/21 -->
-    <div class="compare-day">
-      <div class="day-label">📅 4월 21일</div>
-      <div class="day-total">8 <span>두</span></div>
-      <div class="mini-bar"><div class="loc">돈공</div><div class="dots"><div class="dots-fill" style="width:100%;background:#7f1d1d;"></div></div><div class="num">3</div></div>
-      <div class="mini-bar"><div class="loc">C동</div><div class="dots"><div class="dots-fill" style="width:100%;background:#7c2d12;"></div></div><div class="num">4</div></div>
-      <div class="mini-bar"><div class="loc">B동</div><div class="dots"><div class="dots-fill" style="width:33%;background:#1e3a5f;"></div></div><div class="num">1</div></div>
-      <div class="mini-bar"><div class="loc">A동</div><div class="dots"><div class="dots-fill" style="width:0%;background:#1e3a5f;"></div></div><div class="num" style="color:#334155">0</div></div>
+    <div class="compare-day" style="border-color:#4ade8044;">
+      <div class="day-label" style="color:#4ade80;">📅 04/22</div>
+      <div class="day-total" style="color:#4ade80;">0 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:0%;background:#4ade80;"></div></div><div class="num">폐사없음</div></div>
     </div>
-    <!-- 화살표 -->
-    <div class="arrow-box"><div class="arrow" style="color:#ef4444">↑</div><div style="font-size:11px;color:#f87171;font-weight:700;background:#7f1d1d33;padding:2px 6px;border-radius:4px;">+87.5%</div></div>
-    <!-- 4/22 -->
-    <div class="compare-day" style="border-color:#7f1d1d44;">
-      <div class="day-label" style="color:#f97316;">📅 4월 22일</div>
-      <div class="day-total" style="color:#ef4444;">15 <span>두</span></div>
-      <div class="mini-bar"><div class="loc">돈공</div><div class="dots"><div class="dots-fill" style="width:60%;background:#7f1d1d;"></div></div><div class="num">3</div></div>
-      <div class="mini-bar"><div class="loc">C동</div><div class="dots"><div class="dots-fill" style="width:80%;background:#7c2d12;"></div></div><div class="num">4</div></div>
-      <div class="mini-bar"><div class="loc">B동</div><div class="dots"><div class="dots-fill" style="width:80%;background:#1e3a5f;"></div></div><div class="num">4</div></div>
-      <div class="mini-bar"><div class="loc" style="color:#f87171;font-weight:700;">A동🆕</div><div class="dots"><div class="dots-fill" style="width:80%;background:#4c1d95;"></div></div><div class="num">4</div></div>
+    <div class="arrow-box"><div class="arrow" style="color:#64748b">→</div></div>
+    <div class="compare-day" style="border-color:#4ade8044;">
+      <div class="day-label" style="color:#4ade80;">📅 04/23</div>
+      <div class="day-total" style="color:#4ade80;">0 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:0%;background:#4ade80;"></div></div><div class="num">폐사없음</div></div>
     </div>
-    <!-- 화살표 -->
-    <div class="arrow-box"><div class="arrow" style="color:#4ade80">↓</div><div style="font-size:11px;color:#4ade80;font-weight:700;background:#14532d33;padding:2px 6px;border-radius:4px;">-80%</div></div>
-    <!-- 4/23 -->
-    <div class="compare-day" style="border-color:#10b98144;">
-      <div class="day-label" style="color:#4ade80;">📅 4월 23일 (오늘)</div>
-      <div class="day-total" style="color:#4ade80;">3 <span>두</span></div>
-      <div class="mini-bar"><div class="loc">C동</div><div class="dots"><div class="dots-fill" style="width:33%;background:#7c2d12;"></div></div><div class="num">1</div></div>
-      <div class="mini-bar"><div class="loc">B동</div><div class="dots"><div class="dots-fill" style="width:67%;background:#1e3a5f;"></div></div><div class="num">2</div></div>
-      <div class="mini-bar"><div class="loc">돈공</div><div class="dots"><div class="dots-fill" style="width:0%;background:#7f1d1d;"></div></div><div class="num" style="color:#334155">0</div></div>
-      <div class="mini-bar"><div class="loc">A동</div><div class="dots"><div class="dots-fill" style="width:0%;background:#4c1d95;"></div></div><div class="num" style="color:#334155">0</div></div>
+    <div class="arrow-box"><div class="arrow" style="color:#64748b">→</div></div>
+    <div class="compare-day" style="border-color:#4ade8044;">
+      <div class="day-label" style="color:#4ade80;">📅 04/24</div>
+      <div class="day-total" style="color:#4ade80;">0 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:0%;background:#4ade80;"></div></div><div class="num">폐사없음</div></div>
+    </div>
+    <div class="arrow-box"><div class="arrow" style="color:#64748b">→</div></div>
+    <div class="compare-day" style="border-color:#f9731644;">
+      <div class="day-label" style="color:#f97316;">📅 04/25</div>
+      <div class="day-total" style="color:#f97316;">3 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:30%;background:#f97316;"></div></div><div class="num">3</div></div>
+    </div>
+    <div class="arrow-box"><div class="arrow" style="color:#64748b">→</div></div>
+    <div class="compare-day" style="border-color:#ef444444;">
+      <div class="day-label" style="color:#ef4444;">📅 04/26</div>
+      <div class="day-total" style="color:#ef4444;">10 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:100%;background:#ef4444;"></div></div><div class="num">10</div></div>
+    </div>
+    <div class="arrow-box"><div class="arrow" style="color:#64748b">→</div></div>
+    <div class="compare-day" style="border-color:#ef444444;">
+      <div class="day-label" style="color:#ef4444;">📅 04/27</div>
+      <div class="day-total" style="color:#ef4444;">9 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:90%;background:#ef4444;"></div></div><div class="num">9</div></div>
+    </div>
+    <div class="arrow-box"><div class="arrow" style="color:#64748b">→</div></div>
+    <div class="compare-day" style="border-color:#4ade8044;">
+      <div class="day-label" style="color:#4ade80;">📅 04/28</div>
+      <div class="day-total" style="color:#4ade80;">0 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:0%;background:#4ade80;"></div></div><div class="num">폐사없음</div></div>
+    </div>
+    <div class="arrow-box"><div class="arrow" style="color:#64748b">→</div></div>
+    <div class="compare-day" style="border-color:#f9731644;">
+      <div class="day-label" style="color:#f97316;">📅 04/30</div>
+      <div class="day-total" style="color:#f97316;">2 <span>두</span></div>
+      <div class="mini-bar"><div class="loc">상태</div><div class="dots"><div class="dots-fill" style="width:20%;background:#f97316;"></div></div><div class="num">2</div></div>
     </div>
   </div>
 </div>
 
-<!-- 오늘 + 어제 상세 -->
-<div class="grid-2">
-  <!-- 오늘 4/23 상세 -->
-  <div class="card">
-    <div class="card-title"><div class="dot" style="background:#4ade80;"></div>4/23 폐사 상세 (총 3두)</div>
-    <table>
-      <thead><tr><th>위치코드</th><th>두수</th><th>돈사구분</th><th>일령</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><span class="badge badge-red">C1</span></td>
-          <td style="color:#f87171;font-weight:700;">1두</td>
-          <td><span class="badge badge-red">비육사후기</span></td>
-          <td style="color:#64748b;">120-180일</td>
-        </tr>
-        <tr>
-          <td><span class="badge badge-blue">B4</span></td>
-          <td style="color:#f87171;font-weight:700;">2두</td>
-          <td><span class="badge badge-red">비육사후기</span></td>
-          <td style="color:#64748b;">120-180일</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- 어제 4/22 상세 -->
-  <div class="card">
-    <div class="card-title"><div class="dot" style="background:#fb923c;"></div>4/22 폐사 상세 (총 15두)</div>
-    <table>
-      <thead><tr><th>위치코드</th><th>두수</th><th>일령</th><th>추정체중</th></tr></thead>
-      <tbody>
-        <tr><td><span class="badge badge-gray">돈공1.2</span></td><td style="color:#fb923c;font-weight:700;">3두</td><td><span class="badge badge-gray">불명</span></td><td style="color:#64748b;">—</td></tr>
-        <tr><td><span class="badge badge-blue">B1.3</span></td><td style="color:#fb923c;font-weight:700;">3두</td><td><span class="badge badge-orange">비육초기</span></td><td style="color:#94a3b8;">30~70kg</td></tr>
-        <tr><td><span class="badge badge-purple">A3.1.4</span></td><td style="color:#fb923c;font-weight:700;">4두</td><td><span class="badge badge-orange">비육초기</span></td><td style="color:#94a3b8;">20~50kg</td></tr>
-        <tr><td><span class="badge badge-red">C3.4</span></td><td style="color:#fb923c;font-weight:700;">4두</td><td><span class="badge badge-red">비육후기</span></td><td style="color:#94a3b8;">70~115kg</td></tr>
-        <tr><td><span class="badge badge-blue">B4.12</span></td><td style="color:#fb923c;font-weight:700;">1두</td><td><span class="badge badge-red">비육후기</span></td><td style="color:#94a3b8;">50~90kg</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- 돈사별 누적 + 특이사항 -->
 <div class="grid-2">
   <div class="card">
-    <div class="card-title"><div class="dot" style="background:#f97316;"></div>돈사별 3일 누적 폐사 (4/21~4/23)</div>
+    <div class="card-title"><div class="dot" style="background:#f97316;"></div>돈사/위치별 누적 폐사</div>
     <div class="bar-row">
-      <div class="bar-label">C동</div>
-      <div class="bar-track"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">9두</div></div>
-      <div class="bar-count" style="color:#f87171;">9</div>
+      <div class="bar-label">B4.7</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">5두</div></div>
+      <div class="bar-count" style="color:#f87171;">5</div>
     </div>
     <div class="bar-row">
-      <div class="bar-label">B동</div>
-      <div class="bar-track"><div class="bar-fill" style="width:61%;background:linear-gradient(90deg,#1e3a5f,#3b82f6);">7두</div></div>
-      <div class="bar-count" style="color:#60a5fa;">7</div>
+      <div class="bar-label">인큐4.2</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">5두</div></div>
+      <div class="bar-count" style="color:#f87171;">5</div>
     </div>
     <div class="bar-row">
-      <div class="bar-label">돈공</div>
-      <div class="bar-track"><div class="bar-fill" style="width:52%;background:linear-gradient(90deg,#7c2d12,#f97316);">6두</div></div>
-      <div class="bar-count" style="color:#fb923c;">6</div>
+      <div class="bar-label">돈궁1.2</div>
+      <div class="bar-track"><div class="bar-fill" style="width:40%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">2두</div></div>
+      <div class="bar-count" style="color:#f87171;">2</div>
     </div>
     <div class="bar-row">
-      <div class="bar-label" style="color:#c4b5fd;">A동</div>
-      <div class="bar-track"><div class="bar-fill" style="width:35%;background:linear-gradient(90deg,#4c1d95,#8b5cf6);">4두</div></div>
-      <div class="bar-count" style="color:#c4b5fd;">4</div>
+      <div class="bar-label">인큐3.2</div>
+      <div class="bar-track"><div class="bar-fill" style="width:40%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">2두</div></div>
+      <div class="bar-count" style="color:#f87171;">2</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">3자돈.1</div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">1두</div></div>
+      <div class="bar-count" style="color:#f87171;">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">3자돈.2</div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">1두</div></div>
+      <div class="bar-count" style="color:#f87171;">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">3자돈.4</div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">1두</div></div>
+      <div class="bar-count" style="color:#f87171;">1</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">A3.2</div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#7f1d1d,#ef4444);">1두</div></div>
+      <div class="bar-count" style="color:#f87171;">1</div>
     </div>
     <div style="margin-top:16px;padding-top:12px;border-top:1px solid #334155;display:flex;justify-content:space-between;font-size:12px;color:#64748b;">
-      <span>3일 합계</span>
-      <span style="color:#f87171;font-weight:700;font-size:16px;">26두</span>
+      <span>검증 합계</span>
+      <span style="color:#f87171;font-weight:700;font-size:16px;">24두</span>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title"><div class="dot" style="background:#f97316;"></div>특이사항 & 예정 작업</div>
+    <div class="card-title"><div class="dot" style="background:#22c55e;"></div>검증 결과 및 오분류 정정</div>
     <div class="alert">
-      <div class="alert-title">✅ 4/23 오늘 폐사 급감</div>
-      <div class="alert-body">15두(4/22) → 3두(4/23) 대폭 감소<br>C1·B4 비육후기 2건. 돈공·A동 폐사 없음</div>
+      <div class="alert-title">✅ 4/22~4/24, 4/28 폐사 없음 반영</div>
+      <div class="alert-body">기존 4/23 기준 정적 수치를 대표 확인 기록으로 교체했습니다.</div>
     </div>
     <div class="alert">
-      <div class="alert-title">⚠️ 4/22 A동 신규 발생 — 경과 주시</div>
-      <div class="alert-body">A3.1.4 4두 비육초기. 사료 과다(nhiều cám) 메모<br>오늘 A동 0두 → 일시 해소. 계속 모니터링 필요</div>
+      <div class="alert-title">⚠️ 이유 오분류 제외</div>
+      <div class="alert-body"><ul><li>2026-04-23: 이유 없음. CHECK wean 2두는 오분류</li><li>2026-04-29: 모돈 도태 5두. 이유 5두가 아님</li></ul></div>
     </div>
     <div class="info-box">
-      <div class="info-title">📅 4/23 도태 예정 — 2두</div>
-      <div class="info-body">148-183: 공태돈 (자궁 농) 도태<br>122-168: 노산돈 (4/14 이유) 도태<br>담당: 신기철 농장장</div>
+      <div class="info-title">📌 데이터 기준</div>
+      <div class="info-body">대표 확인 수기 보정 데이터 · 생성 18:41 · 원천: Codex 2026-05-01 작업기록</div>
     </div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title"><div class="dot" style="background:#3b82f6;"></div>출하 반영</div>
+    <table><thead><tr><th>출하일</th><th>두수</th></tr></thead><tbody><tr><td>2026-04-21</td><td style='color:#60a5fa;font-weight:700;'>40두</td></tr>
+<tr><td>2026-04-23</td><td style='color:#60a5fa;font-weight:700;'>62두</td></tr>
+<tr><td>2026-04-26</td><td style='color:#60a5fa;font-weight:700;'>40두</td></tr>
+<tr><td>2026-04-28</td><td style='color:#60a5fa;font-weight:700;'>40두</td></tr>
+<tr><td>2026-04-29</td><td style='color:#60a5fa;font-weight:700;'>65두</td></tr></tbody></table>
+  </div>
+  <div class="card">
+    <div class="card-title"><div class="dot" style="background:#4ade80;"></div>이유 반영</div>
+    <table><thead><tr><th>일자</th><th>돈사</th><th>모돈/자돈</th></tr></thead><tbody><tr><td>2026-04-20</td><td>5분만사</td><td style='color:#4ade80;font-weight:700;'>18복 / 220두</td></tr>
+<tr><td>2026-04-27</td><td>1분만사</td><td style='color:#4ade80;font-weight:700;'>20복 / 239두</td></tr></tbody></table>
   </div>
 </div>
 
@@ -417,7 +427,7 @@ tbody td { padding: 10px; color: #cbd5e1; vertical-align: middle; }
 
 <div class="footer">
   도방육종 · 도방에너지 | 경남 창녕군 영산면 | 여영성 대표 010-3559-8755<br>
-  데이터: Notion 폐사기록DB · 백신접종DB | 생성: 2026-04-23 KST
+  데이터: Notion 폐사기록DB · 백신접종DB | 갱신: 2026-05-01 KST · 4/21 이후 검증 기록 반영
 </div>
 
 <script>
