@@ -3,157 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>도방육종 군별 현황 대시보드</title>
+<title>도방육종 군별 현황 대시보드 — 2026-05-01</title>
 <style>
-/* ── 다크 테마 변수 (도방 통합대시보드 동일 톤) ── */
-:root {
-  --bg:#0d1117; --surface:#161b22; --surface2:#21262d;
-  --border:#30363d; --text:#e6edf3; --muted:#8b949e;
-  --green:#3fb950; --blue:#58a6ff; --yellow:#d29922;
-  --red:#f85149; --purple:#bc8cff; --orange:#e3b341;
-  --cyan:#79c0ff; --pig:#ff7b72;
-}
+/* ── 기본 ── */
 * { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Segoe UI',"맑은 고딕",sans-serif; font-size:13px; background:var(--bg); color:var(--text); }
+body { font-family:"맑은 고딕","Malgun Gothic",sans-serif; font-size:13px; background:#f0f2f5; color:#222; }
 .page { max-width:1200px; margin:0 auto; padding:16px; }
 
 /* ── 헤더 ── */
-.header { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:16px 24px; border-radius:10px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; }
-.header h1 { font-size:18px; font-weight:700; letter-spacing:-.3px; color:var(--text); }
-.header .meta { font-size:11px; color:var(--muted); text-align:right; line-height:1.6; }
-.header .meta strong { font-size:13px; color:var(--blue); }
+.header { background:linear-gradient(135deg,#1a3a5c 0%,#2d6a9f 100%); color:#fff; padding:20px 24px; border-radius:10px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center; }
+.header h1 { font-size:20px; font-weight:700; letter-spacing:-.3px; }
+.header .meta { font-size:11px; opacity:.8; text-align:right; line-height:1.6; }
+.header .meta strong { font-size:13px; opacity:1; }
 
 /* ── 요약 카드 ── */
-.cards { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:14px; }
+.cards { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:16px; }
 @media(max-width:900px) { .cards { grid-template-columns:repeat(3,1fr); } }
-.card { background:var(--surface); border-radius:10px; padding:14px 16px; border:1px solid var(--border); border-left:4px solid var(--border); }
-.card.total   { border-left-color:var(--blue); }
-.card.beef    { border-left-color:var(--red); }
-.card.jadan   { border-left-color:var(--yellow); }
-.card.incu    { border-left-color:var(--cyan); }
-.card.special { border-left-color:var(--purple); }
-.card.modon   { border-left-color:var(--pig); }
-.card .label  { font-size:10px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
-.card .value  { font-size:26px; font-weight:800; color:var(--text); font-family:monospace; }
-.card .unit   { font-size:12px; color:var(--muted); }
-.card .sub    { font-size:10px; color:var(--muted); margin-top:3px; }
+.card { background:#fff; border-radius:8px; padding:14px 16px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid #ccc; }
+.card.total   { border-color:#1a3a5c; }
+.card.beef    { border-color:#e74c3c; }
+.card.jadan   { border-color:#f39c12; }
+.card.incu    { border-color:#3498db; }
+.card.special { border-color:#9b59b6; }
+.card.modon   { border-color:#e91e8c; }
+.card .label  { font-size:10px; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
+.card .value  { font-size:26px; font-weight:800; color:#1a3a5c; }
+.card .unit   { font-size:12px; color:#666; }
+.card .sub    { font-size:10px; color:#999; margin-top:3px; }
 
-/* ── 모돈 카드 ── */
-.modon-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:14px; }
+/* ── 모돈 테이블 ── */
+.modon-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px; }
 @media(max-width:700px) { .modon-grid { grid-template-columns:1fr 1fr; } }
-.modon-card { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--pig); border-radius:10px; padding:16px 20px; text-align:center; }
-.modon-card.boar { border-top-color:var(--blue); }
-.modon-card .mc-label { font-size:12px; color:var(--muted); font-weight:600; margin-bottom:6px; }
-.modon-card .mc-value { font-size:32px; font-weight:800; color:var(--pig); font-family:monospace; }
-.modon-card.boar .mc-value { color:var(--blue); }
-.modon-card .mc-unit  { font-size:13px; color:var(--muted); }
-.modon-summary-bar { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; margin-bottom:14px; }
+.modon-card { background:#fff; border-radius:8px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-top:3px solid #e91e8c; text-align:center; }
+.modon-card.boar { border-top-color:#1a73e8; }
+.modon-card .mc-label { font-size:12px; color:#888; font-weight:600; margin-bottom:6px; }
+.modon-card .mc-value { font-size:32px; font-weight:800; color:#c2185b; }
+.modon-card.boar .mc-value { color:#1a73e8; }
+.modon-card .mc-unit  { font-size:13px; color:#555; }
+.modon-summary-bar { background:#fff; border-radius:8px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.08); margin-bottom:16px; }
 .modon-bar-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-.modon-bar-label { width:70px; font-size:12px; color:var(--muted); font-weight:600; flex-shrink:0; }
-.modon-bar-track { flex:1; background:var(--surface2); border-radius:6px; height:18px; overflow:hidden; }
+.modon-bar-label { width:70px; font-size:12px; color:#555; font-weight:600; flex-shrink:0; }
+.modon-bar-track { flex:1; background:#f0f2f5; border-radius:6px; height:18px; overflow:hidden; }
 .modon-bar-fill  { height:18px; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:6px; font-size:11px; font-weight:700; color:#fff; }
-.modon-bar-num   { width:50px; text-align:right; font-size:13px; font-weight:700; color:var(--text); }
-.modon-update-note { font-size:11px; color:var(--muted); text-align:right; padding:4px 0 0; }
+.modon-bar-num   { width:50px; text-align:right; font-size:13px; font-weight:700; color:#1a3a5c; }
+.modon-update-note { font-size:11px; color:#aaa; text-align:right; padding: 4px 0 0; }
 
 /* ── 버튼 ── */
 .btn-row { display:flex; gap:8px; margin-bottom:14px; }
-.btn { padding:7px 16px; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600; transition:opacity .15s; }
-.btn-print   { background:var(--blue); color:#000; }
-.btn-expand  { background:var(--green); color:#000; }
-.btn-collapse{ background:var(--surface2); color:var(--text); border:1px solid var(--border); }
-.btn:hover   { opacity:.8; }
+.btn { padding:7px 16px; border:none; border-radius:6px; cursor:pointer; font-size:12px; font-weight:600; }
+.btn-print  { background:#1a3a5c; color:#fff; }
+.btn-expand { background:#27ae60; color:#fff; }
+.btn-collapse{ background:#7f8c8d; color:#fff; }
+.btn:hover  { opacity:.85; }
 
 /* ── 탭 ── */
-.tabs { display:flex; gap:4px; margin-bottom:12px; border-bottom:2px solid var(--border); }
-.tab { padding:8px 18px; cursor:pointer; border-radius:6px 6px 0 0; font-size:13px; font-weight:600; color:var(--muted); border:1px solid transparent; border-bottom:none; transition:all .2s; }
-.tab.active { background:var(--bg); color:var(--blue); border-color:var(--border); margin-bottom:-2px; border-bottom:2px solid var(--bg); }
-.tab:hover:not(.active) { color:var(--text); }
+.tabs { display:flex; gap:4px; margin-bottom:12px; border-bottom:2px solid #ddd; }
+.tab { padding:8px 18px; cursor:pointer; border-radius:6px 6px 0 0; font-size:13px; font-weight:600; color:#666; border:1px solid transparent; border-bottom:none; }
+.tab.active { background:#fff; color:#1a3a5c; border-color:#ddd; margin-bottom:-2px; border-bottom:2px solid #fff; }
 
 /* ── 섹션 ── */
-.section { display:none !important; }
-.section.active { display:block !important; }
+.section { display:none; }
+.section.active { display:block; }
 
 /* ── 테이블 공통 ── */
-.tbl-wrap { background:var(--surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:14px; }
-.tbl-header { padding:12px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); }
-.tbl-title { font-size:14px; font-weight:700; color:var(--text); }
-.tbl-count { font-size:11px; color:var(--muted); }
+.tbl-wrap { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); overflow:hidden; margin-bottom:16px; }
+.tbl-header { padding:12px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; }
+.tbl-title { font-size:14px; font-weight:700; color:#1a3a5c; }
+.tbl-count { font-size:11px; color:#888; }
 table { width:100%; border-collapse:collapse; }
-th { background:var(--surface2); padding:9px 10px; text-align:left; font-size:11px; color:var(--muted); font-weight:600; border-bottom:2px solid var(--border); white-space:nowrap; }
-td { padding:8px 10px; border-bottom:1px solid rgba(48,54,61,.6); vertical-align:middle; color:var(--text); }
+th { background:#f8f9fa; padding:9px 10px; text-align:left; font-size:11px; color:#555; font-weight:600; border-bottom:2px solid #dee2e6; white-space:nowrap; }
+td { padding:8px 10px; border-bottom:1px solid #f0f2f5; vertical-align:middle; }
 tr:last-child td { border-bottom:none; }
-tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
+tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 
 /* ── 숫자/위치 ── */
-.num { text-align:right; font-variant-numeric:tabular-nums; font-family:monospace; }
-.num.big { font-size:15px; font-weight:700; color:var(--cyan); }
-.loc { font-weight:600; color:var(--blue); }
-.gid { display:inline-block; padding:2px 8px; border-radius:4px; background:rgba(88,166,255,.12); color:var(--blue); font-weight:700; font-size:11px; }
-.gid.sp { background:rgba(188,140,255,.12); color:var(--purple); }
-.delta.pos { color:var(--green); font-weight:700; }
-.delta.neg { color:var(--red); font-weight:700; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.num.big { font-size:15px; font-weight:700; color:#1a3a5c; }
+.loc { font-weight:600; color:#2d6a9f; }
+.gid { display:inline-block; padding:2px 8px; border-radius:4px; background:#e8f0fe; color:#1a3a5c; font-weight:700; font-size:11px; }
+.gid.sp { background:#f3e5ff; color:#6a1a9c; }
+.delta.pos { color:#27ae60; font-weight:700; }
+.delta.neg { color:#e74c3c; font-weight:700; }
 
 /* ── 배지 ── */
 .badge { display:inline-block; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:700; }
-.badge.red    { background:rgba(248,81,73,.15); color:var(--red); }
-.badge.orange { background:rgba(227,179,65,.15); color:var(--orange); }
-.badge.gray   { background:rgba(139,148,158,.15); color:var(--muted); }
+.badge.red    { background:#fdecea; color:#c0392b; }
+.badge.orange { background:#fef4e4; color:#d35400; }
+.badge.gray   { background:#f0f2f5; color:#666; }
 
 /* ── 출하임박 행 색상 ── */
-.row-overdue td { background:rgba(248,81,73,.08) !important; }
-.row-urgent td  { background:rgba(227,179,65,.08) !important; }
-.row-soon td    { background:rgba(63,185,80,.05) !important; }
+.row-overdue td { background:#fdecea !important; }
+.row-urgent td  { background:#fff3cd !important; }
+.row-soon td    { background:#fef9e4 !important; }
 
 /* ── 이력 ── */
-.history-row { background:rgba(33,38,45,.8); }
+.history-row { background:#f8faff; }
 .history-box { padding:10px 16px; }
 .hist-table { width:100%; border-collapse:collapse; font-size:12px; }
-.hist-table th { background:var(--surface2); padding:6px 8px; font-size:11px; color:var(--muted); }
-.hist-table td { padding:5px 8px; border-bottom:1px solid var(--border); color:var(--text); }
-.hist-stage { background:rgba(33,38,45,.5); }
-.hist-change { background:rgba(33,38,45,.3); }
-.hist-toggle { color:var(--muted); font-size:12px; text-align:center; }
+.hist-table th { background:#eef2ff; padding:6px 8px; font-size:11px; }
+.hist-table td { padding:5px 8px; border-bottom:1px solid #eee; }
+.hist-stage { background:#f9f9f9; }
+.hist-change { background:#fffcf5; }
+.hist-toggle { color:#999; font-size:12px; text-align:center; }
 .ev-badge { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; font-weight:600; }
-.ev-death { background:rgba(248,81,73,.15); color:var(--red); }
-.ev-ship  { background:rgba(63,185,80,.15); color:var(--green); }
-.ev-move  { background:rgba(88,166,255,.15); color:var(--blue); }
-.ev-fix   { background:rgba(227,179,65,.15); color:var(--yellow); }
-.ev-wean  { background:rgba(255,123,114,.15); color:var(--pig); }
-.ev-vax   { background:rgba(188,140,255,.15); color:var(--purple); }
-.ev-etc   { background:rgba(139,148,158,.15); color:var(--muted); }
+.ev-death { background:#fdecea; color:#c0392b; }
+.ev-ship  { background:#e8f5e9; color:#1b5e20; }
+.ev-move  { background:#e3f2fd; color:#0d47a1; }
+.ev-fix   { background:#fff8e1; color:#e65100; }
+.ev-wean  { background:#fce4ec; color:#880e4f; }
+.ev-vax   { background:#e8eaf6; color:#283593; }
+.ev-etc   { background:#f5f5f5; color:#555; }
 .ev-cell  { white-space:nowrap; }
-
-/* ── 날짜 조회바 ── */
-.query-bar { display:flex; align-items:center; gap:8px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:10px 16px; margin-bottom:12px; flex-wrap:wrap; }
-.qb-label { font-size:12px; font-weight:600; color:var(--muted); white-space:nowrap; }
-#queryDate { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:5px 10px; font-size:13px; color:var(--text); cursor:pointer; }
-#queryDate:focus { outline:none; border-color:var(--blue); }
-.qb-btn { background:var(--blue); color:#000; border:none; border-radius:6px; padding:6px 16px; font-size:12px; font-weight:700; cursor:pointer; }
-.qb-btn:hover { opacity:.85; }
-.qb-btn-today { background:var(--surface2); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:6px 12px; font-size:12px; font-weight:600; cursor:pointer; }
-.qb-btn-today:hover { border-color:var(--blue); color:var(--blue); }
-.qb-status { font-size:11px; color:var(--muted); flex:1; }
-
-/* ── 백신 섹션 ── */
-.section-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
-.section-icon   { font-size:32px; }
-.section-title  { font-size:18px; font-weight:700; color:var(--text); }
-.section-sub    { font-size:13px; color:var(--muted); margin-top:2px; }
-.vax-row { display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(48,54,61,.5); cursor:pointer; border-radius:6px; margin-bottom:1px; transition:background .15s; }
-.vax-row:hover { background:rgba(88,166,255,.06) !important; }
 
 /* ── 인쇄 ── */
 @media print {
-  body { background:#fff; color:#000; font-size:11px; }
+  body { background:#fff; font-size:11px; }
   .no-print { display:none !important; }
   .section { display:block !important; }
   .history-row { display:none !important; }
-  .card { background:#fff !important; border:1px solid #ddd !important; }
-  .tbl-wrap { background:#fff !important; border:1px solid #ddd !important; }
-  th { background:#f5f5f5 !important; color:#000 !important; -webkit-print-color-adjust:exact; }
-  td { color:#000 !important; border-color:#eee !important; }
+  .row-overdue td { background:#fdecea !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .row-urgent  td { background:#fff3cd !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .row-soon    td { background:#fef9e4 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .badge.red    { background:#fdecea !important; color:#c0392b !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .badge.orange { background:#fef4e4 !important; color:#d35400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .cards { grid-template-columns:repeat(6,1fr); }
   .tabs, .btn-row { display:none; }
   .page { max-width:100%; padding:8px; }
+  .header { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .gid { background:#e8f0fe !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   .tbl-wrap { page-break-inside:avoid; }
   @page { margin:1.5cm; size:A4 landscape; }
 }
@@ -169,8 +146,8 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
     <div style="font-size:12px;opacity:.8;margin-top:4px;">두수변동 이력 포함 · 행 클릭 시 이력 펼치기</div>
   </div>
   <div class="meta">
-    <div>조회기준일: <strong id="header-date">2026-04-21</strong></div>
-    <div id="header-status" style="font-size:11px;opacity:.7">사내 서버 연결 중...</div>
+    <div>기준일: <strong>2026-05-01</strong></div>
+    <div>최종업데이트: 2026-05-01 14:11</div>
     <div>총 27군 관리 중</div>
   </div>
 </div>
@@ -178,53 +155,44 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong id="print-date">2026-04-21</strong></div><div id="print-status"></div></div>
-</div>
-
-<!-- 날짜 조회바 -->
-<div class="query-bar no-print">
-  <span class="qb-label">📅 조회 기준일</span>
-  <input type="date" id="queryDate" value="2026-04-21">
-  <button class="qb-btn" onclick="fetchHeadcount()">조회</button>
-  <button class="qb-btn-today" onclick="setToday()">오늘</button>
-  <span id="queryStatus" class="qb-status"></span>
+  <div class="meta"><div>기준일: <strong>2026-05-01</strong></div><div>업데이트: 2026-05-01 14:11</div></div>
 </div>
 
 <!-- 요약 카드 -->
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value" id="val-total">5,072</div>
+    <div class="value">4,487</div>
     <div class="unit">두</div>
-    <div class="sub" id="sub-total">27개 군</div>
+    <div class="sub">27개 군</div>
   </div>
   <div class="card beef">
     <div class="label">🥩 비육사</div>
-    <div class="value" id="val-beef">1,763</div>
+    <div class="value">1,708</div>
     <div class="unit">두</div>
-    <div class="sub" id="sub-beef">12개 군</div>
+    <div class="sub">12개 군</div>
   </div>
   <div class="card jadan">
     <div class="label">🐷 자돈사</div>
-    <div class="value" id="val-jadan">1,469</div>
+    <div class="value">1,467</div>
     <div class="unit">두</div>
-    <div class="sub" id="sub-jadan">8개 군</div>
+    <div class="sub">8개 군</div>
   </div>
   <div class="card incu">
     <div class="label">🍼 인큐베이터</div>
-    <div class="value" id="val-incu">1,056</div>
+    <div class="value">1,053</div>
     <div class="unit">두</div>
-    <div class="sub" id="sub-incu">5개 군</div>
+    <div class="sub">5개 군</div>
   </div>
   <div class="card special">
     <div class="label">🏥 특수관리</div>
-    <div class="value" id="val-special">293</div>
+    <div class="value">259</div>
     <div class="unit">두</div>
-    <div class="sub" id="sub-special">2개 군</div>
+    <div class="sub">2개 군</div>
   </div>
   <div class="card modon">
     <div class="label">🐗 모돈/번식</div>
-    <div class="value" id="val-modon">491</div>
+    <div class="value">491</div>
     <div class="unit">두 <span style="font-size:10px;color:#aaa">(PSY산정)</span></div>
     <div class="sub">후보돈 43두 · 웅돈 7두 별도</div>
   </div>
@@ -245,7 +213,6 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
   <div class="tab" onclick="showTab('special')">🏥 특수관리</div>
   <div class="tab" onclick="showTab('modon')">🐗 모돈/번식</div>
   <div class="tab" onclick="showTab('events')">📋 변동이력</div>
-  <div class="tab" onclick="showTab('vaccine')">💉 백신일정</div>
 </div>
 
 <!-- 비육사 섹션 -->
@@ -253,7 +220,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🥩 비육사 현황 <span style="color:#e74c3c;font-size:12px;">— 출하 임박순 정렬</span></div>
-      <div class="tbl-count">총 1,763두 / 12군</div>
+      <div class="tbl-count">총 1,708두 / 12군</div>
     </div>
     <table>
       <thead>
@@ -275,10 +242,10 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td><span class="gid">G01</span></td>
           <td>10/22</td>
           <td class="loc">A2비육</td>
-          <td class="num big">50두</td>
+          <td class="num big">42두</td>
           <td class="num">180일</td>
           <td class="num">215두</td>
-          <td class="num">23.3%</td>
+          <td class="num">19.5%</td>
           <td><span class="badge red">출하초과</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -374,21 +341,29 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">5두</td>
             <td class="num delta neg">-5</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
+            <td class="num">8두</td>
+            <td class="num delta neg">-8</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
           </td>
         </tr>
 
-        <tr class="row-urgent" onclick="toggleHistory('G02')">
+        <tr class="row-overdue" onclick="toggleHistory('G02')">
           <td><span class="gid">G02</span></td>
           <td>10/29</td>
           <td class="loc">A3비육</td>
-          <td class="num big">65두</td>
+          <td class="num big">63두</td>
           <td class="num">173일</td>
           <td class="num">210두</td>
-          <td class="num">31.0%</td>
-          <td><span class="badge red">D-6</span></td>
+          <td class="num">30.0%</td>
+          <td><span class="badge red">출하초과</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G02" class="history-row" style="display:none">
@@ -467,21 +442,37 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">6두</td>
             <td class="num delta neg">-6</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/26</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
           </td>
         </tr>
 
-        <tr class="row-soon" onclick="toggleHistory('G03')">
+        <tr class="row-overdue" onclick="toggleHistory('G03')">
           <td><span class="gid">G03</span></td>
           <td>11/01</td>
           <td class="loc">A4비육</td>
-          <td class="num big">121두</td>
+          <td class="num big">110두</td>
           <td class="num">170일</td>
           <td class="num">181두</td>
-          <td class="num">66.9%</td>
-          <td><span class="badge orange">D-9</span></td>
+          <td class="num">60.8%</td>
+          <td><span class="badge red">출하초과</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G03" class="history-row" style="display:none">
@@ -560,6 +551,14 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">7두</td>
             <td class="num delta neg">-7</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
+            <td class="num">11두</td>
+            <td class="num delta neg">-11</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -570,11 +569,11 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td><span class="gid">G04</span></td>
           <td>11/13</td>
           <td class="loc">B1비육</td>
-          <td class="num big">165두</td>
+          <td class="num big">146두</td>
           <td class="num">158일</td>
           <td class="num">179두</td>
-          <td class="num">92.2%</td>
-          <td><span class="badge orange">D-21</span></td>
+          <td class="num">81.6%</td>
+          <td><span class="badge orange">D-11</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G04" class="history-row" style="display:none">
@@ -629,6 +628,22 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">165두</td>
             <td class="num delta pos">+165</td>
             <td>전두출하 오입력 취소 → 실제 출하 재반영</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
+            <td class="num">18두</td>
+            <td class="num delta neg">-18</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/01</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -643,7 +658,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td class="num">154일</td>
           <td class="num">134두</td>
           <td class="num">100.0%</td>
-          <td><span class="badge orange">D-25</span></td>
+          <td><span class="badge orange">D-15</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G05" class="history-row" style="display:none">
@@ -688,15 +703,15 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           </td>
         </tr>
 
-        <tr class="" onclick="toggleHistory('G06')">
+        <tr class="row-soon" onclick="toggleHistory('G06')">
           <td><span class="gid">G06</span></td>
           <td>11/26</td>
           <td class="loc">B3비육</td>
-          <td class="num big">152두</td>
+          <td class="num big">139두</td>
           <td class="num">145일</td>
           <td class="num">177두</td>
-          <td class="num">85.9%</td>
-          <td><span class="badge gray">D-34</span></td>
+          <td class="num">78.5%</td>
+          <td><span class="badge orange">D-24</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G06" class="history-row" style="display:none">
@@ -743,13 +758,21 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">5두</td>
             <td>-</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
+            <td class="num">13두</td>
+            <td class="num delta neg">-13</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
           </td>
         </tr>
 
-        <tr class="" onclick="toggleHistory('G07')">
+        <tr class="row-soon" onclick="toggleHistory('G07')">
           <td><span class="gid">G07</span></td>
           <td>12/02</td>
           <td class="loc">A1비육</td>
@@ -757,7 +780,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td class="num">139일</td>
           <td class="num">210두</td>
           <td class="num">83.8%</td>
-          <td><span class="badge gray">D-40</span></td>
+          <td><span class="badge orange">D-30</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G07" class="history-row" style="display:none">
@@ -810,7 +833,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td class="num">132일</td>
           <td class="num">219두</td>
           <td class="num">74.0%</td>
-          <td><span class="badge gray">D-47</span></td>
+          <td><span class="badge gray">D-37</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G08" class="history-row" style="display:none">
@@ -859,11 +882,11 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td><span class="gid">G09</span></td>
           <td>12/20</td>
           <td class="loc">C4비육</td>
-          <td class="num big">163두</td>
+          <td class="num big">162두</td>
           <td class="num">121일</td>
           <td class="num">226두</td>
-          <td class="num">72.1%</td>
-          <td><span class="badge gray">D-58</span></td>
+          <td class="num">71.7%</td>
+          <td><span class="badge gray">D-48</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G09" class="history-row" style="display:none">
@@ -910,6 +933,14 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">1두</td>
             <td class="num delta neg">-1</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/24</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -924,7 +955,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td class="num">116일</td>
           <td class="num">224두</td>
           <td class="num">66.1%</td>
-          <td><span class="badge gray">D-63</span></td>
+          <td><span class="badge gray">D-53</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G10" class="history-row" style="display:none">
@@ -973,11 +1004,11 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td><span class="gid">G11</span></td>
           <td>12/28</td>
           <td class="loc">C1비육</td>
-          <td class="num big">190두</td>
+          <td class="num big">189두</td>
           <td class="num">113일</td>
           <td class="num">177두</td>
           <td class="num">100.0%</td>
-          <td><span class="badge gray">D-66</span></td>
+          <td><span class="badge gray">D-56</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G11" class="history-row" style="display:none">
@@ -1024,6 +1055,14 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">1두</td>
             <td class="num delta neg">-1</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -1038,7 +1077,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td class="num">107일</td>
           <td class="num">222두</td>
           <td class="num">89.6%</td>
-          <td><span class="badge gray">D-72</span></td>
+          <td><span class="badge gray">D-62</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G12" class="history-row" style="display:none">
@@ -1092,7 +1131,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🐷 자돈사 현황</div>
-      <div class="tbl-count">총 1,469두 / 8군</div>
+      <div class="tbl-count">총 1,467두 / 8군</div>
     </div>
     <table>
       <thead>
@@ -1284,7 +1323,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td><span class="gid">G17</span></td>
           <td>02/07</td>
           <td class="loc">8자돈</td>
-          <td class="num big">187두</td>
+          <td class="num big">185두</td>
           <td class="num">72일</td>
           <td>08/06</td>
           <td class="hist-toggle">▼</td>
@@ -1317,6 +1356,14 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">210두</td>
             <td>-</td>
             <td>8자돈사</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/01</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">2두</td>
+            <td class="num delta neg">-2</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -1461,7 +1508,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🍼 인큐베이터 현황</div>
-      <div class="tbl-count">총 1,056두 / 5군</div>
+      <div class="tbl-count">총 1,053두 / 5군</div>
     </div>
     <table>
       <thead>
@@ -1514,7 +1561,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td><span class="gid">G22</span></td>
           <td>03/12</td>
           <td class="loc">인큐2</td>
-          <td class="num big">194두</td>
+          <td class="num big">192두</td>
           <td class="num">39일</td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -1538,6 +1585,14 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">0두</td>
             <td>-</td>
             <td>인큐2호 / 이유일령 20일</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/25</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">2두</td>
+            <td class="num delta neg">-2</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -1548,7 +1603,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td><span class="gid">G23</span></td>
           <td>03/18</td>
           <td class="loc">인큐3</td>
-          <td class="num big">220두</td>
+          <td class="num big">219두</td>
           <td class="num">33일</td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -1572,6 +1627,14 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">0두</td>
             <td>-</td>
             <td>인큐3호 / 이유일령 20일</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/25</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -1655,7 +1718,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🏥 특수관리 현황</div>
-      <div class="tbl-count">총 293두 / 2군</div>
+      <div class="tbl-count">총 259두 / 2군</div>
     </div>
     <table>
       <thead>
@@ -1672,7 +1735,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
         <tr onclick="toggleHistory('SB4')">
           <td><span class="gid sp">SB4</span></td>
           <td class="loc">B4비육</td>
-          <td class="num big">220두</td>
+          <td class="num big">193두</td>
           <td>비육(혼합)</td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -1720,6 +1783,110 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">22두</td>
             <td class="num delta neg">-22</td>
             <td>4/21 출하</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/22</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">2두</td>
+            <td class="num delta neg">-2</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
+            <td class="num">11두</td>
+            <td class="num delta neg">-11</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/24</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/24</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/24</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">2두</td>
+            <td class="num delta neg">-2</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/25</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/25</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/26</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/26</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/26</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">2두</td>
+            <td class="num delta neg">-2</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/27</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">2두</td>
+            <td class="num delta neg">-2</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/01</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -1729,7 +1896,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
         <tr onclick="toggleHistory('SDG')">
           <td><span class="gid sp">SDG</span></td>
           <td class="loc">돈궁</td>
-          <td class="num big">73두</td>
+          <td class="num big">66두</td>
           <td>환돈관리</td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -1761,6 +1928,38 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
             <td class="num">3두</td>
             <td class="num delta neg">-3</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/22</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">3두</td>
+            <td class="num delta neg">-3</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/24</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/26</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">2두</td>
+            <td class="num delta neg">-2</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>04/27</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -1787,8 +1986,8 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
       <div style="font-size:12px;color:#888;margin-top:4px">두 — 생산 미참여, 별도 관리</div>
     </div>
     <div style="flex:1;min-width:150px;background:#e3f2fd;border-radius:10px;padding:14px 20px;border-left:5px solid #1a73e8">
-      <div style="font-size:11px;color:var(--cyan);font-weight:700;margin-bottom:4px">웅돈</div>
-      <div style="font-size:38px;font-weight:800;color:var(--cyan);line-height:1">7</div>
+      <div style="font-size:11px;color:#1565c0;font-weight:700;margin-bottom:4px">웅돈</div>
+      <div style="font-size:38px;font-weight:800;color:#1565c0;line-height:1">7</div>
       <div style="font-size:12px;color:#888;margin-top:4px">두</div>
     </div>
     <div style="flex:1;min-width:150px;background:#f3e5f5;border-radius:10px;padding:14px 20px;border-left:5px solid #9c27b0">
@@ -1806,19 +2005,19 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
     <div style="display:flex;gap:12px;flex-wrap:wrap">
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #e53935;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">PSY <span style="font-size:9px">(출하두수/모돈/년)</span></div>
-        <div style="font-size:32px;font-weight:800;color:#e53935;line-height:1">9.5</div>
+        <div style="font-size:32px;font-weight:800;color:#e53935;line-height:1">7.8</div>
         <div style="font-size:11px;color:#e53935;margin-top:4px">⚠️ 낮음 — 개선 필요</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">업계평균 20~22 / 우수 23+</div>
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #7986cb;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">MSY <span style="font-size:9px">(폐사율 반영)</span></div>
-        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">7.2</div>
-        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 2.03%</div>
+        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">5.4</div>
+        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 2.59%</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">업계평균 18~20 / 우수 21+</div>
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #43a047;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">연간 출하 (365일)</div>
-        <div style="font-size:28px;font-weight:800;color:#388e3c;line-height:1">4,645</div>
+        <div style="font-size:28px;font-weight:800;color:#388e3c;line-height:1">3,844</div>
         <div style="font-size:11px;color:#81c784;margin-top:4px">두</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">모돈 491두 기준</div>
       </div>
@@ -1939,7 +2138,7 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
 
     <div class="tbl-wrap" style="margin-bottom:0">
       <div class="tbl-header" style="background:#e3f2fd">
-        <div class="tbl-title" style="color:var(--cyan)">♂ 웅돈</div>
+        <div class="tbl-title" style="color:#1565c0">♂ 웅돈</div>
         <div class="tbl-count">7두</div>
       </div>
       <table>
@@ -1949,13 +2148,13 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
         </tr></thead>
         <tbody>
           <tr>
-            <td style="font-weight:600;color:var(--cyan)">웅돈사</td>
-            <td class="num big" style="color:var(--cyan)">7두</td>
+            <td style="font-weight:600;color:#1565c0">웅돈사</td>
+            <td class="num big" style="color:#1565c0">7두</td>
             <td colspan="2"></td>
           </tr>
           <tr style="background:#e3f2fd;font-weight:700">
             <td>합계</td>
-            <td class="num big" style="color:var(--cyan)">7두</td>
+            <td class="num big" style="color:#1565c0">7두</td>
             <td colspan="2"></td>
           </tr>
         </tbody>
@@ -1996,6 +2195,354 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
       </thead>
       <tbody>
         
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">G01</span></td>
+          <td>A2비육</td>
+          <td><span class="ev-badge ev-ship">출하</span></td>
+          <td class="num">8두</td>
+          <td class="num">50→42</td>
+          <td class="num delta neg">-8</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">G02</span></td>
+          <td>A3비육</td>
+          <td><span class="ev-badge ev-ship">출하</span></td>
+          <td class="num">1두</td>
+          <td class="num">65→64</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-26</td>
+          <td>14:11</td>
+          <td><span class="gid">G02</span></td>
+          <td>A3비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">64→63</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">G03</span></td>
+          <td>A4비육</td>
+          <td><span class="ev-badge ev-ship">출하</span></td>
+          <td class="num">11두</td>
+          <td class="num">121→110</td>
+          <td class="num delta neg">-11</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">G04</span></td>
+          <td>B1비육</td>
+          <td><span class="ev-badge ev-ship">출하</span></td>
+          <td class="num">18두</td>
+          <td class="num">165→147</td>
+          <td class="num delta neg">-18</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-05-01</td>
+          <td>14:11</td>
+          <td><span class="gid">G04</span></td>
+          <td>B1비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">147→146</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">G06</span></td>
+          <td>B3비육</td>
+          <td><span class="ev-badge ev-ship">출하</span></td>
+          <td class="num">13두</td>
+          <td class="num">152→139</td>
+          <td class="num delta neg">-13</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-24</td>
+          <td>14:11</td>
+          <td><span class="gid">G09</span></td>
+          <td>C4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">163→162</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">G11</span></td>
+          <td>C1비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">190→189</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-05-01</td>
+          <td>14:11</td>
+          <td><span class="gid">G17</span></td>
+          <td>8자돈</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">2두</td>
+          <td class="num">187→185</td>
+          <td class="num delta neg">-2</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-25</td>
+          <td>14:11</td>
+          <td><span class="gid">G22</span></td>
+          <td>인큐2</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">2두</td>
+          <td class="num">194→192</td>
+          <td class="num delta neg">-2</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-25</td>
+          <td>14:11</td>
+          <td><span class="gid">G23</span></td>
+          <td>인큐3</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">220→219</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-22</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">220→219</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">2두</td>
+          <td class="num">219→217</td>
+          <td class="num delta neg">-2</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-23</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-ship">출하</span></td>
+          <td class="num">11두</td>
+          <td class="num">217→206</td>
+          <td class="num delta neg">-11</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-24</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">206→205</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-24</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">205→204</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-24</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">2두</td>
+          <td class="num">204→202</td>
+          <td class="num delta neg">-2</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-25</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">202→201</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-25</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">201→200</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-26</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">200→199</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-26</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">199→198</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-26</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">2두</td>
+          <td class="num">198→196</td>
+          <td class="num delta neg">-2</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-27</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">2두</td>
+          <td class="num">196→194</td>
+          <td class="num delta neg">-2</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-05-01</td>
+          <td>14:11</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">194→193</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-22</td>
+          <td>14:11</td>
+          <td><span class="gid">SDG</span></td>
+          <td>돈궁</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">3두</td>
+          <td class="num">73→70</td>
+          <td class="num delta neg">-3</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-24</td>
+          <td>14:11</td>
+          <td><span class="gid">SDG</span></td>
+          <td>돈궁</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">70→69</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-26</td>
+          <td>14:11</td>
+          <td><span class="gid">SDG</span></td>
+          <td>돈궁</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">2두</td>
+          <td class="num">69→67</td>
+          <td class="num delta neg">-2</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-04-27</td>
+          <td>14:11</td>
+          <td><span class="gid">SDG</span></td>
+          <td>돈궁</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">67→66</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
         <tr>
           <td>2026-04-21</td>
           <td>12:17</td>
@@ -2247,1314 +2794,24 @@ tr:hover:not(.history-row) { background:rgba(255,255,255,.03); cursor:pointer; }
           <td class="num delta neg">-52</td>
           <td></td>
         </tr>
-
-        <tr>
-          <td>2026-04-20</td>
-          <td></td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">245→244</td>
-          <td class="num delta neg">-1</td>
-          <td>4/20 폐사</td>
-        </tr>
-
-        <tr>
-          <td>2026-04-20</td>
-          <td></td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">244→243</td>
-          <td class="num delta neg">-1</td>
-          <td>4/20 폐사</td>
-        </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-
-<!-- ========== 💉 백신일정 섹션 (v3) ========== -->
-<div id="sec-vaccine" class="section">
-  <div class="tbl-wrap" style="padding:16px">
-
-    <!-- 섹션 타이틀 -->
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-      <span style="font-size:28px">💉</span>
-      <div>
-        <div style="font-size:16px;font-weight:700;color:#1a3a5c">백신 접종 일정</div>
-        <div style="font-size:12px;color:#64748b">활성 26군 표시 (출하완료 47군 숨김) · 아파치1 · 구제역1 · 돼지열병1 &nbsp;·&nbsp; 기준일: 2026-04-23</div>
-      </div>
-    </div>
-
-    <!-- KPI 카드 -->
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px">
-      <div style="background:#e8f5e9;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:#2e7d32">13</div>
-        <div style="font-size:11px;color:#555;margin-top:2px">✓ 완료</div>
-      </div>
-      <div style="background:#e3f2fd;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:var(--cyan)">0</div>
-        <div style="font-size:11px;color:#555;margin-top:2px">🕐 진행중</div>
-      </div>
-      <div style="background:#fff3e0;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:#e65100">2</div>
-        <div style="font-size:11px;color:#555;margin-top:2px">🔥 임박(7일)</div>
-      </div>
-      <div style="background:#fdecea;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:#c0392b">5</div>
-        <div style="font-size:11px;color:#555;margin-top:2px">⚠️ 미완료</div>
-      </div>
-      <div style="background:#f5f5f5;border-radius:8px;padding:10px;text-align:center">
-        <div style="font-size:22px;font-weight:800;color:#666">6</div>
-        <div style="font-size:11px;color:#555;margin-top:2px">📅 예정</div>
-      </div>
-    </div>
-
-    <!-- 군별 리스트 -->
-    <div id="vax-group-list">
-
-<!-- 군48 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(48)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군48</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">10/25</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A2</span>
-    <span style="font-size:11px;color:#94a3b8">출하:04/23</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-48" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-48" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/06</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군49 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(49)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군49</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">10/31</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A3</span>
-    <span style="font-size:11px;color:#94a3b8">출하:04/29</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-49" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-49" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/09</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/06</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군50 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(50)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군50</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">11/06</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A4</span>
-    <span style="font-size:11px;color:#94a3b8">출하:05/05</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-50" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-50" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/15</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/13</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/22</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/26</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군51 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(51)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군51</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">11/12</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B1</span>
-    <span style="font-size:11px;color:#94a3b8">출하:05/11</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-51" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-51" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/10</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군52 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(52)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군52</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">11/18</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B2</span>
-    <span style="font-size:11px;color:#94a3b8">출하:05/17</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-52" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-52" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">01/27</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">02/25</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/04</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/10</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군53 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(53)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군53</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">11/24</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">B3</span>
-    <span style="font-size:11px;color:#94a3b8">출하:05/23</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-53" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-53" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/02</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/09</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/10</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군54 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(54)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군54</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">11/30</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">A1</span>
-    <span style="font-size:11px;color:#94a3b8">출하:05/29</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-54" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-54" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/08</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/15</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/16</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/01</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군55 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(55)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군55</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">12/06</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C3</span>
-    <span style="font-size:11px;color:#94a3b8">출하:06/04</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-55" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-55" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/14</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/04</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/16</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/07</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군56 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(56)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군56</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">12/12</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C4</span>
-    <span style="font-size:11px;color:#94a3b8">출하:06/10</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-56" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-56" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/20</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/04</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/27</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/13</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/11</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군57 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(57)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군57</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">12/18</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C5</span>
-    <span style="font-size:11px;color:#94a3b8">출하:06/16</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-57" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-57" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">02/26</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/10</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/19</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/11</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군58 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(58)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군58</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">12/24</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C1</span>
-    <span style="font-size:11px;color:#94a3b8">출하:06/22</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-58" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-58" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/16</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/03</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/25</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/11</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군59 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(59)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군59</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">12/30</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">C2</span>
-    <span style="font-size:11px;color:#94a3b8">출하:06/28</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-59" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-59" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/04</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/31</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군60 -->
-<div class="vax-row" style="background:#fafafa;opacity:0.7;" onclick="toggleVaxDetail(60)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군60</span>
-    <span style="background:#e8f5e9;color:#2e7d32;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">✓ 완료</span>
-    <span style="font-size:11px;color:#888">01/05</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:07/04</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-60" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-60" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">03/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/04</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군61 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(61)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군61</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">01/11</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:07/10</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">돼지열병1 ⚠️04/12</span></span>
-  </div>
-  <span id="vax-arrow-61" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-61" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/22</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/04</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/29</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/23</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군62 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(62)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군62</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">01/17</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:07/16</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">돼지열병1 ⚠️04/18</span></span>
-  </div>
-  <span id="vax-arrow-62" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-62" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">03/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/04</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/24</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군63 -->
-<div class="vax-row" style="background:#fffef0;" onclick="toggleVaxDetail(63)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군63</span>
-    <span style="background:#fff3e0;color:#e65100;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">🔥 임박</span>
-    <span style="font-size:11px;color:#888">01/23</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:07/22</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#e65100">돼지열병1 🔥04/24</span></span>
-  </div>
-  <span id="vax-arrow-63" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-63" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/11</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/24</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#e65100;font-weight:700">🔥 D-1</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군64 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(64)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군64</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">01/29</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:07/28</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">구제역1 ⚠️04/16</span> &nbsp;·&nbsp; <span style="color:#e65100">돼지열병1 🔥04/30</span></span>
-  </div>
-  <span id="vax-arrow-64" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-64" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/09</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/24</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#e65100;font-weight:700">🔥 D-7</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군65 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(65)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군65</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">02/04</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:08/03</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">구제역1 ⚠️04/22</span></span>
-  </div>
-  <span id="vax-arrow-65" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-65" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/15</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#555">04/24</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#2e7d32;font-weight:700">✓ 완료</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/22</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/06</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-13</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군66 -->
-<div class="vax-row" style="background:#fff8f8;" onclick="toggleVaxDetail(66)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군66</span>
-    <span style="background:#fdecea;color:#c0392b;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">⚠️ 미완</span>
-    <span style="font-size:11px;color:#888">02/10</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:08/09</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#c0392b">아파치1 ⚠️04/21</span> &nbsp;·&nbsp; <span style="color:#e65100">구제역1 🔥04/28</span></span>
-  </div>
-  <span id="vax-arrow-66" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-66" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#c0392b;font-weight:700">⚠️ 미접종</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#e65100;font-weight:700">🔥 D-5</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/12</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-19</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군67 -->
-<div class="vax-row" style="background:#fffef0;" onclick="toggleVaxDetail(67)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군67</span>
-    <span style="background:#fff3e0;color:#e65100;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">🔥 임박</span>
-    <span style="font-size:11px;color:#888">02/16</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:08/15</span>
-    <span style="font-size:11px;margin-left:4px"><span style="color:#e65100">아파치1 🔥04/27</span></span>
-  </div>
-  <span id="vax-arrow-67" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-67" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">04/27</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#e65100;font-weight:700">🔥 D-4</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/04</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-11</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/18</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-25</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군68 -->
-<div class="vax-row" style="" onclick="toggleVaxDetail(68)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군68</span>
-    <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
-    <span style="font-size:11px;color:#888">02/22</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:08/21</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-68" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-68" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-10</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/10</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-17</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/24</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-31</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군69 -->
-<div class="vax-row" style="" onclick="toggleVaxDetail(69)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군69</span>
-    <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
-    <span style="font-size:11px;color:#888">02/28</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:08/27</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-69" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-69" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/09</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-16</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/16</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-23</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/30</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-37</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군70 -->
-<div class="vax-row" style="" onclick="toggleVaxDetail(70)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군70</span>
-    <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
-    <span style="font-size:11px;color:#888">03/06</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:09/02</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-70" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-70" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/15</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-22</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/22</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-29</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/05</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-43</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군71 -->
-<div class="vax-row" style="" onclick="toggleVaxDetail(71)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군71</span>
-    <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
-    <span style="font-size:11px;color:#888">03/12</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:09/08</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-71" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-71" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/21</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-28</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/28</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-35</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/11</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-49</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군72 -->
-<div class="vax-row" style="" onclick="toggleVaxDetail(72)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군72</span>
-    <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
-    <span style="font-size:11px;color:#888">03/18</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:09/14</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-72" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-72" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">05/27</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-34</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/03</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-41</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/17</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-55</span></td>
-          </tr></tbody>
-  </table>
-</div>
-
-<!-- 군73 -->
-<div class="vax-row" style="" onclick="toggleVaxDetail(73)">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="gid" style="font-size:13px;min-width:38px">군73</span>
-    <span style="background:#f5f5f5;color:#666;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700">📅 예정</span>
-    <span style="font-size:11px;color:#888">03/24</span>
-    <span style="font-size:11px;color:#2d6a9f;font-weight:600">—</span>
-    <span style="font-size:11px;color:#94a3b8">출하:09/20</span>
-    <span style="font-size:11px;margin-left:4px"></span>
-  </div>
-  <span id="vax-arrow-73" style="color:#aaa;font-size:12px;flex-shrink:0">▼</span>
-</div>
-<div id="vax-detail-73" style="display:none;background:#f8faff;border-left:3px solid #3b82f6;margin:0 0 2px 8px;border-radius:0 8px 8px 0">
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <thead>
-      <tr style="background:#eff6ff">
-        <th style="padding:6px 10px;text-align:left;color:#555">백신</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">예정일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">접종일</th>
-        <th style="padding:6px 10px;text-align:center;color:#555">상태</th>
-      </tr>
-    </thead>
-    <tbody>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">아파치1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/02</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-40</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">구제역1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/09</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-47</span></td>
-          </tr>
-          <tr>
-            <td style="padding:6px 10px;font-weight:600;color:#444">돼지열병1</td>
-            <td style="padding:6px 10px;text-align:center;color:#666">06/23</td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:#aaa">—</span></td>
-            <td style="padding:6px 10px;text-align:center"><span style="color:var(--cyan)">📅 D-61</span></td>
-          </tr></tbody>
-  </table>
-</div>
-    </div>
-  </div>
-</div>
-<!-- ========== /백신일정 ========== -->
-
 <!-- 푸터 -->
 <div style="text-align:center;padding:12px;color:#aaa;font-size:11px;">
-  도방육종 군관리 시스템 · 도비 v6.0 · 2026-04-21 생성
+  도방육종 군관리 시스템 · 도비 v6.0 · 2026-05-01 생성
 </div>
 
 </div><!-- /page -->
 
 <script>
-/* ── 두수 조회 시스템 ── */
-// LAN 내부: 192.168.0.13:5001, 외부: GitHub JSON fallback
-var API_LAN = 'http://192.168.0.13:5001';
-var API  = API_LAN;
-var BASE = '2026-04-21';
-
-function fmt(n) { return Number(n).toLocaleString(); }
-
-function setToday() {
-  var t = new Date();
-  var s = t.getFullYear() + '-' + String(t.getMonth()+1).padStart(2,'0') + '-' + String(t.getDate()).padStart(2,'0');
-  document.getElementById('queryDate').value = s;
-  fetchHeadcount();
-}
-
-function fetchHeadcount() {
-  var date = document.getElementById('queryDate').value;
-  if (!date) return;
-  var statusEl = document.getElementById('queryStatus');
-  statusEl.style.color = '#888';
-  statusEl.textContent = '⏳ 조회 중...';
-
-  fetch(API + '/api/headcount?date=' + date, {signal: AbortSignal.timeout(8000)})
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      // 카드 갱신
-      document.getElementById('val-total').textContent   = fmt(d.current_total);
-      document.getElementById('val-beef').textContent    = fmt(d.sections.beef.count);
-      document.getElementById('val-jadan').textContent   = fmt(d.sections.jadan.count);
-      document.getElementById('val-incu').textContent    = fmt(d.sections.incu.count);
-      document.getElementById('val-special').textContent = fmt(d.sections.special.count);
-      document.getElementById('val-modon').textContent   = fmt(d.sections.modon.count);
-
-      // 전체 카드 서브텍스트 — 변동량 표시
-      var dSign = d.delta <= 0 ? '' : '+';
-      document.getElementById('sub-total').innerHTML =
-        '27개 군 &nbsp;<span style="color:#c0392b;font-size:10px">폐사 -' + d.death_total + '두 · 출하 -' + d.ship_total + '두 (' + BASE + '이후)</span>';
-
-      // 헤더 날짜
-      document.getElementById('header-date').textContent = date;
-      document.getElementById('header-status').textContent = '✅ 실시간 반영됨';
-      if (document.getElementById('print-date')) document.getElementById('print-date').textContent = date;
-
-      // 상태바
-      statusEl.style.color = '#2e7d32';
-      statusEl.textContent = '✅ ' + date + ' 기준 | ' + BASE + ' 대비 ' + (d.delta > 0 ? '+' : '') + d.delta + '두  (폐사 -' + d.death_total + '두 · 출하 -' + d.ship_total + '두)';
-    })
-    .catch(function() {
-      statusEl.style.color = '#e65100';
-      statusEl.textContent = '⚠️ 사내 서버 미연결 — ' + BASE + ' 기준 데이터로 표시 중 (사내 네트워크 접속 시 자동 갱신)';
-      document.getElementById('header-date').textContent = BASE;
-      document.getElementById('header-status').textContent = '⚠️ 오프라인 (4/21 기준)';
-    });
-}
-
-// 페이지 로드 시 오늘 날짜로 자동 조회
-window.addEventListener('load', function() {
-  setToday();
-});
-
 function showTab(name) {
-  document.querySelectorAll('.section').forEach(function(s) {
-    s.classList.remove('active');
-    s.style.display = 'none';
-  });
-  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-  var target = document.getElementById('sec-' + name);
-  if (target) { target.classList.add('active'); target.style.display = 'block'; }
-  if (event && event.target) event.target.classList.add('active');
-}
-
-function toggleVaxDetail(gn) {
-  var detail = document.getElementById('vax-detail-' + gn);
-  var arrow  = document.getElementById('vax-arrow-' + gn);
-  if (!detail) return;
-  if (detail.style.display === 'none' || detail.style.display === '') {
-    detail.style.display = 'block';
-    if (arrow) arrow.textContent = '▲';
-  } else {
-    detail.style.display = 'none';
-    if (arrow) arrow.textContent = '▼';
-  }
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  event.target.classList.add('active');
 }
 
 function toggleHistory(gid) {
