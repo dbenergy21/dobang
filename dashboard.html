@@ -147,7 +147,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="meta">
     <div>기준일: <strong>2026-05-03</strong></div>
-    <div>최종업데이트: 2026-05-03 07:20</div>
+    <div>최종업데이트: 2026-05-03 08:15</div>
     <div>총 28군 관리 중</div>
   </div>
 </div>
@@ -155,28 +155,28 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-05-03</strong></div><div>업데이트: 2026-05-03 07:20</div></div>
+  <div class="meta"><div>기준일: <strong>2026-05-03</strong></div><div>업데이트: 2026-05-03 08:15</div></div>
 </div>
 
 <!-- 요약 카드 -->
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value">4,578</div>
+    <div class="value">4,605</div>
     <div class="unit">두</div>
     <div class="sub">28개 군</div>
   </div>
   <div class="card beef">
     <div class="label">🥩 비육사</div>
-    <div class="value">1,582</div>
+    <div class="value">1,906</div>
     <div class="unit">두</div>
     <div class="sub">12개 군</div>
   </div>
   <div class="card jadan">
     <div class="label">🐷 자돈사</div>
-    <div class="value">1,461</div>
+    <div class="value">1,127</div>
     <div class="unit">두</div>
-    <div class="sub">8개 군</div>
+    <div class="sub">6개 군</div>
   </div>
   <div class="card incu">
     <div class="label">🍼 인큐베이터</div>
@@ -186,7 +186,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="card special">
     <div class="label">🏥 특수관리</div>
-    <div class="value">254</div>
+    <div class="value">291</div>
     <div class="unit">두</div>
     <div class="sub">2개 군</div>
   </div>
@@ -208,7 +208,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 탭 -->
 <div class="tabs no-print">
   <div class="tab active" onclick="showTab('beef')">🥩 비육사 (12)</div>
-  <div class="tab" onclick="showTab('jadan')">🐷 자돈사 (8)</div>
+  <div class="tab" onclick="showTab('jadan')">🐷 자돈사 (6)</div>
   <div class="tab" onclick="showTab('incu')">🍼 인큐 (6)</div>
   <div class="tab" onclick="showTab('special')">🏥 특수관리</div>
   <div class="tab" onclick="showTab('modon')">🐗 모돈/번식</div>
@@ -220,7 +220,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🥩 비육사 현황 <span style="color:#e74c3c;font-size:12px;">— 출하 임박순 정렬</span></div>
-      <div class="tbl-count">총 1,582두 / 12군</div>
+      <div class="tbl-count">총 1,906두 / 12군</div>
     </div>
     <table>
       <thead>
@@ -238,256 +238,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </thead>
       <tbody>
         
-        <tr class="row-overdue" onclick="toggleHistory('G01')">
-          <td><span class="gid">G01</span></td>
-          <td>10/22</td>
-          <td class="loc">A2비육</td>
-          <td class="num big">42두</td>
-          <td class="num">193일</td>
-          <td class="num">215두</td>
-          <td class="num">19.5%</td>
-          <td><span class="badge red">출하초과</span></td>
-          <td class="hist-toggle">▼</td>
-        </tr>
-        <tr id="hist-G01" class="history-row" style="display:none">
-          <td colspan="9">
-            <div class="history-box">
-              <table class="hist-table">
-                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
-                <tbody>
-          <tr class="hist-stage">
-            <td>10/22</td>
-            <td class="ev-cell">🍼 분만</td>
-            <td class="num">215두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>11/12</td>
-            <td class="ev-cell">🐣 인큐입식</td>
-            <td class="num">215두</td>
-            <td>-</td>
-            <td>인큐2호 / 이유일령 21일</td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>12/13</td>
-            <td class="ev-cell">🐷 자돈입식</td>
-            <td class="num">215두</td>
-            <td>-</td>
-            <td>8자돈사</td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>02/07</td>
-            <td class="ev-cell">🥩 비육입식</td>
-            <td class="num">64두</td>
-            <td>-</td>
-            <td>A2비육사</td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>04/20</td>
-            <td class="ev-cell">🚛 출하</td>
-            <td class="num">3두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
-            <td class="num">3두</td>
-            <td class="num delta neg">-3</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">52두</td>
-            <td class="num delta neg">-52</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">5두</td>
-            <td class="num delta pos">+0</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-fix">두수정정(엑셀기준)</span></td>
-            <td class="num">55두</td>
-            <td class="num delta pos">+55</td>
-            <td>엑셀 기준 수기 정정</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하취소(정정)</span></td>
-            <td class="num">55두</td>
-            <td class="num delta pos">+55</td>
-            <td>전두출하 오입력 취소 → 실제 출하 재반영</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">5두</td>
-            <td class="num delta neg">-5</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/23</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">8두</td>
-            <td class="num delta neg">-8</td>
-            <td></td>
-          </tr></tbody>
-              </table>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="row-overdue" onclick="toggleHistory('G02')">
-          <td><span class="gid">G02</span></td>
-          <td>10/29</td>
-          <td class="loc">A3비육</td>
-          <td class="num big">7두</td>
-          <td class="num">186일</td>
-          <td class="num">210두</td>
-          <td class="num">3.3%</td>
-          <td><span class="badge red">출하초과</span></td>
-          <td class="hist-toggle">▼</td>
-        </tr>
-        <tr id="hist-G02" class="history-row" style="display:none">
-          <td colspan="9">
-            <div class="history-box">
-              <table class="hist-table">
-                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
-                <tbody>
-          <tr class="hist-stage">
-            <td>10/29</td>
-            <td class="ev-cell">🍼 분만</td>
-            <td class="num">210두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>11/18</td>
-            <td class="ev-cell">🐣 인큐입식</td>
-            <td class="num">210두</td>
-            <td>-</td>
-            <td>인큐3호 / 이유일령 20일</td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>12/20</td>
-            <td class="ev-cell">🐷 자돈입식</td>
-            <td class="num">210두</td>
-            <td>-</td>
-            <td>1자돈사</td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>02/13</td>
-            <td class="ev-cell">🥩 비육입식</td>
-            <td class="num">99두</td>
-            <td>-</td>
-            <td>A3비육사</td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>04/20</td>
-            <td class="ev-cell">🚛 출하</td>
-            <td class="num">27두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">6두</td>
-            <td class="num delta neg">-6</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-fix">두수정정(엑셀기준)</span></td>
-            <td class="num">6두</td>
-            <td class="num delta pos">+6</td>
-            <td>엑셀 기준 수기 정정</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하취소(정정)</span></td>
-            <td class="num">71두</td>
-            <td class="num delta pos">+71</td>
-            <td>전두출하 오입력 취소 → 실제 출하 재반영</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/21</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">6두</td>
-            <td class="num delta neg">-6</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/23</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">1두</td>
-            <td class="num delta neg">-1</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/26</td>
-            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
-            <td class="num">1두</td>
-            <td class="num delta neg">-1</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/26</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">18두</td>
-            <td class="num delta neg">-18</td>
-            <td>manual_confirm_20260501_v1</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/28</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">13두</td>
-            <td class="num delta neg">-13</td>
-            <td>manual_confirm_20260501_v1</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>04/29</td>
-            <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
-            <td class="num">25두</td>
-            <td class="num delta neg">-25</td>
-            <td>manual_confirm_20260501_v1</td>
-          </tr></tbody>
-              </table>
-            </div>
-          </td>
-        </tr>
-
         <tr class="row-overdue" onclick="toggleHistory('G03')">
           <td><span class="gid">G03</span></td>
           <td>11/01</td>
@@ -787,10 +537,10 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G06</span></td>
           <td>11/26</td>
           <td class="loc">B3비육</td>
-          <td class="num big">115두</td>
+          <td class="num big">134두</td>
           <td class="num">158일</td>
           <td class="num">177두</td>
-          <td class="num">65.0%</td>
+          <td class="num">75.7%</td>
           <td><span class="badge orange">D-22</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -840,6 +590,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td></td>
           </tr>
 
+          <tr class="hist-stage">
+            <td>05/03</td>
+            <td class="ev-cell">📝 비육전입</td>
+            <td class="num">19두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
           <tr class="hist-change">
             <td>04/23</td>
             <td class="ev-cell"><span class="ev-badge ev-ship">출하</span></td>
@@ -862,6 +620,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">21두</td>
             <td class="num delta neg">-21</td>
             <td>manual_confirm_20260501_v1</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/03</td>
+            <td class="ev-cell"><span class="ev-badge ev-etc">비육전입(B3)</span></td>
+            <td class="num">19두</td>
+            <td class="num delta pos">+19</td>
+            <td>A3 residual 19du moved into B3 after shipment opened space.</td>
           </tr></tbody>
               </table>
             </div>
@@ -1233,43 +999,20 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             </div>
           </td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
 
-<!-- 자돈사 섹션 -->
-<div id="sec-jadan" class="section">
-  <div class="tbl-wrap">
-    <div class="tbl-header">
-      <div class="tbl-title">🐷 자돈사 현황</div>
-      <div class="tbl-count">총 1,461두 / 8군</div>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>군ID</th>
-          <th>분만일</th>
-          <th>현재위치</th>
-          <th style="text-align:right">현재두수</th>
-          <th style="text-align:right">현재일령</th>
-          <th>출하예정</th>
-          <th class="no-print">이력</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr onclick="toggleHistory('G13')">
+        <tr class="" onclick="toggleHistory('G13')">
           <td><span class="gid">G13</span></td>
           <td>01/09</td>
-          <td class="loc">4자돈</td>
-          <td class="num big">175두</td>
+          <td class="loc">A2비육</td>
+          <td class="num big">164두</td>
           <td class="num">114일</td>
-          <td>07/08</td>
+          <td class="num">185두</td>
+          <td class="num">88.6%</td>
+          <td><span class="badge gray">D-66</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G13" class="history-row" style="display:none">
-          <td colspan="7">
+          <td colspan="9">
             <div class="history-box">
               <table class="hist-table">
                 <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
@@ -1296,23 +1039,41 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">185두</td>
             <td>-</td>
             <td>4자돈사</td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/03</td>
+            <td class="ev-cell">🥩 비육입식</td>
+            <td class="num">164두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/03</td>
+            <td class="ev-cell"><span class="ev-badge ev-etc">자돈→비육전입(A2)</span></td>
+            <td class="num">164두</td>
+            <td class="num delta neg">-11</td>
+            <td>Representative correction: original chat wrote 3-jadon, but actual source is 4-jadon. 164 healthy pigs moved to A2; 12 sick/small pigs moved to B4.</td>
           </tr></tbody>
               </table>
             </div>
           </td>
         </tr>
 
-        <tr onclick="toggleHistory('G14')">
+        <tr class="" onclick="toggleHistory('G14')">
           <td><span class="gid">G14</span></td>
           <td>01/15</td>
-          <td class="loc">5자돈</td>
-          <td class="num big">159두</td>
+          <td class="loc">A3비육</td>
+          <td class="num big">190두</td>
           <td class="num">108일</td>
-          <td>07/14</td>
+          <td class="num">190두</td>
+          <td class="num">100.0%</td>
+          <td><span class="badge gray">D-72</span></td>
           <td class="hist-toggle">▼</td>
         </tr>
         <tr id="hist-G14" class="history-row" style="display:none">
-          <td colspan="7">
+          <td colspan="9">
             <div class="history-box">
               <table class="hist-table">
                 <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
@@ -1339,12 +1100,53 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">162두</td>
             <td>-</td>
             <td>5자돈사</td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/03</td>
+            <td class="ev-cell">🥩 비육입식</td>
+            <td class="num">190두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/03</td>
+            <td class="ev-cell"><span class="ev-badge ev-etc">자돈→비육전입(A3)</span></td>
+            <td class="num">190두</td>
+            <td class="num delta pos">+31</td>
+            <td>5-jadon 180du plus B4 10 similar-size pigs merged into A3, total 190du. Chat movement count is trusted over stored count.</td>
           </tr></tbody>
               </table>
             </div>
           </td>
         </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
+<!-- 자돈사 섹션 -->
+<div id="sec-jadan" class="section">
+  <div class="tbl-wrap">
+    <div class="tbl-header">
+      <div class="tbl-title">🐷 자돈사 현황</div>
+      <div class="tbl-count">총 1,127두 / 6군</div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>군ID</th>
+          <th>분만일</th>
+          <th>현재위치</th>
+          <th style="text-align:right">현재두수</th>
+          <th style="text-align:right">현재일령</th>
+          <th>출하예정</th>
+          <th class="no-print">이력</th>
+        </tr>
+      </thead>
+      <tbody>
+        
         <tr onclick="toggleHistory('G15')">
           <td><span class="gid">G15</span></td>
           <td>01/21</td>
@@ -1653,6 +1455,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">1두</td>
             <td class="num delta neg">-1</td>
             <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/03</td>
+            <td class="ev-cell"><span class="ev-badge ev-etc">자돈사 전입확인(검증필요)</span></td>
+            <td class="num">194두</td>
+            <td class="num delta pos">+0</td>
+            <td>Chat says 1-incu 194du moved to 3-jadon. State already has 3-jadon 194du, so recorded as final-state confirmation to avoid double count. Source incu index needs confirmation.</td>
           </tr></tbody>
               </table>
             </div>
@@ -1984,7 +1794,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🏥 특수관리 현황</div>
-      <div class="tbl-count">총 254두 / 2군</div>
+      <div class="tbl-count">총 291두 / 2군</div>
     </div>
     <table>
       <thead>
@@ -2001,7 +1811,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         <tr onclick="toggleHistory('SB4')">
           <td><span class="gid sp">SB4</span></td>
           <td class="loc">B4비육</td>
-          <td class="num big">186두</td>
+          <td class="num big">223두</td>
           <td>비육(혼합)</td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -2201,6 +2011,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">14두</td>
             <td class="num delta neg">-14</td>
             <td>manual_confirm_20260501_v1</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/03</td>
+            <td class="ev-cell"><span class="ev-badge ev-move">혼합비육 이동정리</span></td>
+            <td class="num">37두</td>
+            <td class="num delta pos">+37</td>
+            <td>B4 net +37: +23 from A2, +12 from corrected 4-jadon, +12 from A3, -10 merged into A3.</td>
           </tr></tbody>
               </table>
             </div>
@@ -2358,7 +2176,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #7986cb;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">MSY <span style="font-size:9px">(폐사율 반영)</span></div>
         <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">5.5</div>
-        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 2.51%</div>
+        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 2.50%</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">업계평균 18~20 / 우수 21+</div>
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #43a047;box-shadow:0 1px 4px rgba(0,0,0,.08)">
@@ -2541,6 +2359,90 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </thead>
       <tbody>
         
+        <tr>
+          <td>2026-05-03</td>
+          <td>08:15</td>
+          <td><span class="gid">G01</span></td>
+          <td>A2비육</td>
+          <td><span class="ev-badge ev-move">돈군완료(이동정리)</span></td>
+          <td class="num">45두</td>
+          <td class="num">42→0</td>
+          <td class="num delta neg">-42</td>
+          <td>A2 23du to B4, 22du to A3. Chat movement count is trusted; stored count gap remains for later audit.</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-03</td>
+          <td>08:15</td>
+          <td><span class="gid">G02</span></td>
+          <td>A3비육</td>
+          <td><span class="ev-badge ev-move">돈군완료(이동정리)</span></td>
+          <td class="num">31두</td>
+          <td class="num">7→0</td>
+          <td class="num delta neg">-7</td>
+          <td>A3 12du to B4, 19du to B3. Chat movement count is trusted; stored count gap remains for later audit.</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-03</td>
+          <td>08:15</td>
+          <td><span class="gid">G06</span></td>
+          <td>B3비육</td>
+          <td><span class="ev-badge ev-etc">비육전입(B3)</span></td>
+          <td class="num">19두</td>
+          <td class="num">115→134</td>
+          <td class="num delta pos">+19</td>
+          <td>A3 residual 19du moved into B3 after shipment opened space.</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-03</td>
+          <td>08:15</td>
+          <td><span class="gid">G13</span></td>
+          <td>4자돈->A2비육</td>
+          <td><span class="ev-badge ev-etc">자돈→비육전입(A2)</span></td>
+          <td class="num">164두</td>
+          <td class="num">175→164</td>
+          <td class="num delta neg">-11</td>
+          <td>Representative correction: original chat wrote 3-jadon, but actual source is 4-jadon. 164 healthy pigs moved to A2; 12 sick/small pigs moved to B4.</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-03</td>
+          <td>08:15</td>
+          <td><span class="gid">G14</span></td>
+          <td>5자돈/B4->A3비육</td>
+          <td><span class="ev-badge ev-etc">자돈→비육전입(A3)</span></td>
+          <td class="num">190두</td>
+          <td class="num">159→190</td>
+          <td class="num delta pos">+31</td>
+          <td>5-jadon 180du plus B4 10 similar-size pigs merged into A3, total 190du. Chat movement count is trusted over stored count.</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-03</td>
+          <td>08:15</td>
+          <td><span class="gid">G20</span></td>
+          <td>3자돈</td>
+          <td><span class="ev-badge ev-etc">자돈사 전입확인(검증필요)</span></td>
+          <td class="num">194두</td>
+          <td class="num">194→194</td>
+          <td class="num delta pos">+0</td>
+          <td>Chat says 1-incu 194du moved to 3-jadon. State already has 3-jadon 194du, so recorded as final-state confirmation to avoid double count. Source incu index needs confirmation.</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-03</td>
+          <td>08:15</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-move">혼합비육 이동정리</span></td>
+          <td class="num">37두</td>
+          <td class="num">186→223</td>
+          <td class="num delta pos">+37</td>
+          <td>B4 net +37: +23 from A2, +12 from corrected 4-jadon, +12 from A3, -10 merged into A3.</td>
+        </tr>
+
         <tr>
           <td>2026-04-30</td>
           <td>08:20</td>
@@ -3054,90 +2956,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td class="num">11두</td>
           <td class="num">121→110</td>
           <td class="num delta neg">-11</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-04-23</td>
-          <td>14:11</td>
-          <td><span class="gid">G04</span></td>
-          <td>B1비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">18두</td>
-          <td class="num">165→147</td>
-          <td class="num delta neg">-18</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-05-01</td>
-          <td>14:11</td>
-          <td><span class="gid">G04</span></td>
-          <td>B1비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">147→146</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-04-23</td>
-          <td>14:11</td>
-          <td><span class="gid">G06</span></td>
-          <td>B3비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">13두</td>
-          <td class="num">152→139</td>
-          <td class="num delta neg">-13</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-04-24</td>
-          <td>14:11</td>
-          <td><span class="gid">G09</span></td>
-          <td>C4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">163→162</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-04-23</td>
-          <td>14:11</td>
-          <td><span class="gid">G11</span></td>
-          <td>C1비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">190→189</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-05-01</td>
-          <td>14:11</td>
-          <td><span class="gid">G17</span></td>
-          <td>8자돈</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">2두</td>
-          <td class="num">187→185</td>
-          <td class="num delta neg">-2</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-04-25</td>
-          <td>14:11</td>
-          <td><span class="gid">G22</span></td>
-          <td>인큐2</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">2두</td>
-          <td class="num">194→192</td>
-          <td class="num delta neg">-2</td>
           <td></td>
         </tr>
       </tbody>
