@@ -170,7 +170,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="meta">
     <div>기준일: <strong>2026-05-18</strong></div>
-    <div>최종업데이트: 2026-05-18 19:20</div>
+    <div>최종업데이트: 2026-05-18 20:21</div>
     <div>총 29군 관리 중</div>
   </div>
 </div>
@@ -178,14 +178,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-05-18</strong></div><div>업데이트: 2026-05-18 19:20</div></div>
+  <div class="meta"><div>기준일: <strong>2026-05-18</strong></div><div>업데이트: 2026-05-18 20:21</div></div>
 </div>
 
 <!-- 요약 카드 -->
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value">5,080</div>
+    <div class="value">5,079</div>
     <div class="unit">두</div>
     <div class="sub">29개 군 · 번식 533두 · 검증대기 208두</div>
   </div>
@@ -209,7 +209,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="card special">
     <div class="label">🏥 특수관리</div>
-    <div class="value">227</div>
+    <div class="value">226</div>
     <div class="unit">두</div>
     <div class="sub">2개 군</div>
   </div>
@@ -2348,7 +2348,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🏥 특수관리 현황</div>
-      <div class="tbl-count">총 227두 / 2군</div>
+      <div class="tbl-count">총 226두 / 2군</div>
     </div>
     <table>
       <thead>
@@ -2365,7 +2365,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         <tr onclick="toggleHistory('SB4')">
           <td><span class="gid sp">SB4</span></td>
           <td class="loc">B4비육</td>
-          <td class="num big">181두</td>
+          <td class="num big">180두</td>
           <td>비육(혼합)</td>
           <td class="hist-toggle">▼</td>
         </tr>
@@ -2665,6 +2665,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 
           <tr class="hist-change">
             <td>05/17</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta neg">-1</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/18</td>
             <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
             <td class="num">1두</td>
             <td class="num delta neg">-1</td>
@@ -3758,6 +3766,18 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         
         <tr>
           <td>2026-05-18</td>
+          <td>20:21</td>
+          <td><span class="gid">SB4</span></td>
+          <td>B4비육</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">181→180</td>
+          <td class="num delta neg">-1</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>2026-05-18</td>
           <td>18:20</td>
           <td><span class="gid">G21</span></td>
           <td>4자돈</td>
@@ -4342,18 +4362,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td class="num">230→230</td>
           <td class="num delta pos">+0</td>
           <td>군ID순서 점검: G24는 인큐4 유지.</td>
-        </tr>
-
-        <tr>
-          <td>2026-05-09</td>
-          <td>00:10</td>
-          <td><span class="gid">G25</span></td>
-          <td>대기검증</td>
-          <td><span class="ev-badge ev-etc">군ID순서 보정</span></td>
-          <td class="num">220두</td>
-          <td class="num">220→220</td>
-          <td class="num delta pos">+0</td>
-          <td>어제 임시로 4자돈 처리했으나 군ID 순서와 충돌하여 대기검증으로 분리. 실제 위치/역할 추가 확인 필요.</td>
         </tr>
       </tbody>
     </table>
