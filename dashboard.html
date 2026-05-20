@@ -128,6 +128,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 .vax-cell { min-width:118px; line-height:1.35; }
 .vax-name { font-size:11px; font-weight:700; color:#333; margin-bottom:3px; }
 .vax-date { font-size:10px; color:#777; margin-top:3px; }
+.vax-loc-note { font-size:10px; color:#c2410c; font-weight:700; margin-top:2px; }
 .vax-empty { color:#aaa; }
 .vax-pill { display:inline-block; padding:2px 7px; border-radius:10px; font-size:10px; font-weight:800; white-space:nowrap; }
 .vax-pill.overdue { background:#ffebee; color:#c62828; }
@@ -170,7 +171,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="meta">
     <div>기준일: <strong>2026-05-20</strong></div>
-    <div>최종업데이트: 2026-05-20 10:20</div>
+    <div>최종업데이트: 2026-05-20 11:20</div>
     <div>총 29군 관리 중</div>
   </div>
 </div>
@@ -178,7 +179,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-05-20</strong></div><div>업데이트: 2026-05-20 10:20</div></div>
+  <div class="meta"><div>기준일: <strong>2026-05-20</strong></div><div>업데이트: 2026-05-20 11:20</div></div>
 </div>
 
 <!-- 요약 카드 -->
@@ -3158,12 +3159,12 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <div id="sec-vaccine" class="section">
 
 <div class="vax-summary">
-  <div class="vax-card overdue"><div class="vax-k">지연</div><div class="vax-v">13</div></div>
+  <div class="vax-card overdue"><div class="vax-k">지연</div><div class="vax-v">9</div></div>
   <div class="vax-card today"><div class="vax-k">오늘</div><div class="vax-v">0</div></div>
   <div class="vax-card tomorrow"><div class="vax-k">내일</div><div class="vax-v">1</div></div>
   <div class="vax-card soon"><div class="vax-k">7일 이내</div><div class="vax-v">3</div></div>
-  <div class="vax-card future"><div class="vax-k">예정</div><div class="vax-v">10</div></div>
-  <div class="vax-card done"><div class="vax-k">완료</div><div class="vax-v">45</div></div>
+  <div class="vax-card future"><div class="vax-k">예정</div><div class="vax-v">9</div></div>
+  <div class="vax-card done"><div class="vax-k">완료</div><div class="vax-v">50</div></div>
 </div>
 <div class="tbl-wrap">
   <div class="tbl-header">
@@ -3187,58 +3188,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
     <tbody>
       
         <tr>
-          <td><span class="gid">G15</span></td>
-          <td class="num">62</td>
-          <td class="loc">6자돈</td>
-          <td class="num big">163두</td>
-          <td class="num">108일</td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-04</div>
-      </div></td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-06</div>
-      </div></td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill overdue">지연 32일</span></div>
-        <div class="vax-date">예정 2026-04-18</div>
-      </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
-        </tr>
-        <tr>
-          <td><span class="gid">G16</span></td>
-          <td class="num">63</td>
-          <td class="loc">7자돈</td>
-          <td class="num big">190두</td>
-          <td class="num">102일</td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-11</div>
-      </div></td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-06</div>
-      </div></td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill overdue">지연 26일</span></div>
-        <div class="vax-date">예정 2026-04-24</div>
-      </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
-        </tr>
-        <tr>
           <td><span class="gid">G17</span></td>
           <td class="num">64</td>
           <td class="loc">8자돈</td>
@@ -3253,8 +3202,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td>
       <div class="vax-cell">
         <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill overdue">지연 34일</span></div>
-        <div class="vax-date">예정 2026-04-16</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-05-19</div>
       </div></td>
           <td>
       <div class="vax-cell">
@@ -3279,8 +3228,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td>
       <div class="vax-cell">
         <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill overdue">지연 28일</span></div>
-        <div class="vax-date">예정 2026-04-22</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-05-20</div>
       </div></td>
           <td>
       <div class="vax-cell">
@@ -3294,7 +3243,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G19</span></td>
           <td class="num">66</td>
           <td class="loc">2자돈</td>
-          <td class="num big">188두</td>
+          <td class="num big">187두</td>
           <td class="num">78일</td>
           <td>
       <div class="vax-cell">
@@ -3305,8 +3254,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td>
       <div class="vax-cell">
         <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill overdue">지연 22일</span></div>
-        <div class="vax-date">예정 2026-04-28</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-05-19</div>
       </div></td>
           <td>
       <div class="vax-cell">
@@ -3320,7 +3269,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G20</span></td>
           <td class="num">67</td>
           <td class="loc">3자돈</td>
-          <td class="num big">193두</td>
+          <td class="num big">192두</td>
           <td class="num">71일</td>
           <td>
       <div class="vax-cell">
@@ -3337,7 +3286,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td>
       <div class="vax-cell">
         <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill tomorrow">내일</span></div>
+        <div><span class="vax-pill overdue">지연 2일</span></div>
         <div class="vax-date">예정 2026-05-18</div>
       </div></td>
           <td><span class="vax-pill done">매칭</span></td>
@@ -3346,7 +3295,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G21</span></td>
           <td class="num">68</td>
           <td class="loc">4자돈</td>
-          <td class="num big">182두</td>
+          <td class="num big">181두</td>
           <td class="num">65일</td>
           <td>
       <div class="vax-cell">
@@ -3398,7 +3347,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G23</span></td>
           <td class="num">70</td>
           <td class="loc">인큐3</td>
-          <td class="num big">216두</td>
+          <td class="num big">214두</td>
           <td class="num">52일</td>
           <td>
       <div class="vax-cell">
@@ -3429,7 +3378,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td>
       <div class="vax-cell">
         <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill soon">D-1</span></div>
+        <div><span class="vax-pill tomorrow">내일</span></div>
         <div class="vax-date">예정 2026-05-21</div>
       </div></td>
           <td>
@@ -3450,12 +3399,12 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G25</span></td>
           <td class="num">72</td>
           <td class="loc">인큐1</td>
-          <td class="num big">218두</td>
+          <td class="num big">217두</td>
           <td class="num">40일</td>
           <td>
       <div class="vax-cell">
         <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill future">D-7</span></div>
+        <div><span class="vax-pill soon">D-7</span></div>
         <div class="vax-date">예정 2026-05-27</div>
       </div></td>
           <td>
@@ -3476,7 +3425,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G26</span></td>
           <td class="num">73</td>
           <td class="loc">인큐2</td>
-          <td class="num big">234두</td>
+          <td class="num big">233두</td>
           <td class="num">33일</td>
           <td>
       <div class="vax-cell">
@@ -3811,10 +3760,62 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="vax-pill done">매칭</span></td>
         </tr>
         <tr>
+          <td><span class="gid">G15</span></td>
+          <td class="num">62</td>
+          <td class="loc">A4비육<div class="vax-loc-note">대시보드:6자돈</div></td>
+          <td class="num big">162두</td>
+          <td class="num">108일</td>
+          <td>
+      <div class="vax-cell">
+        <div class="vax-name">아파치 1차</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-04-04</div>
+      </div></td>
+          <td>
+      <div class="vax-cell">
+        <div class="vax-name">FMD 구제역 1차</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-05-06</div>
+      </div></td>
+          <td>
+      <div class="vax-cell">
+        <div class="vax-name">HE 돈열단독 1차</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-05-20</div>
+      </div></td>
+          <td><span class="vax-pill done">위치보정</span></td>
+        </tr>
+        <tr>
+          <td><span class="gid">G16</span></td>
+          <td class="num">63</td>
+          <td class="loc">B1비육<div class="vax-loc-note">대시보드:7자돈</div></td>
+          <td class="num big">190두</td>
+          <td class="num">102일</td>
+          <td>
+      <div class="vax-cell">
+        <div class="vax-name">아파치 1차</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-04-11</div>
+      </div></td>
+          <td>
+      <div class="vax-cell">
+        <div class="vax-name">FMD 구제역 1차</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-05-06</div>
+      </div></td>
+          <td>
+      <div class="vax-cell">
+        <div class="vax-name">HE 돈열단독 1차</div>
+        <div><span class="vax-pill done">완료</span></div>
+        <div class="vax-date">실시 2026-05-20</div>
+      </div></td>
+          <td><span class="vax-pill done">위치보정</span></td>
+        </tr>
+        <tr>
           <td><span class="gid">SB4</span></td>
           <td class="num"></td>
           <td class="loc">B4비육</td>
-          <td class="num big">182두</td>
+          <td class="num big">175두</td>
           <td class="num">일</td>
           <td><span class="vax-empty">-</span></td>
           <td><span class="vax-empty">-</span></td>
@@ -3825,7 +3826,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">SDG</span></td>
           <td class="num"></td>
           <td class="loc">돈궁</td>
-          <td class="num big">48두</td>
+          <td class="num big">41두</td>
           <td class="num">일</td>
           <td><span class="vax-empty">-</span></td>
           <td><span class="vax-empty">-</span></td>
