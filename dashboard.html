@@ -212,24 +212,24 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="meta">
     <div>기준일: <strong>2026-06-02</strong></div>
-    <div>최종업데이트: 2026-06-02 사이클110b G15 A4비육 정정</div>
-    <div>총 29군 관리 중</div>
+    <div>최종업데이트: 2026-06-02 사이클112 인큐그룹 생성</div>
+    <div>총 32군 관리 중</div>
   </div>
 </div>
 
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-06-02</strong></div><div>업데이트: 2026-06-02 사이클110b G15 A4비육 정정</div></div>
+  <div class="meta"><div>기준일: <strong>2026-06-02</strong></div><div>업데이트: 2026-06-02 사이클112 인큐그룹 생성</div></div>
 </div>
 
 <!-- 요약 카드 -->
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value">4,402</div>
+    <div class="value">5,016</div>
     <div class="unit">두</div>
-    <div class="sub">29개 군 · 번식 531두 · 검증대기 208두</div>
+    <div class="sub">32개 군 · 번식 531두 · 검증대기 0두</div>
   </div>
   <div class="card beef">
     <div class="label">🥩 비육사</div>
@@ -245,9 +245,9 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="card incu">
     <div class="label">🍼 인큐베이터</div>
-    <div class="value">0</div>
+    <div class="value">822</div>
     <div class="unit">두</div>
-    <div class="sub">0개 군</div>
+    <div class="sub">4개 군</div>
   </div>
   <div class="card special">
     <div class="label">🏥 특수관리</div>
@@ -274,7 +274,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <div class="tabs no-print">
   <div class="tab active" onclick="showTab('beef')">🥩 비육사 (12)</div>
   <div class="tab" onclick="showTab('jadan')">🐷 자돈사 (8)</div>
-  <div class="tab" onclick="showTab('incu')">🍼 인큐 (0)</div>
+  <div class="tab" onclick="showTab('incu')">🍼 인큐 (4)</div>
   <div class="tab" onclick="showTab('special')">🏥 특수관리</div>
   <div class="tab" onclick="showTab('vaccine')">💉 백신관리</div>
   <div class="tab" onclick="showTab('modon')">🐗 모돈/번식</div>
@@ -1949,7 +1949,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         <tr onclick="toggleHistory('G26')">
           <td><span class="gid">G26</span></td>
           <td>04/06</td>
-          <td class="loc">2자돈</td>
+          <td class="loc">1자돈</td>
           <td class="num big">185두</td>
           <td class="num">57일</td>
           <td></td>
@@ -2079,6 +2079,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">185두</td>
             <td class="num delta neg">-48</td>
             <td>cycle110 대표확인 교정: G19와 일시공존(G19 출하대기)</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>06/02</td>
+            <td class="ev-cell"><span class="ev-badge ev-etc">자돈위치 정정(2자돈→1자돈)</span></td>
+            <td class="num">185두</td>
+            <td class="num delta pos">+0</td>
+            <td>cycle112 대표정정: G26은 1자돈</td>
           </tr></tbody>
               </table>
             </div>
@@ -2094,7 +2102,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🍼 인큐베이터 현황</div>
-      <div class="tbl-count">총 0두 / 0군</div>
+      <div class="tbl-count">총 822두 / 4군</div>
     </div>
     <table>
       <thead>
@@ -2109,6 +2117,205 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </thead>
       <tbody>
         
+        <tr onclick="toggleHistory('G27')">
+          <td><span class="gid">G27</span></td>
+          <td>04/17</td>
+          <td class="loc">3인큐</td>
+          <td class="num big">201두</td>
+          <td class="num">46일</td>
+          <td class="hist-toggle">▼</td>
+        </tr>
+        <tr id="hist-G27" class="history-row" style="display:none">
+          <td colspan="6">
+            <div class="history-box">
+              <table class="hist-table">
+                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
+                <tbody>
+          <tr class="hist-stage">
+            <td>05/08</td>
+            <td class="ev-cell">🐣 인큐입식</td>
+            <td class="num">208두</td>
+            <td>-</td>
+            <td>인큐2호 / 이유일령 일</td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/09</td>
+            <td class="ev-cell">🐣 인큐입식</td>
+            <td class="num">208두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/09</td>
+            <td class="ev-cell">📝 검증대기</td>
+            <td class="num">208두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/08</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식)</span></td>
+            <td class="num">208두</td>
+            <td class="num delta pos">+208</td>
+            <td>대표 확인 최종흐름: 2분만사 => 2인큐</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/09</td>
+            <td class="ev-cell"><span class="ev-badge ev-etc">군ID순서 보정</span></td>
+            <td class="num">208두</td>
+            <td class="num delta pos">+0</td>
+            <td>2분만사=>2인큐. 2026-05-04 이유 20복/208두 기준.</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/09</td>
+            <td class="ev-cell"><span class="ev-badge ev-etc">검증대기</span></td>
+            <td class="num">208두</td>
+            <td class="num delta pos">+0</td>
+            <td>G25/G26 인큐 순서 보정으로 G27 인큐2 중복 발생. 실제 2분만사 이유군 연결 확인 전까지 활성 돈사에서 제외.</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/11</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식) 3분만사→3인큐</span></td>
+            <td class="num">201두</td>
+            <td class="num delta pos">+201</td>
+            <td>cycle112 대표확인: 3분만사 이유 201두, 3인큐 확정(기존 검증대기 208두 라벨정정)</td>
+          </tr></tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr onclick="toggleHistory('G28')">
+          <td><span class="gid">G28</span></td>
+          <td>04/23</td>
+          <td class="loc">4인큐</td>
+          <td class="num big">229두</td>
+          <td class="num">40일</td>
+          <td class="hist-toggle">▼</td>
+        </tr>
+        <tr id="hist-G28" class="history-row" style="display:none">
+          <td colspan="6">
+            <div class="history-box">
+              <table class="hist-table">
+                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
+                <tbody>
+          <tr class="hist-stage">
+            <td>04/23</td>
+            <td class="ev-cell">🍼 분만</td>
+            <td class="num">229두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/17</td>
+            <td class="ev-cell">🐣 이유(인큐입식)</td>
+            <td class="num">229두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/17</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식) 4분만사→4인큐</span></td>
+            <td class="num">229두</td>
+            <td class="num delta pos">+229</td>
+            <td>cycle112 대표확인 신규생성: 4분만사 이유 229두</td>
+          </tr></tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr onclick="toggleHistory('G29')">
+          <td><span class="gid">G29</span></td>
+          <td>04/29</td>
+          <td class="loc">1인큐</td>
+          <td class="num big">166두</td>
+          <td class="num">34일</td>
+          <td class="hist-toggle">▼</td>
+        </tr>
+        <tr id="hist-G29" class="history-row" style="display:none">
+          <td colspan="6">
+            <div class="history-box">
+              <table class="hist-table">
+                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
+                <tbody>
+          <tr class="hist-stage">
+            <td>04/29</td>
+            <td class="ev-cell">🍼 분만</td>
+            <td class="num">166두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/23</td>
+            <td class="ev-cell">🐣 이유(인큐입식)</td>
+            <td class="num">166두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식) 5분만사→1인큐</span></td>
+            <td class="num">166두</td>
+            <td class="num delta pos">+166</td>
+            <td>cycle112 대표확인 신규생성: 5분만사 이유 166두</td>
+          </tr></tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr onclick="toggleHistory('G30')">
+          <td><span class="gid">G30</span></td>
+          <td>04/29</td>
+          <td class="loc">2인큐</td>
+          <td class="num big">226두</td>
+          <td class="num">34일</td>
+          <td class="hist-toggle">▼</td>
+        </tr>
+        <tr id="hist-G30" class="history-row" style="display:none">
+          <td colspan="6">
+            <div class="history-box">
+              <table class="hist-table">
+                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
+                <tbody>
+          <tr class="hist-stage">
+            <td>04/29</td>
+            <td class="ev-cell">🍼 분만</td>
+            <td class="num">226두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/23</td>
+            <td class="ev-cell">🐣 이유(인큐입식)</td>
+            <td class="num">226두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/23</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식) 1분만사→2인큐</span></td>
+            <td class="num">226두</td>
+            <td class="num delta pos">+226</td>
+            <td>cycle112 대표확인 신규생성: 1분만사 이유 226두</td>
+          </tr></tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -2804,8 +3011,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #7986cb;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">MSY <span style="font-size:9px">(폐사율 반영)</span></div>
-        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">5.1</div>
-        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 3.20%</div>
+        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">5.5</div>
+        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 2.76%</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">업계평균 18~20 / 우수 21+</div>
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #43a047;box-shadow:0 1px 4px rgba(0,0,0,.08)">
@@ -2979,7 +3186,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <div class="tbl-wrap">
   <div class="tbl-header">
     <div class="tbl-title">💉 백신관리 현황</div>
-    <div class="tbl-count">군 매칭 20/22 · 미매칭 2</div>
+    <div class="tbl-count">군 매칭 20/26 · 미매칭 6</div>
   </div>
   <table>
     <thead>
@@ -3182,7 +3389,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
         <tr>
           <td><span class="gid">G26</span></td>
           <td class="num">73</td>
-          <td class="loc">2자돈</td>
+          <td class="loc">1자돈</td>
           <td class="num big">185두</td>
           <td class="num">33일</td>
           <td>
@@ -3518,6 +3725,50 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="vax-pill done">매칭</span></td>
         </tr>
         <tr>
+          <td><span class="gid">G27</span></td>
+          <td class="num">74</td>
+          <td class="loc">3인큐</td>
+          <td class="num big">201두</td>
+          <td class="num">46일</td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-pill unknown">미매칭</span></td>
+        </tr>
+        <tr>
+          <td><span class="gid">G28</span></td>
+          <td class="num">75</td>
+          <td class="loc">4인큐</td>
+          <td class="num big">229두</td>
+          <td class="num">40일</td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-pill unknown">미매칭</span></td>
+        </tr>
+        <tr>
+          <td><span class="gid">G29</span></td>
+          <td class="num">76</td>
+          <td class="loc">1인큐</td>
+          <td class="num big">166두</td>
+          <td class="num">34일</td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-pill unknown">미매칭</span></td>
+        </tr>
+        <tr>
+          <td><span class="gid">G30</span></td>
+          <td class="num">77</td>
+          <td class="loc">2인큐</td>
+          <td class="num big">226두</td>
+          <td class="num">34일</td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-empty">-</span></td>
+          <td><span class="vax-pill unknown">미매칭</span></td>
+        </tr>
+        <tr>
           <td><span class="gid">SB4</span></td>
           <td class="num"></td>
           <td class="loc">B4비육</td>
@@ -3567,6 +3818,66 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </thead>
       <tbody>
         
+        <tr>
+          <td>2026-06-02</td>
+          <td>(사이클112)</td>
+          <td><span class="gid">G26</span></td>
+          <td>2자돈 → 1자돈</td>
+          <td><span class="ev-badge ev-etc">자돈위치 정정(2자돈→1자돈)</span></td>
+          <td class="num">185두</td>
+          <td class="num">185→185</td>
+          <td class="num delta pos">+0</td>
+          <td>cycle112 대표정정: G26은 1자돈</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-11</td>
+          <td>(사이클112 인큐그룹생성)</td>
+          <td><span class="gid">G27</span></td>
+          <td>검증대기 → 3인큐</td>
+          <td><span class="ev-badge ev-wean">이유(인큐입식) 3분만사→3인큐</span></td>
+          <td class="num">201두</td>
+          <td class="num">0→201</td>
+          <td class="num delta pos">+201</td>
+          <td>cycle112 대표확인: 3분만사 이유 201두, 3인큐 확정(기존 검증대기 208두 라벨정정)</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-17</td>
+          <td>(사이클112 인큐그룹생성)</td>
+          <td><span class="gid">G28</span></td>
+          <td>4분만사 → 4인큐</td>
+          <td><span class="ev-badge ev-wean">이유(인큐입식) 4분만사→4인큐</span></td>
+          <td class="num">229두</td>
+          <td class="num">0→229</td>
+          <td class="num delta pos">+229</td>
+          <td>cycle112 대표확인 신규생성: 4분만사 이유 229두</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-23</td>
+          <td>(사이클112 인큐그룹생성)</td>
+          <td><span class="gid">G29</span></td>
+          <td>5분만사 → 1인큐</td>
+          <td><span class="ev-badge ev-wean">이유(인큐입식) 5분만사→1인큐</span></td>
+          <td class="num">166두</td>
+          <td class="num">0→166</td>
+          <td class="num delta pos">+166</td>
+          <td>cycle112 대표확인 신규생성: 5분만사 이유 166두</td>
+        </tr>
+
+        <tr>
+          <td>2026-05-23</td>
+          <td>(사이클112 인큐그룹생성)</td>
+          <td><span class="gid">G30</span></td>
+          <td>1분만사 → 2인큐</td>
+          <td><span class="ev-badge ev-wean">이유(인큐입식) 1분만사→2인큐</span></td>
+          <td class="num">226두</td>
+          <td class="num">0→226</td>
+          <td class="num delta pos">+226</td>
+          <td>cycle112 대표확인 신규생성: 1분만사 이유 226두</td>
+        </tr>
+
         <tr>
           <td>2026-05-09</td>
           <td>(사이클110b 정정)</td>
@@ -4105,66 +4416,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td class="num">51→21</td>
           <td class="num delta neg">-30</td>
           <td>manual_20260520_representative_shipments 2026-05-19 B3비육 30</td>
-        </tr>
-
-        <tr>
-          <td>2026-05-14</td>
-          <td>12:08</td>
-          <td><span class="gid">G07</span></td>
-          <td>A1비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">15두</td>
-          <td class="num">176→161</td>
-          <td class="num delta neg">-15</td>
-          <td>manual_20260520_representative_shipments 2026-05-14 A1비육 15</td>
-        </tr>
-
-        <tr>
-          <td>2026-05-17</td>
-          <td>12:08</td>
-          <td><span class="gid">G07</span></td>
-          <td>A1비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">14두</td>
-          <td class="num">161→147</td>
-          <td class="num delta neg">-14</td>
-          <td>manual_20260520_representative_shipments 2026-05-17 A1비육 14</td>
-        </tr>
-
-        <tr>
-          <td>2026-05-12</td>
-          <td>12:08</td>
-          <td><span class="gid">G08</span></td>
-          <td>C3비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">7두</td>
-          <td class="num">162→155</td>
-          <td class="num delta neg">-7</td>
-          <td>manual_20260520_representative_shipments 2026-05-12 C3비육 7</td>
-        </tr>
-
-        <tr>
-          <td>2026-05-17</td>
-          <td>12:08</td>
-          <td><span class="gid">G08</span></td>
-          <td>C3비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">25두</td>
-          <td class="num">155→130</td>
-          <td class="num delta neg">-25</td>
-          <td>manual_20260520_representative_shipments 2026-05-17 C3비육 25</td>
-        </tr>
-
-        <tr>
-          <td>2026-05-17</td>
-          <td>12:08</td>
-          <td><span class="gid">G09</span></td>
-          <td>C4비육</td>
-          <td><span class="ev-badge ev-ship">출하</span></td>
-          <td class="num">3두</td>
-          <td class="num">162→159</td>
-          <td class="num delta neg">-3</td>
-          <td>manual_20260520_representative_shipments 2026-05-17 C4비육 3</td>
         </tr>
       </tbody>
     </table>
