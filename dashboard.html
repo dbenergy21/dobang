@@ -138,6 +138,19 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 .vax-pill.future { background:#eceff1; color:#455a64; }
 .vax-pill.done { background:#e8f5e9; color:#2e7d32; }
 .vax-pill.unknown { background:#f5f5f5; color:#777; }
+.vax-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:12px 14px; background:#f8fafc; border-bottom:1px solid #e5e7eb; }
+.vax-toolbar input,.vax-toolbar select { height:30px; border:1px solid #cbd5e1; border-radius:6px; padding:3px 8px; background:#fff; }
+.vax-toolbar button { border:0; border-radius:6px; padding:7px 10px; font-weight:800; cursor:pointer; }
+.vax-primary { background:#1d4ed8; color:#fff; }
+.vax-copy { background:#16a34a; color:#fff; }
+.vax-muted { background:#64748b; color:#fff; }
+.vax-filter-note,.vax-sub,.vax-note,.vax-derived { font-size:11px; color:#64748b; margin-top:3px; }
+.vax-note { color:#b45309; font-weight:700; max-width:190px; }
+.vax-derived { color:#0369a1; }
+.vax-message-box { padding:10px 14px; background:#fff; border-bottom:1px solid #e5e7eb; }
+.vax-message { width:100%; min-height:74px; resize:vertical; border:1px solid #cbd5e1; border-radius:6px; padding:8px; font-family:inherit; }
+.vax-selectline { display:block; margin-top:6px; font-size:11px; color:#0f172a; }
+.vax-complete-row { background:#f8fafc; }
 
 /* ── 인쇄 ── */
 +/* Mobile/remote office view */
@@ -212,24 +225,24 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="meta">
     <div>기준일: <strong>2026-06-28</strong></div>
-    <div>최종업데이트: 2026-06-28 09:34</div>
-    <div>총 32군 관리 중</div>
+    <div>최종업데이트: 2026-06-28 14:32</div>
+    <div>총 36군 관리 중</div>
   </div>
 </div>
 
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-06-28</strong></div><div>업데이트: 2026-06-28 09:34</div></div>
+  <div class="meta"><div>기준일: <strong>2026-06-28</strong></div><div>업데이트: 2026-06-28 14:32</div></div>
 </div>
 
 <!-- 요약 카드 -->
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value">4,117</div>
+    <div class="value">4,779</div>
     <div class="unit">두</div>
-    <div class="sub">32개 군 · 번식 524두 · 검증대기 0두</div>
+    <div class="sub">36개 군 · 번식 524두 · 검증대기 0두</div>
   </div>
   <div class="card beef">
     <div class="label">🥩 비육사</div>
@@ -239,15 +252,15 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="card jadan">
     <div class="label">🐷 자돈사</div>
-    <div class="value">1,109</div>
+    <div class="value">1,304</div>
     <div class="unit">두</div>
-    <div class="sub">6개 군</div>
+    <div class="sub">7개 군</div>
   </div>
   <div class="card incu">
     <div class="label">🍼 인큐베이터</div>
-    <div class="value">430</div>
+    <div class="value">897</div>
     <div class="unit">두</div>
-    <div class="sub">2개 군</div>
+    <div class="sub">4개 군</div>
   </div>
   <div class="card special">
     <div class="label">🏥 특수관리</div>
@@ -273,8 +286,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 탭 -->
 <div class="tabs no-print">
   <div class="tab active" onclick="showTab('beef')">🥩 비육사 (11)</div>
-  <div class="tab" onclick="showTab('jadan')">🐷 자돈사 (6)</div>
-  <div class="tab" onclick="showTab('incu')">🍼 인큐 (2)</div>
+  <div class="tab" onclick="showTab('jadan')">🐷 자돈사 (7)</div>
+  <div class="tab" onclick="showTab('incu')">🍼 인큐 (4)</div>
   <div class="tab" onclick="showTab('special')">🏥 특수관리</div>
   <div class="tab" onclick="showTab('vaccine')">💉 백신관리</div>
   <div class="tab" onclick="showTab('modon')">🐗 모돈/번식</div>
@@ -1448,7 +1461,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🐷 자돈사 현황</div>
-      <div class="tbl-count">총 1,109두 / 6군</div>
+      <div class="tbl-count">총 1,304두 / 7군</div>
     </div>
     <table>
       <thead>
@@ -1924,6 +1937,57 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           </td>
         </tr>
 
+        <tr onclick="toggleHistory('G28')">
+          <td><span class="gid">G28</span></td>
+          <td>04/23</td>
+          <td class="loc">3자돈</td>
+          <td class="num big">195두</td>
+          <td class="num">66일</td>
+          <td>10/20</td>
+          <td class="hist-toggle">▼</td>
+        </tr>
+        <tr id="hist-G28" class="history-row" style="display:none">
+          <td colspan="7">
+            <div class="history-box">
+              <table class="hist-table">
+                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
+                <tbody>
+          <tr class="hist-stage">
+            <td>04/23</td>
+            <td class="ev-cell">🍼 분만</td>
+            <td class="num">229두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-stage">
+            <td>05/17</td>
+            <td class="ev-cell">🐣 이유(인큐입식)</td>
+            <td class="num">229두</td>
+            <td>-</td>
+            <td></td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>05/17</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식) 4분만사→4인큐</span></td>
+            <td class="num">229두</td>
+            <td class="num delta pos">+229</td>
+            <td>cycle112 대표확인 신규생성: 4분만사 이유 229두</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>06/28</td>
+            <td class="ev-cell"><span class="ev-badge ev-move">인큐자돈이동_누락보정</span></td>
+            <td class="num">195두</td>
+            <td class="num delta neg"></td>
+            <td>2026-06-11 msg1490: 4인큐 195->3자돈. Same message then refilled 4인큐 with new G32.</td>
+          </tr></tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+
         <tr onclick="toggleHistory('G29')">
           <td><span class="gid">G29</span></td>
           <td>04/29</td>
@@ -2035,7 +2099,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🍼 인큐베이터 현황</div>
-      <div class="tbl-count">총 430두 / 2군</div>
+      <div class="tbl-count">총 897두 / 4군</div>
     </div>
     <table>
       <thead>
@@ -2050,116 +2114,104 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </thead>
       <tbody>
         
-        <tr onclick="toggleHistory('G27')">
-          <td><span class="gid">G27</span></td>
-          <td>04/17</td>
+        <tr onclick="toggleHistory('G31')">
+          <td><span class="gid">G31</span></td>
+          <td>05/14</td>
           <td class="loc">3인큐</td>
-          <td class="num big">201두</td>
-          <td class="num">72일</td>
+          <td class="num big">224두</td>
+          <td class="num">45일</td>
           <td class="hist-toggle">▼</td>
         </tr>
-        <tr id="hist-G27" class="history-row" style="display:none">
+        <tr id="hist-G31" class="history-row" style="display:none">
           <td colspan="6">
             <div class="history-box">
               <table class="hist-table">
                 <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
                 <tbody>
-          <tr class="hist-stage">
-            <td>05/08</td>
-            <td class="ev-cell">🐣 인큐입식</td>
-            <td class="num">208두</td>
-            <td>-</td>
-            <td>인큐2호 / 이유일령 일</td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>05/09</td>
-            <td class="ev-cell">🐣 인큐입식</td>
-            <td class="num">208두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>05/09</td>
-            <td class="ev-cell">📝 검증대기</td>
-            <td class="num">208두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
           <tr class="hist-change">
-            <td>05/08</td>
-            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식)</span></td>
-            <td class="num">208두</td>
-            <td class="num delta pos">+208</td>
-            <td>대표 확인 최종흐름: 2분만사 => 2인큐</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>05/09</td>
-            <td class="ev-cell"><span class="ev-badge ev-etc">군ID순서 보정</span></td>
-            <td class="num">208두</td>
-            <td class="num delta pos">+0</td>
-            <td>2분만사=>2인큐. 2026-05-04 이유 20복/208두 기준.</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>05/09</td>
-            <td class="ev-cell"><span class="ev-badge ev-etc">검증대기</span></td>
-            <td class="num">208두</td>
-            <td class="num delta pos">+0</td>
-            <td>G25/G26 인큐 순서 보정으로 G27 인큐2 중복 발생. 실제 2분만사 이유군 연결 확인 전까지 활성 돈사에서 제외.</td>
-          </tr>
-
-          <tr class="hist-change">
-            <td>05/11</td>
-            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식) 3분만사→3인큐</span></td>
-            <td class="num">201두</td>
-            <td class="num delta pos">+201</td>
-            <td>cycle112 대표확인: 3분만사 이유 201두, 3인큐 확정(기존 검증대기 208두 라벨정정)</td>
+            <td>06/28</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+            <td class="num">224두</td>
+            <td class="num delta neg"></td>
+            <td>2026-06-04 msg1341: 55+55+55+59=224두, bot stored only 55.</td>
           </tr></tbody>
               </table>
             </div>
           </td>
         </tr>
 
-        <tr onclick="toggleHistory('G28')">
-          <td><span class="gid">G28</span></td>
-          <td>04/23</td>
+        <tr onclick="toggleHistory('G32')">
+          <td><span class="gid">G32</span></td>
+          <td>05/21</td>
           <td class="loc">4인큐</td>
-          <td class="num big">229두</td>
-          <td class="num">66일</td>
+          <td class="num big">218두</td>
+          <td class="num">38일</td>
           <td class="hist-toggle">▼</td>
         </tr>
-        <tr id="hist-G28" class="history-row" style="display:none">
+        <tr id="hist-G32" class="history-row" style="display:none">
           <td colspan="6">
             <div class="history-box">
               <table class="hist-table">
                 <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
                 <tbody>
-          <tr class="hist-stage">
-            <td>04/23</td>
-            <td class="ev-cell">🍼 분만</td>
-            <td class="num">229두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
-          <tr class="hist-stage">
-            <td>05/17</td>
-            <td class="ev-cell">🐣 이유(인큐입식)</td>
-            <td class="num">229두</td>
-            <td>-</td>
-            <td></td>
-          </tr>
-
           <tr class="hist-change">
-            <td>05/17</td>
-            <td class="ev-cell"><span class="ev-badge ev-wean">이유(인큐입식) 4분만사→4인큐</span></td>
-            <td class="num">229두</td>
-            <td class="num delta pos">+229</td>
-            <td>cycle112 대표확인 신규생성: 4분만사 이유 229두</td>
+            <td>06/28</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+            <td class="num">218두</td>
+            <td class="num delta neg"></td>
+            <td>2026-06-11 msg1490: 55+55+55+53=218두, bot stored only 55.</td>
+          </tr></tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr onclick="toggleHistory('G33')">
+          <td><span class="gid">G33</span></td>
+          <td>05/27</td>
+          <td class="loc">1인큐</td>
+          <td class="num big">255두</td>
+          <td class="num">32일</td>
+          <td class="hist-toggle">▼</td>
+        </tr>
+        <tr id="hist-G33" class="history-row" style="display:none">
+          <td colspan="6">
+            <div class="history-box">
+              <table class="hist-table">
+                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
+                <tbody>
+          <tr class="hist-change">
+            <td>06/28</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+            <td class="num">255두</td>
+            <td class="num delta neg"></td>
+            <td>2026-06-17 msg1636: 55+55+55+90=255두, bot stored 145/180 because blank repeated rows were missed.</td>
+          </tr></tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr onclick="toggleHistory('G34')">
+          <td><span class="gid">G34</span></td>
+          <td>06/04</td>
+          <td class="loc">2인큐</td>
+          <td class="num big">200두</td>
+          <td class="num">24일</td>
+          <td class="hist-toggle">▼</td>
+        </tr>
+        <tr id="hist-G34" class="history-row" style="display:none">
+          <td colspan="6">
+            <div class="history-box">
+              <table class="hist-table">
+                <thead><tr><th>날짜</th><th>이벤트</th><th>두수</th><th>변화</th><th>비고</th></tr></thead>
+                <tbody>
+          <tr class="hist-change">
+            <td>06/28</td>
+            <td class="ev-cell"><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+            <td class="num">200두</td>
+            <td class="num delta neg"></td>
+            <td>2026-06-25 msg1855: 50+50+50+50=200두, scheduled 205두; use observed weight rows and flag 5두 gap.</td>
           </tr></tbody>
               </table>
             </div>
@@ -3084,8 +3136,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #7986cb;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">MSY <span style="font-size:9px">(폐사율 반영)</span></div>
-        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">4.6</div>
-        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 3.81%</div>
+        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">5.2</div>
+        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 3.22%</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">업계평균 18~20 / 우수 21+</div>
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #43a047;box-shadow:0 1px 4px rgba(0,0,0,.08)">
@@ -3249,493 +3301,1192 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <div id="sec-vaccine" class="section">
 
 <div class="vax-summary">
-  <div class="vax-card overdue"><div class="vax-k">지연</div><div class="vax-v">3</div></div>
-  <div class="vax-card today"><div class="vax-k">오늘</div><div class="vax-v">0</div></div>
-  <div class="vax-card tomorrow"><div class="vax-k">내일</div><div class="vax-v">0</div></div>
-  <div class="vax-card soon"><div class="vax-k">7일 이내</div><div class="vax-v">0</div></div>
-  <div class="vax-card future"><div class="vax-k">예정</div><div class="vax-v">0</div></div>
-  <div class="vax-card done"><div class="vax-k">완료</div><div class="vax-v">42</div></div>
+  <div class="vax-card overdue"><div class="vax-k">??</div><div class="vax-v">77</div></div>
+  <div class="vax-card today"><div class="vax-k">??</div><div class="vax-v">0</div></div>
+  <div class="vax-card tomorrow"><div class="vax-k">??</div><div class="vax-v">1</div></div>
+  <div class="vax-card soon"><div class="vax-k">7? ??</div><div class="vax-v">2</div></div>
+  <div class="vax-card future"><div class="vax-k">??</div><div class="vax-v">22</div></div>
+  <div class="vax-card done"><div class="vax-k">??</div><div class="vax-v">0</div></div>
 </div>
 <div class="tbl-wrap">
   <div class="tbl-header">
-    <div class="tbl-title">💉 백신관리 현황</div>
-    <div class="tbl-count">군 매칭 15/21 · 미매칭 6</div>
+    <div class="tbl-title">?? ?? ???? <span style="color:#e74c3c;font-size:12px;">? ??? ?? ?? / ????</span></div>
+    <div class="tbl-count" id="vax-count-label">??? 22? ? ???? 12?</div>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>군ID</th>
-        <th style="text-align:right">백신표 군번호</th>
-        <th>현재위치</th>
-        <th style="text-align:right">현재두수</th>
-        <th style="text-align:right">일령</th>
-        <th>아파치 1차</th>
-        <th>FMD 구제역 1차</th>
-        <th>HE 돈열단독 1차</th>
-        <th>매칭</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-        <tr>
-          <td><span class="gid">G17</span></td>
-          <td class="num">64</td>
-          <td class="loc">B2</td>
-          <td class="num big">168두</td>
-          <td class="num">141일</td>
+  <div class="vax-toolbar no-print">
+    <label>??? <input type="date" id="vaxTargetDate"></label>
+    <button class="vax-primary" type="button" onclick="selectVaccinesByDate()">??? ?? ????</button>
+    <button class="vax-copy" type="button" onclick="buildVaccineMessage()">???? ??</button>
+    <button class="vax-muted" type="button" onclick="copyVaccineMessage()">??</button>
+    <label><input type="checkbox" id="vaxShowComplete" onchange="renderVaccineDashboard()"> ??? ??? ??</label>
+    <select id="vaxStatusFilter" onchange="renderVaccineDashboard()">
+      <option value="active">???/?? ??</option>
+      <option value="all">?? ??</option>
+      <option value="week">????</option>
+      <option value="overdue">?????</option>
+      <option value="matched">????</option>
+    </select>
+    <span class="vax-filter-note">???? ?? ??, ???? ????/????? ??</span>
+  </div>
+  <div class="vax-message-box no-print"><textarea id="vaxMessage" class="vax-message" placeholder="??? ?? ???? ???? ??? ??? ???? ?? ??? ??????."></textarea></div>
+  <table id="vaxTable">
+    <thead><tr><th>?ID</th><th>??</th><th>????</th><th style="text-align:right">????</th><th style="text-align:right">??</th><th>??? 1?</th><th>FMD ??? 1?</th><th>HE ???? 1?</th><th>??</th></tr></thead>
+    <tbody id="vaxBody">
+        <tr class="vax-complete-row" data-gid="G01" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="48" data-matched="true">
+          <td><span class="gid">G01</span><div class="vax-sub">??? 48??</div></td>
+          <td>완료</td>
+          <td>완료돈군</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">249?<br><small>?? 2025-10-22</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2025-12-31">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 179?</span></div>
+        <div class="vax-date">?? 2025-12-31<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G01" data-group="48" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-19</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-07">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 172?</span></div>
+        <div class="vax-date">?? 2026-01-07<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G01" data-group="48" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill overdue">지연 59일</span></div>
-        <div class="vax-date">예정 2026-04-30</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-21">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 158?</span></div>
+        <div class="vax-date">?? 2026-01-21<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G01" data-group="48" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G26</span></td>
-          <td class="num">73</td>
-          <td class="loc">A1</td>
-          <td class="num big">148두</td>
-          <td class="num">83일</td>
+        <tr class="vax-complete-row" data-gid="G02" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="49" data-matched="true">
+          <td><span class="gid">G02</span><div class="vax-sub">??? 49??</div></td>
+          <td>완료</td>
+          <td>완료돈군</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">242?<br><small>?? 2025-10-29</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-13</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-07">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 172?</span></div>
+        <div class="vax-date">?? 2026-01-07<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G02" data-group="49" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill overdue">지연 19일</span></div>
-        <div class="vax-date">예정 2026-06-09</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-14">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 165?</span></div>
+        <div class="vax-date">?? 2026-01-14<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G02" data-group="49" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill overdue">지연 5일</span></div>
-        <div class="vax-date">예정 2026-06-23</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-28">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 151?</span></div>
+        <div class="vax-date">?? 2026-01-28<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G02" data-group="49" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G12</span></td>
-          <td class="num">59</td>
-          <td class="loc">C2비육</td>
-          <td class="num big">196두</td>
-          <td class="num">176일</td>
+        <tr class="vax-complete-row" data-gid="G03" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="50" data-matched="true">
+          <td><span class="gid">G03</span><div class="vax-sub">??? 50??</div></td>
+          <td>완료</td>
+          <td>완료돈군</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">239?<br><small>?? 2025-11-01</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-03-23</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-10">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 169?</span></div>
+        <div class="vax-date">?? 2026-01-10<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G03" data-group="50" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-04</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-17">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 162?</span></div>
+        <div class="vax-date">?? 2026-01-17<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G03" data-group="50" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-23</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-31">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 148?</span></div>
+        <div class="vax-date">?? 2026-01-31<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G03" data-group="50" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G13</span></td>
-          <td class="num">60</td>
-          <td class="loc">A2비육</td>
-          <td class="num big">160두</td>
-          <td class="num">170일</td>
+        <tr class="vax-complete-row" data-gid="G04" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="51" data-matched="true">
+          <td><span class="gid">G04</span><div class="vax-sub">??? 51??</div></td>
+          <td>완료</td>
+          <td>완료돈군</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">227?<br><small>?? 2025-11-13</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-03-23</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-22">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 157?</span></div>
+        <div class="vax-date">?? 2026-01-22<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G04" data-group="51" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-04</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-29">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 150?</span></div>
+        <div class="vax-date">?? 2026-01-29<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G04" data-group="51" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-23</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-12">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 136?</span></div>
+        <div class="vax-date">?? 2026-02-12<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G04" data-group="51" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G14</span></td>
-          <td class="num">61</td>
-          <td class="loc">A3비육</td>
-          <td class="num big">185두</td>
-          <td class="num">164일</td>
+        <tr class="vax-complete-row" data-gid="G05" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="52" data-matched="true">
+          <td><span class="gid">G05</span><div class="vax-sub">??? 52??</div></td>
+          <td>완료</td>
+          <td>완료돈군</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">223?<br><small>?? 2025-11-17</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-04</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-01-26">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 153?</span></div>
+        <div class="vax-date">?? 2026-01-26<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G05" data-group="52" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-23</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-02">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 146?</span></div>
+        <div class="vax-date">?? 2026-02-02<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G05" data-group="52" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-16">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 132?</span></div>
+        <div class="vax-date">?? 2026-02-16<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G05" data-group="52" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G15</span></td>
-          <td class="num">62</td>
-          <td class="loc">A4비육</td>
-          <td class="num big">161두</td>
-          <td class="num">158일</td>
+        <tr class="vax-complete-row" data-gid="G06" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="53" data-matched="true">
+          <td><span class="gid">G06</span><div class="vax-sub">??? 53??</div></td>
+          <td>완료</td>
+          <td>완료돈군</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">214?<br><small>?? 2025-11-26</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-04</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-04">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 144?</span></div>
+        <div class="vax-date">?? 2026-02-04<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G06" data-group="53" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-11">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 137?</span></div>
+        <div class="vax-date">?? 2026-02-11<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G06" data-group="53" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-20</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-25">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 123?</span></div>
+        <div class="vax-date">?? 2026-02-25<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G06" data-group="53" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G16</span></td>
-          <td class="num">63</td>
-          <td class="loc">B1비육<div class="vax-loc-note">대시보드:B1</div></td>
-          <td class="num big">183두</td>
-          <td class="num">152일</td>
+        <tr class="vax-complete-row" data-gid="G07" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="54" data-matched="true">
+          <td><span class="gid">G07</span><div class="vax-sub">??? 54??</div></td>
+          <td>완료</td>
+          <td>출하완료</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">208?<br><small>?? 2025-12-02</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-04-11</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-10">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 138?</span></div>
+        <div class="vax-date">?? 2026-02-10<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G07" data-group="54" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-17">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 131?</span></div>
+        <div class="vax-date">?? 2026-02-17<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G07" data-group="54" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-20</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-03">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 117?</span></div>
+        <div class="vax-date">?? 2026-03-03<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G07" data-group="54" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">위치보정</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G18</span></td>
-          <td class="num">65</td>
-          <td class="loc">B3</td>
-          <td class="num big">184두</td>
-          <td class="num">133일</td>
+        <tr class="vax-complete-row" data-gid="G08" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="55" data-matched="true">
+          <td><span class="gid">G08</span><div class="vax-sub">??? 55??</div></td>
+          <td>완료</td>
+          <td>출하완료</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">201?<br><small>?? 2025-12-09</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-07</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-17">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 131?</span></div>
+        <div class="vax-date">?? 2026-02-17<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G08" data-group="55" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-20</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-24">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 124?</span></div>
+        <div class="vax-date">?? 2026-02-24<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G08" data-group="55" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-26</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-10">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 110?</span></div>
+        <div class="vax-date">?? 2026-03-10<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G08" data-group="55" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G19</span></td>
-          <td class="num">66</td>
-          <td class="loc">nursery2</td>
-          <td class="num big">185두</td>
-          <td class="num">128일</td>
+        <tr class="vax-complete-row" data-gid="G09" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="56" data-matched="true">
+          <td><span class="gid">G09</span><div class="vax-sub">??? 56??</div></td>
+          <td>완료</td>
+          <td>출하완료</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">190?<br><small>?? 2025-12-20</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-07</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-02-28">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 120?</span></div>
+        <div class="vax-date">?? 2026-02-28<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G09" data-group="56" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-26</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-07">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 113?</span></div>
+        <div class="vax-date">?? 2026-03-07<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G09" data-group="56" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-26</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-21">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 99?</span></div>
+        <div class="vax-date">?? 2026-03-21<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G09" data-group="56" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G20</span></td>
-          <td class="num">67</td>
-          <td class="loc">C3</td>
-          <td class="num big">190두</td>
-          <td class="num">121일</td>
+        <tr class="vax-complete-row" data-gid="G10" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="57" data-matched="true">
+          <td><span class="gid">G10</span><div class="vax-sub">??? 57??</div></td>
+          <td>완료</td>
+          <td>출하완료</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">185?<br><small>?? 2025-12-25</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-07</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-05">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 115?</span></div>
+        <div class="vax-date">?? 2026-03-05<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G10" data-group="57" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-26</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-12">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 108?</span></div>
+        <div class="vax-date">?? 2026-03-12<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G10" data-group="57" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-26">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 94?</span></div>
+        <div class="vax-date">?? 2026-03-26<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G10" data-group="57" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G21</span></td>
-          <td class="num">68</td>
-          <td class="loc">C4</td>
-          <td class="num big">180두</td>
-          <td class="num">115일</td>
+        <tr class="vax-complete-row" data-gid="G11" data-complete="true" data-statuses="overdue,overdue,overdue" data-group-no="58" data-matched="true">
+          <td><span class="gid">G11</span><div class="vax-sub">??? 58??</div></td>
+          <td>완료</td>
+          <td>출하완료</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">182?<br><small>?? 2025-12-28</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-07</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-08">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 112?</span></div>
+        <div class="vax-date">?? 2026-03-08<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G11" data-group="58" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-01</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-15">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 105?</span></div>
+        <div class="vax-date">?? 2026-03-15<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G11" data-group="58" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-29">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 91?</span></div>
+        <div class="vax-date">?? 2026-03-29<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G11" data-group="58" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill done">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G22</span></td>
-          <td class="num">69</td>
-          <td class="loc">C5</td>
-          <td class="num big">180두</td>
-          <td class="num">108일</td>
+        <tr class="vax-active-row" data-gid="G12" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="59" data-matched="true">
+          <td><span class="gid">G12</span><div class="vax-sub">??? 59??</div></td>
+          <td>비육</td>
+          <td>C2비육</td>
+          <td style="text-align:right"><b>196?</b></td>
+          <td style="text-align:right">176?<br><small>?? 2026-01-03</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-05-26</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-14">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 106?</span></div>
+        <div class="vax-date">?? 2026-03-14<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G12" data-group="59" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-01</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-21">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 99?</span></div>
+        <div class="vax-date">?? 2026-03-21<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G12" data-group="59" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-13</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-04">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 85?</span></div>
+        <div class="vax-date">?? 2026-04-04<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G12" data-group="59" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G23</span></td>
-          <td class="num">70</td>
-          <td class="loc">6자돈</td>
-          <td class="num big">198두</td>
-          <td class="num">102일</td>
+        <tr class="vax-active-row" data-gid="G13" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="60" data-matched="true">
+          <td><span class="gid">G13</span><div class="vax-sub">??? 60??</div></td>
+          <td>비육</td>
+          <td>A2비육</td>
+          <td style="text-align:right"><b>160?</b></td>
+          <td style="text-align:right">170?<br><small>?? 2026-01-09</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-01</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-20">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 100?</span></div>
+        <div class="vax-date">?? 2026-03-20<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G13" data-group="60" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-27">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 93?</span></div>
+        <div class="vax-date">?? 2026-03-27<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G13" data-group="60" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-13</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-10">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 79?</span></div>
+        <div class="vax-date">?? 2026-04-10<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G13" data-group="60" data-key="he1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G24</span></td>
-          <td class="num">71</td>
-          <td class="loc">nursery7</td>
-          <td class="num big">180두</td>
-          <td class="num">95일</td>
+        <tr class="vax-active-row" data-gid="G14" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="61" data-matched="true">
+          <td><span class="gid">G14</span><div class="vax-sub">??? 61??</div></td>
+          <td>비육</td>
+          <td>A3비육</td>
+          <td style="text-align:right"><b>185?</b></td>
+          <td style="text-align:right">164?<br><small>?? 2026-01-15</small></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-01</div>
-      </div></td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-20</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-03-26">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 94?</span></div>
+        <div class="vax-date">?? 2026-03-26<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G14" data-group="61" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-13</div>
-      </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
-        </tr>
-        <tr>
-          <td><span class="gid">G25</span></td>
-          <td class="num">72</td>
-          <td class="loc">nursery8</td>
-          <td class="num big">196두</td>
-          <td class="num">90일</td>
-          <td>
-      <div class="vax-cell">
-        <div class="vax-name">아파치 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-06</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-02">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 87?</span></div>
+        <div class="vax-date">?? 2026-04-02<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G14" data-group="61" data-key="fmd1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">FMD 구제역 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-20</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-16">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 73?</span></div>
+        <div class="vax-date">?? 2026-04-16<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G14" data-group="61" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G15" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="62" data-matched="true">
+          <td><span class="gid">G15</span><div class="vax-sub">??? 62??</div></td>
+          <td>비육</td>
+          <td>A4비육</td>
+          <td style="text-align:right"><b>161?</b></td>
+          <td style="text-align:right">158?<br><small>?? 2026-01-21</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-01">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 88?</span></div>
+        <div class="vax-date">?? 2026-04-01<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G15" data-group="62" data-key="apache1"> ?? ??</label>
       </div></td>
           <td>
-      <div class="vax-cell">
-        <div class="vax-name">HE 돈열단독 1차</div>
-        <div><span class="vax-pill done">완료</span></div>
-        <div class="vax-date">실시 2026-06-26</div>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-08">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 81?</span></div>
+        <div class="vax-date">?? 2026-04-08<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G15" data-group="62" data-key="fmd1"> ?? ??</label>
       </div></td>
-          <td><span class="vax-pill done">매칭</span></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-22">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 67?</span></div>
+        <div class="vax-date">?? 2026-04-22<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G15" data-group="62" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G27</span></td>
-          <td class="num">74</td>
-          <td class="loc">3인큐</td>
-          <td class="num big">201두</td>
-          <td class="num">72일</td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-pill unknown">미매칭</span></td>
+        <tr class="vax-active-row" data-gid="G16" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="63" data-matched="true">
+          <td><span class="gid">G16</span><div class="vax-sub">??? 63??</div></td>
+          <td>비육</td>
+          <td>B1비육</td>
+          <td style="text-align:right"><b>183?</b></td>
+          <td style="text-align:right">152?<br><small>?? 2026-01-27</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-07">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 82?</span></div>
+        <div class="vax-date">?? 2026-04-07<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G16" data-group="63" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-14">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 75?</span></div>
+        <div class="vax-date">?? 2026-04-14<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G16" data-group="63" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-28">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 61?</span></div>
+        <div class="vax-date">?? 2026-04-28<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G16" data-group="63" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G28</span></td>
-          <td class="num">75</td>
-          <td class="loc">4인큐</td>
-          <td class="num big">229두</td>
-          <td class="num">66일</td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-pill unknown">미매칭</span></td>
+        <tr class="vax-active-row" data-gid="G17" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="64" data-matched="true">
+          <td><span class="gid">G17</span><div class="vax-sub">??? 64??</div></td>
+          <td>비육</td>
+          <td>B2비육</td>
+          <td style="text-align:right"><b>168?</b></td>
+          <td style="text-align:right">141?<br><small>?? 2026-02-07</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-18">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 71?</span></div>
+        <div class="vax-date">?? 2026-04-18<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G17" data-group="64" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-25">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 64?</span></div>
+        <div class="vax-date">?? 2026-04-25<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G17" data-group="64" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-09">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 50?</span></div>
+        <div class="vax-date">?? 2026-05-09<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G17" data-group="64" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G29</span></td>
-          <td class="num">76</td>
-          <td class="loc">nursery4</td>
-          <td class="num big">160두</td>
-          <td class="num">60일</td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-pill unknown">미매칭</span></td>
+        <tr class="vax-active-row" data-gid="G18" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="65" data-matched="true">
+          <td><span class="gid">G18</span><div class="vax-sub">??? 65??</div></td>
+          <td>비육</td>
+          <td>B3비육</td>
+          <td style="text-align:right"><b>184?</b></td>
+          <td style="text-align:right">133?<br><small>?? 2026-02-15</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-04-26">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 63?</span></div>
+        <div class="vax-date">?? 2026-04-26<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G18" data-group="65" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-03">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 56?</span></div>
+        <div class="vax-date">?? 2026-05-03<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G18" data-group="65" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-17">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 42?</span></div>
+        <div class="vax-date">?? 2026-05-17<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G18" data-group="65" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">G30</span></td>
-          <td class="num">77</td>
-          <td class="loc">nursery5</td>
-          <td class="num big">190두</td>
-          <td class="num">60일</td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-pill unknown">미매칭</span></td>
+        <tr class="vax-active-row" data-gid="G19" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="66" data-matched="true">
+          <td><span class="gid">G19</span><div class="vax-sub">??? 66??</div></td>
+          <td>자돈</td>
+          <td>2자돈</td>
+          <td style="text-align:right"><b>185?</b></td>
+          <td style="text-align:right">128?<br><small>?? 2026-02-20</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-01">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 58?</span></div>
+        <div class="vax-date">?? 2026-05-01<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G19" data-group="66" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-08">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 51?</span></div>
+        <div class="vax-date">?? 2026-05-08<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G19" data-group="66" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-22">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 37?</span></div>
+        <div class="vax-date">?? 2026-05-22<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G19" data-group="66" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">SB4</span></td>
-          <td class="num"></td>
-          <td class="loc">B4비육</td>
-          <td class="num big">115두</td>
-          <td class="num">일</td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-pill unknown">미매칭</span></td>
+        <tr class="vax-active-row" data-gid="G20" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="67" data-matched="true">
+          <td><span class="gid">G20</span><div class="vax-sub">??? 67??</div></td>
+          <td>비육</td>
+          <td>C3비육</td>
+          <td style="text-align:right"><b>190?</b></td>
+          <td style="text-align:right">121?<br><small>?? 2026-02-27</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-08">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 51?</span></div>
+        <div class="vax-date">?? 2026-05-08<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G20" data-group="67" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-15">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 44?</span></div>
+        <div class="vax-date">?? 2026-05-15<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G20" data-group="67" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-29">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 30?</span></div>
+        <div class="vax-date">?? 2026-05-29<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G20" data-group="67" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-        <tr>
-          <td><span class="gid">SDG</span></td>
-          <td class="num"></td>
-          <td class="loc">돈궁</td>
-          <td class="num big">4두</td>
-          <td class="num">일</td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-empty">-</span></td>
-          <td><span class="vax-pill unknown">미매칭</span></td>
+        <tr class="vax-active-row" data-gid="G21" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="68" data-matched="true">
+          <td><span class="gid">G21</span><div class="vax-sub">??? 68??</div></td>
+          <td>비육</td>
+          <td>C4비육</td>
+          <td style="text-align:right"><b>180?</b></td>
+          <td style="text-align:right">115?<br><small>?? 2026-03-05</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-14">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 45?</span></div>
+        <div class="vax-date">?? 2026-05-14<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G21" data-group="68" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-21">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 38?</span></div>
+        <div class="vax-date">?? 2026-05-21<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G21" data-group="68" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-04">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 24?</span></div>
+        <div class="vax-date">?? 2026-06-04<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G21" data-group="68" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
         </tr>
-    </tbody>
+        <tr class="vax-active-row" data-gid="G22" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="69" data-matched="true">
+          <td><span class="gid">G22</span><div class="vax-sub">??? 69??</div></td>
+          <td>비육</td>
+          <td>C5비육</td>
+          <td style="text-align:right"><b>180?</b></td>
+          <td style="text-align:right">108?<br><small>?? 2026-03-12</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-21">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 38?</span></div>
+        <div class="vax-date">?? 2026-05-21<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G22" data-group="69" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-28">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 31?</span></div>
+        <div class="vax-date">?? 2026-05-28<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G22" data-group="69" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-11">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 17?</span></div>
+        <div class="vax-date">?? 2026-06-11<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G22" data-group="69" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G23" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="70" data-matched="true">
+          <td><span class="gid">G23</span><div class="vax-sub">??? 70??</div></td>
+          <td>자돈</td>
+          <td>6자돈</td>
+          <td style="text-align:right"><b>198?</b></td>
+          <td style="text-align:right">102?<br><small>?? 2026-03-18</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-05-27">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 32?</span></div>
+        <div class="vax-date">?? 2026-05-27<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G23" data-group="70" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-03">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 25?</span></div>
+        <div class="vax-date">?? 2026-06-03<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G23" data-group="70" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-17">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 11?</span></div>
+        <div class="vax-date">?? 2026-06-17<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G23" data-group="70" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G24" data-complete="false" data-statuses="overdue,overdue,overdue" data-group-no="71" data-matched="true">
+          <td><span class="gid">G24</span><div class="vax-sub">??? 71??</div></td>
+          <td>자돈</td>
+          <td>7자돈</td>
+          <td style="text-align:right"><b>180?</b></td>
+          <td style="text-align:right">95?<br><small>?? 2026-03-25</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-03">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 25?</span></div>
+        <div class="vax-date">?? 2026-06-03<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G24" data-group="71" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-10">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 18?</span></div>
+        <div class="vax-date">?? 2026-06-10<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G24" data-group="71" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-24">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill overdue">?? 4?</span></div>
+        <div class="vax-date">?? 2026-06-24<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G24" data-group="71" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G25" data-complete="false" data-statuses="overdue,overdue,tomorrow" data-group-no="72" data-matched="true">
+          <td><span class="gid">G25</span><div class="vax-sub">??? 72??</div></td>
+          <td>자돈</td>
+          <td>8자돈</td>
+          <td style="text-align:right"><b>196?</b></td>
+          <td style="text-align:right">90?<br><small>?? 2026-03-30</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-08">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 20?</span></div>
+        <div class="vax-date">?? 2026-06-08<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G25" data-group="72" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-15">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 13?</span></div>
+        <div class="vax-date">?? 2026-06-15<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G25" data-group="72" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell tomorrow" data-status="tomorrow" data-scheduled="2026-06-29">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill tomorrow">?? ??</span></div>
+        <div class="vax-date">?? 2026-06-29<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G25" data-group="72" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G26" data-complete="false" data-statuses="overdue,overdue,future" data-group-no="73" data-matched="true">
+          <td><span class="gid">G26</span><div class="vax-sub">??? 73??</div></td>
+          <td>비육</td>
+          <td>A1비육</td>
+          <td style="text-align:right"><b>148?</b></td>
+          <td style="text-align:right">83?<br><small>?? 2026-04-06</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-15">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 13?</span></div>
+        <div class="vax-date">?? 2026-06-15<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G26" data-group="73" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-22">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill overdue">?? 6?</span></div>
+        <div class="vax-date">?? 2026-06-22<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G26" data-group="73" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-06">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-8</span></div>
+        <div class="vax-date">?? 2026-07-06<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G26" data-group="73" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">??</span></td>
+        </tr>
+        <tr class="vax-complete-row" data-gid="G27" data-complete="true" data-statuses="overdue,soon,future" data-group-no="74" data-matched="false">
+          <td><span class="gid">G27</span><div class="vax-sub">??? 74??</div><div class="vax-note">G27? ?? ??/???? ??? ?? ??? ?????? ????? ??</div></td>
+          <td>완료</td>
+          <td>출하완료</td>
+          <td style="text-align:right"><b>0?</b></td>
+          <td style="text-align:right">72?<br><small>?? 2026-04-17</small></td>
+          <td>
+      <div class="vax-cell overdue" data-status="overdue" data-scheduled="2026-06-26">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill overdue">?? 2?</span></div>
+        <div class="vax-date">?? 2026-06-26<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G27" data-group="74" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell soon" data-status="soon" data-scheduled="2026-07-03">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill soon">D-5</span></div>
+        <div class="vax-date">?? 2026-07-03<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G27" data-group="74" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-17">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-19</span></div>
+        <div class="vax-date">?? 2026-07-17<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G27" data-group="74" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill done">????</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G28" data-complete="false" data-statuses="soon,future,future" data-group-no="75" data-matched="false">
+          <td><span class="gid">G28</span><div class="vax-sub">??? 75??</div></td>
+          <td>자돈</td>
+          <td>3자돈</td>
+          <td style="text-align:right"><b>195?</b></td>
+          <td style="text-align:right">66?<br><small>?? 2026-04-23</small></td>
+          <td>
+      <div class="vax-cell soon" data-status="soon" data-scheduled="2026-07-02">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill soon">D-4</span></div>
+        <div class="vax-date">?? 2026-07-02<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G28" data-group="75" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-09">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill future">D-11</span></div>
+        <div class="vax-date">?? 2026-07-09<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G28" data-group="75" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-23">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-25</span></div>
+        <div class="vax-date">?? 2026-07-23<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G28" data-group="75" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">????</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G29" data-complete="false" data-statuses="future,future,future" data-group-no="76" data-matched="false">
+          <td><span class="gid">G29</span><div class="vax-sub">??? 76??</div></td>
+          <td>자돈</td>
+          <td>4자돈</td>
+          <td style="text-align:right"><b>160?</b></td>
+          <td style="text-align:right">60?<br><small>?? 2026-04-29</small></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-08">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill future">D-10</span></div>
+        <div class="vax-date">?? 2026-07-08<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G29" data-group="76" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-15">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill future">D-17</span></div>
+        <div class="vax-date">?? 2026-07-15<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G29" data-group="76" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-29">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-31</span></div>
+        <div class="vax-date">?? 2026-07-29<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G29" data-group="76" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">????</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G30" data-complete="false" data-statuses="future,future,future" data-group-no="77" data-matched="false">
+          <td><span class="gid">G30</span><div class="vax-sub">??? 77??</div></td>
+          <td>자돈</td>
+          <td>5자돈</td>
+          <td style="text-align:right"><b>190?</b></td>
+          <td style="text-align:right">60?<br><small>?? 2026-04-29</small></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-08">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill future">D-10</span></div>
+        <div class="vax-date">?? 2026-07-08<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G30" data-group="77" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-15">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill future">D-17</span></div>
+        <div class="vax-date">?? 2026-07-15<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G30" data-group="77" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-29">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-31</span></div>
+        <div class="vax-date">?? 2026-07-29<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G30" data-group="77" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">????</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G31" data-complete="false" data-statuses="future,future,future" data-group-no="78" data-matched="false">
+          <td><span class="gid">G31</span><div class="vax-sub">??? 78??</div></td>
+          <td>인큐</td>
+          <td>3인큐</td>
+          <td style="text-align:right"><b>224?</b></td>
+          <td style="text-align:right">45?<br><small>?? 2026-05-14</small></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-23">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill future">D-25</span></div>
+        <div class="vax-date">?? 2026-07-23<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G31" data-group="78" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-30">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill future">D-32</span></div>
+        <div class="vax-date">?? 2026-07-30<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G31" data-group="78" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-13">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-46</span></div>
+        <div class="vax-date">?? 2026-08-13<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G31" data-group="78" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">????</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G32" data-complete="false" data-statuses="future,future,future" data-group-no="79" data-matched="false">
+          <td><span class="gid">G32</span><div class="vax-sub">??? 79??</div></td>
+          <td>인큐</td>
+          <td>4인큐</td>
+          <td style="text-align:right"><b>218?</b></td>
+          <td style="text-align:right">38?<br><small>?? 2026-05-21</small></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-07-30">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill future">D-32</span></div>
+        <div class="vax-date">?? 2026-07-30<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G32" data-group="79" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-06">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill future">D-39</span></div>
+        <div class="vax-date">?? 2026-08-06<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G32" data-group="79" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-20">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-53</span></div>
+        <div class="vax-date">?? 2026-08-20<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G32" data-group="79" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">????</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G33" data-complete="false" data-statuses="future,future,future" data-group-no="80" data-matched="false">
+          <td><span class="gid">G33</span><div class="vax-sub">??? 80??</div></td>
+          <td>인큐</td>
+          <td>1인큐</td>
+          <td style="text-align:right"><b>255?</b></td>
+          <td style="text-align:right">32?<br><small>?? 2026-05-27</small></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-05">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill future">D-38</span></div>
+        <div class="vax-date">?? 2026-08-05<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G33" data-group="80" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-12">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill future">D-45</span></div>
+        <div class="vax-date">?? 2026-08-12<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G33" data-group="80" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-26">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-59</span></div>
+        <div class="vax-date">?? 2026-08-26<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G33" data-group="80" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">????</span></td>
+        </tr>
+        <tr class="vax-active-row" data-gid="G34" data-complete="false" data-statuses="future,future,future" data-group-no="81" data-matched="false">
+          <td><span class="gid">G34</span><div class="vax-sub">??? 81??</div></td>
+          <td>인큐</td>
+          <td>2인큐</td>
+          <td style="text-align:right"><b>200?</b></td>
+          <td style="text-align:right">24?<br><small>?? 2026-06-04</small></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-13">
+        <div class="vax-name">??? 1?</div>
+        <div><span class="vax-pill future">D-46</span></div>
+        <div class="vax-date">?? 2026-08-13<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G34" data-group="81" data-key="apache1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-08-20">
+        <div class="vax-name">FMD ??? 1?</div>
+        <div><span class="vax-pill future">D-53</span></div>
+        <div class="vax-date">?? 2026-08-20<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G34" data-group="81" data-key="fmd1"> ?? ??</label>
+      </div></td>
+          <td>
+      <div class="vax-cell future" data-status="future" data-scheduled="2026-09-03">
+        <div class="vax-name">HE ???? 1?</div>
+        <div><span class="vax-pill future">D-67</span></div>
+        <div class="vax-date">?? 2026-09-03<br>?? -</div>
+        <div class="vax-derived">??? ?? ????</div>
+        <label class="vax-selectline"><input type="checkbox" class="vax-check" data-gid="G34" data-group="81" data-key="he1"> ?? ??</label>
+      </div></td>
+          <td><span class="vax-pill future">????</span></td>
+        </tr></tbody>
   </table>
 </div>
+<script id="dobang-vaccine-data" type="application/json">{&quot;groups&quot;: [{&quot;gid&quot;: &quot;G01&quot;, &quot;excel_group_number&quot;: 48, &quot;birth_date&quot;: &quot;2025-10-22&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;완료돈군&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 249, &quot;shipment_due&quot;: &quot;&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;A2비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 3, &quot;incubator_pen&quot;: 2, &quot;nursery_pen&quot;: 8, &quot;fattening_loc&quot;: &quot;A2&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-03&quot;, &quot;actual&quot;: &quot;2026-02-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-10&quot;, &quot;actual&quot;: &quot;2026-02-13&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-24&quot;, &quot;actual&quot;: &quot;2026-02-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2025-12-31&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -179, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-07&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -172, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-21&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -158, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;완료돈군&quot;}, {&quot;gid&quot;: &quot;G02&quot;, &quot;excel_group_number&quot;: 49, &quot;birth_date&quot;: &quot;2025-10-29&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;완료돈군&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 242, &quot;shipment_due&quot;: &quot;&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;A3비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 4, &quot;incubator_pen&quot;: 3, &quot;nursery_pen&quot;: 1, &quot;fattening_loc&quot;: &quot;A3&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-09&quot;, &quot;actual&quot;: &quot;2026-02-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-16&quot;, &quot;actual&quot;: &quot;2026-02-13&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-30&quot;, &quot;actual&quot;: &quot;2026-02-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-07&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -172, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-14&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -165, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-28&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -151, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;완료돈군&quot;}, {&quot;gid&quot;: &quot;G03&quot;, &quot;excel_group_number&quot;: 50, &quot;birth_date&quot;: &quot;2025-11-01&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;완료돈군&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 239, &quot;shipment_due&quot;: &quot;2026-04-30&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;A4비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 5, &quot;incubator_pen&quot;: 4, &quot;nursery_pen&quot;: 2, &quot;fattening_loc&quot;: &quot;A4&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-15&quot;, &quot;actual&quot;: &quot;2026-02-13&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-22&quot;, &quot;actual&quot;: &quot;2026-02-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-05&quot;, &quot;actual&quot;: &quot;2026-03-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-10&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -169, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-17&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -162, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-31&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -148, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;완료돈군&quot;}, {&quot;gid&quot;: &quot;G04&quot;, &quot;excel_group_number&quot;: 51, &quot;birth_date&quot;: &quot;2025-11-13&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;완료돈군&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 227, &quot;shipment_due&quot;: &quot;2026-05-12&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;B1비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 1, &quot;incubator_pen&quot;: 1, &quot;nursery_pen&quot;: 3, &quot;fattening_loc&quot;: &quot;B1&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-21&quot;, &quot;actual&quot;: &quot;2026-02-25&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-28&quot;, &quot;actual&quot;: &quot;2026-03-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-11&quot;, &quot;actual&quot;: &quot;2026-03-10&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-22&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -157, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-29&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -150, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-12&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -136, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;완료돈군&quot;}, {&quot;gid&quot;: &quot;G05&quot;, &quot;excel_group_number&quot;: 52, &quot;birth_date&quot;: &quot;2025-11-17&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;완료돈군&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 223, &quot;shipment_due&quot;: &quot;2026-05-16&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;B2비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 2, &quot;incubator_pen&quot;: 2, &quot;nursery_pen&quot;: 4, &quot;fattening_loc&quot;: &quot;B2&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-01-27&quot;, &quot;actual&quot;: &quot;2026-02-25&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-03&quot;, &quot;actual&quot;: &quot;2026-03-04&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-17&quot;, &quot;actual&quot;: &quot;2026-03-10&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-01-26&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -153, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-02&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -146, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-16&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -132, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;완료돈군&quot;}, {&quot;gid&quot;: &quot;G06&quot;, &quot;excel_group_number&quot;: 53, &quot;birth_date&quot;: &quot;2025-11-26&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;완료돈군&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 214, &quot;shipment_due&quot;: &quot;2026-05-25&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;B3비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 3, &quot;incubator_pen&quot;: 3, &quot;nursery_pen&quot;: 5, &quot;fattening_loc&quot;: &quot;B3&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-02&quot;, &quot;actual&quot;: &quot;2026-03-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-09&quot;, &quot;actual&quot;: &quot;2026-03-10&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-23&quot;, &quot;actual&quot;: &quot;2026-03-23&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-04&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -144, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-11&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -137, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-25&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -123, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;완료돈군&quot;}, {&quot;gid&quot;: &quot;G07&quot;, &quot;excel_group_number&quot;: 54, &quot;birth_date&quot;: &quot;2025-12-02&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;출하완료&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 208, &quot;shipment_due&quot;: &quot;2026-05-31&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;A1비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 4, &quot;incubator_pen&quot;: 3, &quot;nursery_pen&quot;: 6, &quot;fattening_loc&quot;: &quot;A1&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-08&quot;, &quot;actual&quot;: &quot;2026-03-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-15&quot;, &quot;actual&quot;: &quot;2026-03-16&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-01&quot;, &quot;actual&quot;: &quot;2026-04-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-28 representative correction: old A1 finishing group completed; A1 refilled by nursery1 on 2026-06-02 msg 1294.&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-10&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -138, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-17&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -131, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-03&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -117, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;출하완료&quot;}, {&quot;gid&quot;: &quot;G08&quot;, &quot;excel_group_number&quot;: 55, &quot;birth_date&quot;: &quot;2025-12-09&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;출하완료&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 201, &quot;shipment_due&quot;: &quot;2026-06-07&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;C3비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 5, &quot;incubator_pen&quot;: 4, &quot;nursery_pen&quot;: 7, &quot;fattening_loc&quot;: &quot;C3&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-14&quot;, &quot;actual&quot;: &quot;2026-03-04&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-21&quot;, &quot;actual&quot;: &quot;2026-03-16&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-07&quot;, &quot;actual&quot;: &quot;2026-03-23&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-28 representative correction: old C3 finishing group completed; C3 refilled by nursery3 on 2026-06-09 msg 1432.&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-17&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -131, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-24&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -124, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-10&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -110, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;출하완료&quot;}, {&quot;gid&quot;: &quot;G09&quot;, &quot;excel_group_number&quot;: 56, &quot;birth_date&quot;: &quot;2025-12-20&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;출하완료&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 190, &quot;shipment_due&quot;: &quot;2026-06-18&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;C4비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 1, &quot;incubator_pen&quot;: 1, &quot;nursery_pen&quot;: 8, &quot;fattening_loc&quot;: &quot;C4&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-20&quot;, &quot;actual&quot;: &quot;2026-03-04&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-27&quot;, &quot;actual&quot;: &quot;2026-04-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-13&quot;, &quot;actual&quot;: &quot;2026-04-11&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-28 representative correction plus 2026-06-17 msg 1636: old C4 emptied, remaining 60 moved to B4, C4 refilled by nursery4.&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-02-28&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -120, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-07&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -113, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-21&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -99, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;출하완료&quot;}, {&quot;gid&quot;: &quot;G10&quot;, &quot;excel_group_number&quot;: 57, &quot;birth_date&quot;: &quot;2025-12-25&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;출하완료&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 185, &quot;shipment_due&quot;: &quot;2026-06-23&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;C5비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 2, &quot;incubator_pen&quot;: 2, &quot;nursery_pen&quot;: 1, &quot;fattening_loc&quot;: &quot;C5&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-02-26&quot;, &quot;actual&quot;: &quot;2026-03-10&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-05&quot;, &quot;actual&quot;: &quot;2026-04-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-19&quot;, &quot;actual&quot;: &quot;2026-04-11&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-28 representative correction: old C5 finishing group completed; C5 refilled by nursery5 on 2026-06-25 msg 1855.&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-05&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -115, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-12&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -108, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-26&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -94, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;출하완료&quot;}, {&quot;gid&quot;: &quot;G11&quot;, &quot;excel_group_number&quot;: 58, &quot;birth_date&quot;: &quot;2025-12-28&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;출하완료&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 182, &quot;shipment_due&quot;: &quot;2026-06-26&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;C1비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 3, &quot;incubator_pen&quot;: 3, &quot;nursery_pen&quot;: 2, &quot;fattening_loc&quot;: &quot;C1&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-04&quot;, &quot;actual&quot;: &quot;2026-03-16&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-11&quot;, &quot;actual&quot;: &quot;2026-04-03&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-25&quot;, &quot;actual&quot;: &quot;2026-04-11&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-28 representative correction: old C1 finishing group completed; new C1 occupant needs source confirmation if not in text export.&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-08&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -112, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-15&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -105, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-29&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -91, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;출하완료&quot;}, {&quot;gid&quot;: &quot;G12&quot;, &quot;excel_group_number&quot;: 59, &quot;birth_date&quot;: &quot;2026-01-03&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;C2비육&quot;, &quot;current_heads&quot;: 196, &quot;age_days&quot;: 176, &quot;shipment_due&quot;: &quot;2026-07-02&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;C2비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 1, &quot;incubator_pen&quot;: 4, &quot;nursery_pen&quot;: 3, &quot;fattening_loc&quot;: &quot;C2&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-10&quot;, &quot;actual&quot;: &quot;2026-03-23&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-17&quot;, &quot;actual&quot;: &quot;2026-04-04&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-31&quot;, &quot;actual&quot;: &quot;2026-04-23&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-14&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -106, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-21&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -99, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-04&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -85, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;C2비육&quot;}, {&quot;gid&quot;: &quot;G13&quot;, &quot;excel_group_number&quot;: 60, &quot;birth_date&quot;: &quot;2026-01-09&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;A2비육&quot;, &quot;current_heads&quot;: 160, &quot;age_days&quot;: 170, &quot;shipment_due&quot;: &quot;2026-07-08&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;A2비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 2, &quot;incubator_pen&quot;: 1, &quot;nursery_pen&quot;: 4, &quot;fattening_loc&quot;: &quot;A2&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-16&quot;, &quot;actual&quot;: &quot;2026-03-23&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-23&quot;, &quot;actual&quot;: &quot;2026-04-04&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-06&quot;, &quot;actual&quot;: &quot;2026-04-23&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-20&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -100, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-27&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -93, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-10&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -79, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;A2비육&quot;}, {&quot;gid&quot;: &quot;G14&quot;, &quot;excel_group_number&quot;: 61, &quot;birth_date&quot;: &quot;2026-01-15&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;A3비육&quot;, &quot;current_heads&quot;: 185, &quot;age_days&quot;: 164, &quot;shipment_due&quot;: &quot;2026-07-14&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;A3비육&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 3, &quot;incubator_pen&quot;: 2, &quot;nursery_pen&quot;: 5, &quot;fattening_loc&quot;: &quot;A3&quot;, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-22&quot;, &quot;actual&quot;: &quot;2026-04-04&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-29&quot;, &quot;actual&quot;: &quot;2026-04-23&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-12&quot;, &quot;actual&quot;: &quot;2026-05-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-03-26&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -94, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-02&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -87, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-16&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -73, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;A3비육&quot;}, {&quot;gid&quot;: &quot;G15&quot;, &quot;excel_group_number&quot;: 62, &quot;birth_date&quot;: &quot;2026-01-21&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;A4비육&quot;, &quot;current_heads&quot;: 161, &quot;age_days&quot;: 158, &quot;shipment_due&quot;: &quot;2026-07-20&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 4, &quot;incubator_pen&quot;: 3, &quot;nursery_pen&quot;: 6, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-03-28&quot;, &quot;actual&quot;: &quot;2026-04-04&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-04&quot;, &quot;actual&quot;: &quot;2026-05-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-18&quot;, &quot;actual&quot;: &quot;2026-05-20&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-01&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -88, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-08&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -81, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-22&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -67, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;A4비육&quot;}, {&quot;gid&quot;: &quot;G16&quot;, &quot;excel_group_number&quot;: 63, &quot;birth_date&quot;: &quot;2026-01-27&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;B1비육&quot;, &quot;current_heads&quot;: 183, &quot;age_days&quot;: 152, &quot;shipment_due&quot;: &quot;2026-07-26&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 5, &quot;incubator_pen&quot;: 4, &quot;nursery_pen&quot;: 7, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-03&quot;, &quot;actual&quot;: &quot;2026-04-11&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-10&quot;, &quot;actual&quot;: &quot;2026-05-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-24&quot;, &quot;actual&quot;: &quot;2026-05-20&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-05-16 msg 958: 7자돈 -&gt; B1&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-07&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -82, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-14&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -75, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-28&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -61, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;B1비육&quot;}, {&quot;gid&quot;: &quot;G17&quot;, &quot;excel_group_number&quot;: 64, &quot;birth_date&quot;: &quot;2026-02-07&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;B2비육&quot;, &quot;current_heads&quot;: 168, &quot;age_days&quot;: 141, &quot;shipment_due&quot;: &quot;2026-08-06&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 1, &quot;incubator_pen&quot;: 1, &quot;nursery_pen&quot;: 8, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-09&quot;, &quot;actual&quot;: &quot;2026-05-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-16&quot;, &quot;actual&quot;: &quot;2026-05-19&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-30&quot;, &quot;actual&quot;: null, &quot;status&quot;: &quot;overdue&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-05-21 msg 1054: 8자돈 -&gt; B2&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-18&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -71, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-25&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -64, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-09&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -50, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;B2비육&quot;}, {&quot;gid&quot;: &quot;G18&quot;, &quot;excel_group_number&quot;: 65, &quot;birth_date&quot;: &quot;2026-02-15&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;B3비육&quot;, &quot;current_heads&quot;: 184, &quot;age_days&quot;: 133, &quot;shipment_due&quot;: &quot;2026-08-14&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 2, &quot;incubator_pen&quot;: 2, &quot;nursery_pen&quot;: 1, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-15&quot;, &quot;actual&quot;: &quot;2026-05-07&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-22&quot;, &quot;actual&quot;: &quot;2026-05-20&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-06&quot;, &quot;actual&quot;: &quot;2026-05-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-05-28 msg 1220: 1자돈 -&gt; B3&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-04-26&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -63, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-03&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -56, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-17&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -42, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;B3비육&quot;}, {&quot;gid&quot;: &quot;G19&quot;, &quot;excel_group_number&quot;: 66, &quot;birth_date&quot;: &quot;2026-02-20&quot;, &quot;stage&quot;: &quot;자돈&quot;, &quot;current_location&quot;: &quot;2자돈&quot;, &quot;current_heads&quot;: 185, &quot;age_days&quot;: 128, &quot;shipment_due&quot;: &quot;2026-08-19&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;2자돈&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 3, &quot;incubator_pen&quot;: 3, &quot;nursery_pen&quot;: 2, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-21&quot;, &quot;actual&quot;: &quot;2026-05-07&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-28&quot;, &quot;actual&quot;: &quot;2026-06-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;source&quot;: &quot;telegram_group_msg_1866&quot;, &quot;reason&quot;: &quot;2026-06-26 group message: FMD at nursery2; linked through 2026-05-28 msg 1220 incu2 -&gt; nursery2.&quot;}}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-12&quot;, &quot;actual&quot;: &quot;2026-05-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-05-28 msg 1220: 2인큐 -&gt; 2자돈&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-01&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -58, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-08&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -51, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-22&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -37, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;2자돈&quot;}, {&quot;gid&quot;: &quot;G20&quot;, &quot;excel_group_number&quot;: 67, &quot;birth_date&quot;: &quot;2026-02-27&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;C3비육&quot;, &quot;current_heads&quot;: 190, &quot;age_days&quot;: 121, &quot;shipment_due&quot;: &quot;2026-08-26&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 4, &quot;incubator_pen&quot;: 4, &quot;nursery_pen&quot;: 3, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-04-27&quot;, &quot;actual&quot;: &quot;2026-05-07&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-04&quot;, &quot;actual&quot;: &quot;2026-05-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-18&quot;, &quot;actual&quot;: &quot;2026-06-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-09 msg 1432: 3자돈 -&gt; C3&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-08&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -51, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-15&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -44, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-29&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -30, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;C3비육&quot;}, {&quot;gid&quot;: &quot;G21&quot;, &quot;excel_group_number&quot;: 68, &quot;birth_date&quot;: &quot;2026-03-05&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;C4비육&quot;, &quot;current_heads&quot;: 180, &quot;age_days&quot;: 115, &quot;shipment_due&quot;: &quot;2026-09-01&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 5, &quot;incubator_pen&quot;: 1, &quot;nursery_pen&quot;: 4, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-03&quot;, &quot;actual&quot;: &quot;2026-05-07&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-10&quot;, &quot;actual&quot;: &quot;2026-06-01&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-24&quot;, &quot;actual&quot;: &quot;2026-06-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-17 msg 1636: 4자돈 -&gt; C4&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-14&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -45, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-21&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -38, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-04&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -24, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;C4비육&quot;}, {&quot;gid&quot;: &quot;G22&quot;, &quot;excel_group_number&quot;: 69, &quot;birth_date&quot;: &quot;2026-03-12&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;C5비육&quot;, &quot;current_heads&quot;: 180, &quot;age_days&quot;: 108, &quot;shipment_due&quot;: &quot;2026-09-08&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 1, &quot;incubator_pen&quot;: 2, &quot;nursery_pen&quot;: 5, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-09&quot;, &quot;actual&quot;: &quot;2026-05-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-16&quot;, &quot;actual&quot;: &quot;2026-06-01&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-30&quot;, &quot;actual&quot;: &quot;2026-06-13&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-25 msg 1855: 5자돈 -&gt; C5&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-21&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -38, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-28&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -31, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-11&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -17, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;C5비육&quot;}, {&quot;gid&quot;: &quot;G23&quot;, &quot;excel_group_number&quot;: 70, &quot;birth_date&quot;: &quot;2026-03-18&quot;, &quot;stage&quot;: &quot;자돈&quot;, &quot;current_location&quot;: &quot;6자돈&quot;, &quot;current_heads&quot;: 198, &quot;age_days&quot;: 102, &quot;shipment_due&quot;: &quot;2026-09-14&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;6자돈&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 2, &quot;incubator_pen&quot;: 3, &quot;nursery_pen&quot;: 6, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-15&quot;, &quot;actual&quot;: &quot;2026-06-01&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-22&quot;, &quot;actual&quot;: &quot;2026-06-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-06-05&quot;, &quot;actual&quot;: &quot;2026-06-13&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-05-27&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -32, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-03&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -25, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-17&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -11, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;6자돈&quot;}, {&quot;gid&quot;: &quot;G24&quot;, &quot;excel_group_number&quot;: 71, &quot;birth_date&quot;: &quot;2026-03-25&quot;, &quot;stage&quot;: &quot;자돈&quot;, &quot;current_location&quot;: &quot;7자돈&quot;, &quot;current_heads&quot;: 180, &quot;age_days&quot;: 95, &quot;shipment_due&quot;: &quot;2026-09-21&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;7자돈&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 3, &quot;incubator_pen&quot;: 4, &quot;nursery_pen&quot;: 7, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-21&quot;, &quot;actual&quot;: &quot;2026-06-01&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-28&quot;, &quot;actual&quot;: &quot;2026-06-20&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-06-11&quot;, &quot;actual&quot;: &quot;2026-06-13&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-05-16 msg 958: 4인큐 -&gt; 7자돈&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-03&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -25, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-10&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -18, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-24&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -4, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;7자돈&quot;}, {&quot;gid&quot;: &quot;G25&quot;, &quot;excel_group_number&quot;: 72, &quot;birth_date&quot;: &quot;2026-03-30&quot;, &quot;stage&quot;: &quot;자돈&quot;, &quot;current_location&quot;: &quot;8자돈&quot;, &quot;current_heads&quot;: 196, &quot;age_days&quot;: 90, &quot;shipment_due&quot;: &quot;2026-09-26&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;8자돈&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 4, &quot;incubator_pen&quot;: 1, &quot;nursery_pen&quot;: 8, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-05-27&quot;, &quot;actual&quot;: &quot;2026-06-06&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-06-03&quot;, &quot;actual&quot;: &quot;2026-06-20&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-06-17&quot;, &quot;actual&quot;: &quot;2026-06-26&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;source&quot;: &quot;telegram_group_msg_1866&quot;, &quot;reason&quot;: &quot;2026-06-26 group message: hog cholera at nursery8; linked through 2026-05-23 msg 1098 incu1 -&gt; nursery8.&quot;}}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-05-23 msg 1098: 1인큐 -&gt; 8자돈; later deaths already reflected by source ledger&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-08&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -20, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-15&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -13, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-29&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;tomorrow&quot;, &quot;diff&quot;: 1, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;8자돈&quot;}, {&quot;gid&quot;: &quot;G26&quot;, &quot;excel_group_number&quot;: 73, &quot;birth_date&quot;: &quot;2026-04-06&quot;, &quot;stage&quot;: &quot;비육&quot;, &quot;current_location&quot;: &quot;A1비육&quot;, &quot;current_heads&quot;: 148, &quot;age_days&quot;: 83, &quot;shipment_due&quot;: &quot;&quot;, &quot;vaccine_group_found&quot;: true, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: 5, &quot;incubator_pen&quot;: 2, &quot;nursery_pen&quot;: 1, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {&quot;apache1&quot;: {&quot;name&quot;: &quot;아파치 1차&quot;, &quot;scheduled&quot;: &quot;2026-06-02&quot;, &quot;actual&quot;: &quot;2026-06-13&quot;, &quot;status&quot;: &quot;done&quot;, &quot;days_left&quot;: null}, &quot;fmd1&quot;: {&quot;name&quot;: &quot;FMD 구제역 1차&quot;, &quot;scheduled&quot;: &quot;2026-06-09&quot;, &quot;actual&quot;: null, &quot;status&quot;: &quot;overdue&quot;, &quot;days_left&quot;: null}, &quot;he1&quot;: {&quot;name&quot;: &quot;HE 돈열단독 1차&quot;, &quot;scheduled&quot;: &quot;2026-06-23&quot;, &quot;actual&quot;: null, &quot;status&quot;: &quot;overdue&quot;, &quot;days_left&quot;: null}}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-02 msg 1294: 1자돈 -&gt; A1; later deaths/shipments reflected&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-15&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -13, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-22&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -6, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-06&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 8, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;A1비육&quot;}, {&quot;gid&quot;: &quot;G27&quot;, &quot;excel_group_number&quot;: 74, &quot;birth_date&quot;: &quot;2026-04-17&quot;, &quot;stage&quot;: &quot;완료&quot;, &quot;current_location&quot;: &quot;출하완료&quot;, &quot;current_heads&quot;: 0, &quot;age_days&quot;: 72, &quot;shipment_due&quot;: &quot;2026-10-14&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-06-26&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;overdue&quot;, &quot;diff&quot;: -2, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-03&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;soon&quot;, &quot;diff&quot;: 5, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-17&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 19, &quot;derived&quot;: true}], &quot;_complete&quot;: true, &quot;_location&quot;: &quot;출하완료&quot;}, {&quot;gid&quot;: &quot;G28&quot;, &quot;excel_group_number&quot;: 75, &quot;birth_date&quot;: &quot;2026-04-23&quot;, &quot;stage&quot;: &quot;자돈&quot;, &quot;current_location&quot;: &quot;3자돈&quot;, &quot;current_heads&quot;: 195, &quot;age_days&quot;: 66, &quot;shipment_due&quot;: &quot;2026-10-20&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-02&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;soon&quot;, &quot;diff&quot;: 4, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-09&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 11, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-23&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 25, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;3자돈&quot;}, {&quot;gid&quot;: &quot;G29&quot;, &quot;excel_group_number&quot;: 76, &quot;birth_date&quot;: &quot;2026-04-29&quot;, &quot;stage&quot;: &quot;자돈&quot;, &quot;current_location&quot;: &quot;4자돈&quot;, &quot;current_heads&quot;: 160, &quot;age_days&quot;: 60, &quot;shipment_due&quot;: &quot;2026-10-26&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-17 msg 1636: 1인큐 -&gt; 4자돈&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-08&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 10, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-15&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 17, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-29&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 31, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;4자돈&quot;}, {&quot;gid&quot;: &quot;G30&quot;, &quot;excel_group_number&quot;: 77, &quot;birth_date&quot;: &quot;2026-04-29&quot;, &quot;stage&quot;: &quot;자돈&quot;, &quot;current_location&quot;: &quot;5자돈&quot;, &quot;current_heads&quot;: 190, &quot;age_days&quot;: 60, &quot;shipment_due&quot;: &quot;2026-10-26&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;dashboard_correction&quot;: {&quot;updated_at&quot;: &quot;2026-06-27T13:10:00+09:00&quot;, &quot;evidence&quot;: &quot;2026-06-25 msg 1855: 2인큐 -&gt; 5자돈&quot;, &quot;source&quot;: &quot;dobang_group_chat_movement_reconciliation&quot;}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-08&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 10, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-15&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 17, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-29&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 31, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;5자돈&quot;}, {&quot;gid&quot;: &quot;G31&quot;, &quot;excel_group_number&quot;: 78, &quot;birth_date&quot;: &quot;2026-05-14&quot;, &quot;stage&quot;: &quot;인큐&quot;, &quot;current_location&quot;: &quot;3인큐&quot;, &quot;current_heads&quot;: 224, &quot;age_days&quot;: 45, &quot;shipment_due&quot;: &quot;2026-11-21&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-23&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 25, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-30&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 32, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-13&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 46, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;3인큐&quot;}, {&quot;gid&quot;: &quot;G32&quot;, &quot;excel_group_number&quot;: 79, &quot;birth_date&quot;: &quot;2026-05-21&quot;, &quot;stage&quot;: &quot;인큐&quot;, &quot;current_location&quot;: &quot;4인큐&quot;, &quot;current_heads&quot;: 218, &quot;age_days&quot;: 38, &quot;shipment_due&quot;: &quot;2026-11-28&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-07-30&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 32, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-06&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 39, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-20&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 53, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;4인큐&quot;}, {&quot;gid&quot;: &quot;G33&quot;, &quot;excel_group_number&quot;: 80, &quot;birth_date&quot;: &quot;2026-05-27&quot;, &quot;stage&quot;: &quot;인큐&quot;, &quot;current_location&quot;: &quot;1인큐&quot;, &quot;current_heads&quot;: 255, &quot;age_days&quot;: 32, &quot;shipment_due&quot;: &quot;2026-12-04&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-05&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 38, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-12&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 45, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-26&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 59, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;1인큐&quot;}, {&quot;gid&quot;: &quot;G34&quot;, &quot;excel_group_number&quot;: 81, &quot;birth_date&quot;: &quot;2026-06-04&quot;, &quot;stage&quot;: &quot;인큐&quot;, &quot;current_location&quot;: &quot;2인큐&quot;, &quot;current_heads&quot;: 200, &quot;age_days&quot;: 24, &quot;shipment_due&quot;: &quot;2026-12-12&quot;, &quot;vaccine_group_found&quot;: false, &quot;vaccine_display_location&quot;: &quot;&quot;, &quot;location_match&quot;: true, &quot;farrowing_pen&quot;: null, &quot;incubator_pen&quot;: null, &quot;nursery_pen&quot;: null, &quot;fattening_loc&quot;: null, &quot;vaccines&quot;: {}, &quot;_vaccines&quot;: [{&quot;key&quot;: &quot;apache1&quot;, &quot;name&quot;: &quot;??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-13&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 46, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;fmd1&quot;, &quot;name&quot;: &quot;FMD ??? 1?&quot;, &quot;scheduled&quot;: &quot;2026-08-20&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 53, &quot;derived&quot;: true}, {&quot;key&quot;: &quot;he1&quot;, &quot;name&quot;: &quot;HE ???? 1?&quot;, &quot;scheduled&quot;: &quot;2026-09-03&quot;, &quot;actual&quot;: &quot;&quot;, &quot;status&quot;: &quot;future&quot;, &quot;diff&quot;: 67, &quot;derived&quot;: true}], &quot;_complete&quot;: false, &quot;_location&quot;: &quot;2인큐&quot;}]}</script>
+<script>
+function vaxTodayIso(){return new Date().toISOString().slice(0,10);}
+function renderVaccineDashboard(){
+  const showComplete=document.getElementById('vaxShowComplete')?.checked;
+  const filter=document.getElementById('vaxStatusFilter')?.value||'active';
+  let shown=0, hidden=0;
+  document.querySelectorAll('#vaxBody tr').forEach(row=>{
+    const complete=row.dataset.complete==='true';
+    const statuses=(row.dataset.statuses||'').split(',');
+    const matched=row.dataset.matched==='true';
+    let visible=true;
+    if(filter==='active') visible=!complete || showComplete;
+    if(filter==='all') visible=true;
+    if(filter==='week') visible=statuses.some(s=>['today','tomorrow','soon'].includes(s));
+    if(filter==='overdue') visible=statuses.includes('overdue');
+    if(filter==='matched') visible=matched && (!complete || showComplete);
+    if(complete && !showComplete && filter!=='all') visible=false;
+    row.style.display=visible?'':'none';
+    visible?shown++:hidden++;
+  });
+  const label=document.getElementById('vax-count-label');
+  if(label) label.textContent=`?? ${shown}? ? ??/???? ${hidden}?`;
+}
+function selectVaccinesByDate(){
+  const d=document.getElementById('vaxTargetDate')?.value;
+  if(!d) return;
+  document.querySelectorAll('.vax-check').forEach(c=>{
+    const cell=c.closest('.vax-cell');
+    c.checked=(cell?.dataset.scheduled===d);
+  });
+  buildVaccineMessage();
+}
+function buildVaccineMessage(){
+  const d=document.getElementById('vaxTargetDate')?.value||vaxTodayIso();
+  const buckets={apache1:[],fmd1:[],he1:[]};
+  document.querySelectorAll('.vax-check:checked').forEach(c=>{
+    const row=c.closest('tr');
+    const loc=row?.children[2]?.textContent.trim()||row?.dataset.gid||'';
+    (buckets[c.dataset.key] ||= []).push(loc);
+  });
+  const labels={apache1:'??? 1?',fmd1:'FMD ??? 1?',he1:'HE ???? 1?'};
+  let msg=`${d} ?? ??`;
+  let any=false;
+  ['apache1','fmd1','he1'].forEach(k=>{
+    const list=[...new Set(buckets[k]||[])];
+    if(!list.length) return;
+    any=true;
+    msg += `\n\n${labels[k]}\n${list.join('\n')}`;
+  });
+  if(!any) msg += '\n\n??? ?? ??? ????.';
+  const box=document.getElementById('vaxMessage');
+  if(box) box.value=msg;
+}
+async function copyVaccineMessage(){
+  const box=document.getElementById('vaxMessage');
+  if(!box?.value.trim()) buildVaccineMessage();
+  try { await navigator.clipboard.writeText(box.value); } catch(e) { box.select(); document.execCommand('copy'); }
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  const d=document.getElementById('vaxTargetDate');
+  if(d && !d.value) d.value=vaxTodayIso();
+  renderVaccineDashboard();
+});
+</script>
 </div>
 
 <!-- 변동이력 섹션 -->
@@ -3761,6 +4512,78 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </thead>
       <tbody>
         
+        <tr>
+          <td>2026-06-28</td>
+          <td>14:32</td>
+          <td><span class="gid">G27</span></td>
+          <td>출하완료</td>
+          <td><span class="ev-badge ev-move">이전인큐군_이동완료정리</span></td>
+          <td class="num">0두</td>
+          <td class="num">→</td>
+          <td class="num delta neg"></td>
+          <td>3인큐 stale occupant. 2026-05-10 msg833 moved 3인큐 198->6자돈.</td>
+        </tr>
+
+        <tr>
+          <td>2026-06-28</td>
+          <td>14:32</td>
+          <td><span class="gid">G28</span></td>
+          <td>3자돈</td>
+          <td><span class="ev-badge ev-move">인큐자돈이동_누락보정</span></td>
+          <td class="num">195두</td>
+          <td class="num">→</td>
+          <td class="num delta neg"></td>
+          <td>2026-06-11 msg1490: 4인큐 195->3자돈. Same message then refilled 4인큐 with new G32.</td>
+        </tr>
+
+        <tr>
+          <td>2026-06-28</td>
+          <td>14:32</td>
+          <td><span class="gid">G31</span></td>
+          <td>3인큐</td>
+          <td><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+          <td class="num">224두</td>
+          <td class="num">→</td>
+          <td class="num delta neg"></td>
+          <td>2026-06-04 msg1341: 55+55+55+59=224두, bot stored only 55.</td>
+        </tr>
+
+        <tr>
+          <td>2026-06-28</td>
+          <td>14:32</td>
+          <td><span class="gid">G32</span></td>
+          <td>4인큐</td>
+          <td><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+          <td class="num">218두</td>
+          <td class="num">→</td>
+          <td class="num delta neg"></td>
+          <td>2026-06-11 msg1490: 55+55+55+53=218두, bot stored only 55.</td>
+        </tr>
+
+        <tr>
+          <td>2026-06-28</td>
+          <td>14:32</td>
+          <td><span class="gid">G33</span></td>
+          <td>1인큐</td>
+          <td><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+          <td class="num">255두</td>
+          <td class="num">→</td>
+          <td class="num delta neg"></td>
+          <td>2026-06-17 msg1636: 55+55+55+90=255두, bot stored 145/180 because blank repeated rows were missed.</td>
+        </tr>
+
+        <tr>
+          <td>2026-06-28</td>
+          <td>14:32</td>
+          <td><span class="gid">G34</span></td>
+          <td>2인큐</td>
+          <td><span class="ev-badge ev-wean">누락이유군_생성</span></td>
+          <td class="num">200두</td>
+          <td class="num">→</td>
+          <td class="num delta neg"></td>
+          <td>2026-06-25 msg1855: 50+50+50+50=200두, scheduled 205두; use observed weight rows and flag 5두 gap.</td>
+        </tr>
+
         <tr>
           <td>2026-06-28</td>
           <td>09:32</td>
@@ -4285,78 +5108,6 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="ev-badge ev-death">폐사</span></td>
           <td class="num">1두</td>
           <td class="num">120→119</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-06-14</td>
-          <td>17:32</td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">119→118</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-06-15</td>
-          <td>17:32</td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">2두</td>
-          <td class="num">118→116</td>
-          <td class="num delta neg">-2</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-06-17</td>
-          <td>17:32</td>
-          <td><span class="gid">SB4</span></td>
-          <td>B4비육</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">116→115</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-06-06</td>
-          <td>17:32</td>
-          <td><span class="gid">SDG</span></td>
-          <td>돈궁</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">16→15</td>
-          <td class="num delta neg">-1</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-06-15</td>
-          <td>17:32</td>
-          <td><span class="gid">SDG</span></td>
-          <td>돈궁</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">3두</td>
-          <td class="num">15→12</td>
-          <td class="num delta neg">-3</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td>2026-06-16</td>
-          <td>17:32</td>
-          <td><span class="gid">SDG</span></td>
-          <td>돈궁</td>
-          <td><span class="ev-badge ev-death">폐사</span></td>
-          <td class="num">1두</td>
-          <td class="num">12→11</td>
           <td class="num delta neg">-1</td>
           <td></td>
         </tr>
