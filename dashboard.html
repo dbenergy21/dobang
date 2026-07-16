@@ -225,7 +225,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="meta">
     <div>기준일: <strong>2026-07-17</strong></div>
-    <div>최종업데이트: 2026-07-15T23:43:49</div>
+    <div>최종업데이트: 2026-07-17 01:55</div>
     <div>총 37군 관리 중</div>
   </div>
 </div>
@@ -233,7 +233,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <!-- 인쇄용 헤더 -->
 <div class="header" style="display:none" id="print-header">
   <div><h1>🐷 도방육종 — 군별 두수 현황</h1></div>
-  <div class="meta"><div>기준일: <strong>2026-07-17</strong></div><div>업데이트: 2026-07-15T23:43:49</div></div>
+  <div class="meta"><div>기준일: <strong>2026-07-17</strong></div><div>업데이트: 2026-07-17 01:55</div></div>
 </div>
 
 <!-- 요약 카드 -->
@@ -3571,6 +3571,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">2두</td>
             <td class="num delta neg">-2</td>
             <td>도방육종 단체방 돈궁 / 돈공2.1 2 / 7자돈.3 1 / B4.5 1 / 돈공 표기를 돈궁으로 정규화</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>07/16</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">1두</td>
+            <td class="num delta pos">+0</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -5031,6 +5039,18 @@ window.addEventListener('DOMContentLoaded',()=>{
       <tbody>
         
         <tr>
+          <td>2026-07-16</td>
+          <td>01:55</td>
+          <td><span class="gid">SDG</span></td>
+          <td>돈궁</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">1두</td>
+          <td class="num">0→0</td>
+          <td class="num delta pos">+0</td>
+          <td></td>
+        </tr>
+
+        <tr>
           <td>2026-07-13</td>
           <td>00:27:54+09:00</td>
           <td><span class="gid">G15</span></td>
@@ -5616,18 +5636,6 @@ window.addEventListener('DOMContentLoaded',()=>{
           <td class="num">→</td>
           <td class="num delta neg"></td>
           <td>대표 재확인 2026-06-28: G27은 완료군이 아니라 활성 자돈군. 2026-04-17 생일 기준 G26=1자돈과 G28=3자돈 사이이므로 2자돈으로 예측분류. 2026-05-10 msg833 3인큐-&gt;6자돈은 G27 2026-05-11 3분만사-&gt;3인큐 확정보다 앞선 이전 입주군 이동.</td>
-        </tr>
-
-        <tr>
-          <td>2026-06-28</td>
-          <td>15:43</td>
-          <td><span class="gid">G27</span></td>
-          <td>2자돈</td>
-          <td><span class="ev-badge ev-move">인큐자돈이동_누락보정</span></td>
-          <td class="num">201두</td>
-          <td class="num">→</td>
-          <td class="num delta neg"></td>
-          <td>2026-06-28 representative correction: G27 is not completed. G27 birth 2026-04-17 sits between G26=1자돈 and G28=3자돈, so classify by age/sequence as 2자돈. 2026-05-10 msg833 3인큐-&gt;6자돈 predates G27 2026-05-11 3분만사-&gt;3인큐 confirmation and must not close G27.</td>
         </tr>
       </tbody>
     </table>
