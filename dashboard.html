@@ -240,7 +240,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
 <div class="cards">
   <div class="card total">
     <div class="label">전체</div>
-    <div class="value">5,212</div>
+    <div class="value">5,047</div>
     <div class="unit">두</div>
     <div class="sub">41개 군 · 번식 532두 · 검증대기 0두</div>
   </div>
@@ -252,7 +252,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   </div>
   <div class="card jadan">
     <div class="label">🐷 자돈사</div>
-    <div class="value">1,450</div>
+    <div class="value">1,285</div>
     <div class="unit">두</div>
     <div class="sub">8개 군</div>
   </div>
@@ -1935,7 +1935,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
   <div class="tbl-wrap">
     <div class="tbl-header">
       <div class="tbl-title">🐷 자돈사 현황</div>
-      <div class="tbl-count">총 1,450두 / 8군</div>
+      <div class="tbl-count">총 1,285두 / 8군</div>
     </div>
     <table>
       <thead>
@@ -1955,7 +1955,7 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
           <td><span class="gid">G28</span></td>
           <td>04/23</td>
           <td class="loc">3자돈</td>
-          <td class="num big">191두</td>
+          <td class="num big">26두</td>
           <td class="num">98일</td>
           <td>10/20</td>
           <td class="hist-toggle">▼</td>
@@ -2012,6 +2012,14 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
             <td class="num">2두</td>
             <td class="num delta neg">-2</td>
             <td>도방육종 단체방 누락반영</td>
+          </tr>
+
+          <tr class="hist-change">
+            <td>07/29</td>
+            <td class="ev-cell"><span class="ev-badge ev-death">폐사</span></td>
+            <td class="num">165두</td>
+            <td class="num delta neg">-165</td>
+            <td></td>
           </tr></tbody>
               </table>
             </div>
@@ -3757,8 +3765,8 @@ tr:hover:not(.history-row) { background:#f8f9fa; cursor:pointer; }
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #7986cb;box-shadow:0 1px 4px rgba(0,0,0,.08)">
         <div style="font-size:10px;color:#888;margin-bottom:2px">MSY <span style="font-size:9px">(폐사율 반영)</span></div>
-        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">5.8</div>
-        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 2.74%</div>
+        <div style="font-size:32px;font-weight:800;color:#3f51b5;line-height:1">-2.2</div>
+        <div style="font-size:11px;color:#7986cb;margin-top:4px">월 폐사율 10.43%</div>
         <div style="font-size:10px;color:#aaa;margin-top:2px">업계평균 18~20 / 우수 21+</div>
       </div>
       <div style="flex:1;min-width:120px;background:#fff;border-radius:8px;padding:12px 16px;border-left:4px solid #43a047;box-shadow:0 1px 4px rgba(0,0,0,.08)">
@@ -5294,6 +5302,18 @@ window.addEventListener('DOMContentLoaded',()=>{
       <tbody>
         
         <tr>
+          <td>2026-07-29</td>
+          <td>00:17</td>
+          <td><span class="gid">G28</span></td>
+          <td>3자돈</td>
+          <td><span class="ev-badge ev-death">폐사</span></td>
+          <td class="num">165두</td>
+          <td class="num">191→26</td>
+          <td class="num delta neg">-165</td>
+          <td></td>
+        </tr>
+
+        <tr>
           <td>2026-07-25</td>
           <td>09:15:18+09:00</td>
           <td><span class="gid">SDG</span></td>
@@ -5879,18 +5899,6 @@ window.addEventListener('DOMContentLoaded',()=>{
           <td class="num">189→188</td>
           <td class="num delta neg">-1</td>
           <td>도방육종 단체방 7자돈.3 / 돈공2.1 2 / 7자돈.3 1 / B4.5 1 / 7자돈 현재 군</td>
-        </tr>
-
-        <tr>
-          <td>2026-07-13</td>
-          <td>00:27:54+09:00</td>
-          <td><span class="gid">G32</span></td>
-          <td>7자돈</td>
-          <td><span class="ev-badge ev-death">폐사누락반영</span></td>
-          <td class="num">1두</td>
-          <td class="num">188→187</td>
-          <td class="num delta neg">-1</td>
-          <td>도방육종 단체방 7자돈.2 / 돈공 3 / 자돈5.1 1 / 자돈7.2 1 / 자돈8.4 1 / B4.7 1 / 7자돈 현재 군</td>
         </tr>
       </tbody>
     </table>
